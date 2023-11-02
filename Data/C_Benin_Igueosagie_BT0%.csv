@@ -1,0 +1,439 @@
+Initial ID,ID,Class,Order,Family,Subfamily,Genus,Species,BT1,BT2,BT3,BT4,BT5,BT6,BT7,BT8,BT9,BT10
+1,Msp1,Insecta,Hymenoptera,Formicidae,Myrmicinae,Lenomyrmex ,hoelldobleri,0,0,0,0,0,0,0,0,0,0
+2,Msp2,Insecta,Hymenoptera,Formicidae,Myrmicinae,Trichomyrmex ,abyssinicus,0,0,0,0,0,0,0,0,0,0
+3,Msp3,Insecta,Coleoptera,Cerambycidae,Lamiinae,Prosopocera ,cylindrica,0,0,0,0,0,0,0,0,0,0
+4,Msp4,Insecta,Coleoptera,Formicidae,Myrmicinae,Crematogaster ,sp,6,0,1,0,1,0,0,0,0,4
+5,Msp5,Insecta,Blattodea,Ectobiidae,Ectobiinae,Ectobius ,pallidus,1,0,0,0,1,0,0,1,1,0
+6,Msp6,Insecta,Coleoptera,Scarabaeidae,Rutelinae,Adorectus ,tenuimaculatus,0,0,0,0,0,0,0,0,0,0
+7,Msp7,Arachnida,Araneae,Pholcidae,Pholcidae,Pholcus ,phalangioides,0,0,0,0,0,0,0,0,0,0
+8,Msp8,Diplopoda,Spirostreptida,Spirostreptidae,Spirostreptinae,Orthoporus ,ornatus,0,0,0,0,0,0,0,0,0,0
+9,Msp9,Insecta,Coleoptera,Nemonychidae,Cimberinae,Cimberis ,compta,0,0,0,0,0,0,0,0,0,0
+10,Msp10,Insecta,Coleoptera,Melolonthidae,Melolonthinae,Diplotaxini ,sp,0,0,0,0,0,0,0,0,0,0
+11,Msp11,Insecta,Hymenoptera,Formicidae,Dolichoderinae,Iridomyrmex ,suchieri,0,0,0,0,0,0,0,0,0,0
+12,Msp12,Insecta,Hymenoptera,Formicidae,Formicinae,Camponotus ,sp,0,0,0,0,0,0,0,0,0,0
+13,Msp13,Insecta,Hemiptera,Pyrrhocoridae,Pyrrhocorinae,Dysdercus ,sp,0,0,0,0,0,0,0,0,0,0
+14,Msp14,Insecta,Hemiptera,Reduviidae,Emesinae,Ploiara ,domestica,0,0,0,0,0,0,0,0,0,0
+15,Msp27,Insecta,Hymenoptera,Formicidae,Myrmicinae,Camponotus ,vividus,2,0,0,0,0,0,1,1,0,0
+16,Msp16,Insecta,Hymenoptera,Formicidae,Formicinae,Polyrhachis ,tubifex,1,0,0,0,0,0,0,0,0,0
+17,Msp17,Insecta,hymenoptera,formicidae,Formicinae,Polyrhachis ,sp,0,0,0,0,0,0,0,0,0,0
+18,Msp18,Insecta,Coleoptera,Tenebrionidae,Tenebrioninae,Neatus ,tenebrioides,0,0,0,0,0,0,0,0,0,0
+19,Msp19,Insecta,Hemiptera,Pentatomidae,Pentatominae,Chinavia ,hilaris,0,0,0,0,0,0,0,0,0,0
+20,Msp20,Insecta,Hymenoptera,Formicidae,Formicinae,Camponotus ,maculatus,0,0,0,0,0,0,0,0,0,0
+21,Msp21,Insecta,Hymenoptera,Formicidae,Myrmicinae,Monomorium ,opacum,0,0,0,0,0,0,0,0,0,0
+22,Msp22,Insecta,Hymenoptera,Formicidae,Myrmicinae,Crematogaster ,sp,0,0,0,0,0,0,0,0,0,0
+23,Msp23,Insecta,Hymenoptera,Formicidae,Myrmicinae,Pheidole ,rugaticeps,0,0,0,0,0,0,0,0,0,0
+24,Msp24,Insecta,Coleoptera,Chrysomelidae,Galerucinae,Agelastica ,alni,0,0,0,0,0,0,0,0,0,0
+25,Msp25,Insecta,Hemiptera,Dinidoridae,Dinidorinae,Coridius ,singhalanus,0,0,0,0,0,0,0,0,0,0
+26,Msp26,Insecta,Coleoptera,Scarabaeidae,Rutelinae,Adoretus ,ictericus,0,0,0,0,0,0,0,0,0,0
+29,Msp29,Insecta,Coleoptera,carabidae,Trechinae,Micratopus ,sp,1,0,0,0,0,0,0,0,0,0
+30,Msp30,Insecta,Hymenoptera,Formicidae,Ponerinae,Odontomachus ,sp,0,0,0,0,0,0,0,0,0,0
+31,Msp31,Insecta,Hemiptera,Plataspidae,Plataspinae,Coptosoma ,xanthogramma,0,0,0,0,0,0,0,0,0,0
+32,Msp32,Insecta,Hemiptera,Pentatomidae,Pentatominae ,Halyomorpha ,halys,0,0,0,0,0,0,0,0,0,0
+33,Msp33,Insecta,Hemiptera,Tingidae,Tinginae,Ammianus ,erosus,0,0,0,0,0,0,0,0,0,0
+34,Msp34,Insecta,Coleoptera,Curcilionidae,Entiminae,Otiorhynchus ,ovalus,0,0,0,0,0,0,0,0,0,0
+35,Msp35,Insecta,Coleoptera,Scarabaeidae,Melolonthinae ,Holotrichia ,reynaudi,0,0,0,0,0,0,0,0,0,0
+36,Msp36,Insecta,Coleoptera,Chrysomelidae,Galerucinae,Epitrix ,fasciata,2,0,0,0,0,0,0,0,0,1
+37,Msp37,Insecta,Hymenoptera,Formicidae,Myrmicinae,Tetramorium ,sericeiventre,0,0,0,0,0,0,0,0,0,0
+38,Msp38,Insecta,Coleoptera,Cerambycidae,Spondilinae,Tetropium ,casteneum,0,0,0,0,0,0,0,0,0,0
+39,Msp39,Insecta,Coleoptera,Coccinellidae,Scymninae,Scymnus ,pallens,0,0,0,0,0,0,0,0,0,0
+40,Msp40,Insecta,Coleoptera,Curculionidae,Molytinae,Hylobius ,sp,0,0,0,0,0,0,0,0,0,0
+41,Msp41,Insecta,Coleoptera,Scarabaeidae,Melolonthinae,Holotrichia ,serrata,0,0,0,0,0,0,0,0,0,0
+42,Msp42,Insecta,Coleoptera,Hemiptera,Coreinae,Amorbus ,rubiginosus,0,0,0,0,0,0,0,0,0,0
+43,Msp43,Arachnida,Araneae,Salticidae,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+44,Msp44,Insecta,Coleoptera,Coccinellidae,Scymninae,Hyperaspidius ,nanelius,0,0,0,0,0,0,0,0,0,0
+45,Msp45,Insecta,Hymenoptera,Encyrtidae,Encyrtinae,Encyrtus ,aurantii,0,0,0,0,0,0,0,0,0,0
+46,Msp46,Arachnida,Araneae,Salticidae,Salticinae,Evarcha ,jucunda,0,0,0,0,0,0,0,0,0,1
+47,Msp47,Arachnida,Araneae,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+48,Msp48,Insecta,Coleoptera,Curculionidae,Anthonominae,Anthonomus ,abdominalis,0,0,0,0,0,0,0,0,0,0
+49,Msp49,Insecta,Orthoptera,Pyrgomorphidae ,Pyrgomorphinae,Zonocerus ,variegatus,0,0,0,0,0,0,0,0,0,0
+50,Msp50,Insecta,Coleoptera,Chrysomelidae,Criocerinae,Oulema ,melanopus,0,0,0,0,0,0,0,0,0,0
+51,Msp51,Insecta,Coleoptera,Coccinellidae,Scymninae,Zilus ,horni,0,0,0,0,0,0,0,0,0,0
+52,Msp52,Insecta,Hemiptera,Nabidae,Nabinae,Hoplistoscelus ,pallescens,0,0,0,0,0,0,0,0,0,0
+53,Msp53,Insecta,Orthoptera,Pyrgomorphidae ,Pyrgomorphinae,Zonocerus ,elegans,4,0,0,0,0,0,0,0,0,0
+54,Msp54,Insecta,Hemiptera,Pentatomidae,Pentatominae ,Halyomorpha ,sp,0,0,0,0,0,0,0,0,0,0
+55,Msp55,Insecta,Hymenoptera,Formicidae,Formicinae,Camponotus ,aeneopilosus,0,0,0,0,0,0,0,0,0,0
+56,Msp56,Insecta,Hymenoptera,Formicidae,Formicinae,Paratrechina ,longicornis,0,0,0,0,0,0,0,0,0,0
+57,Msp57,Insecta,Hymenoptera,Formicidae,Formicinae,Camponotus ,sp,4,0,1,0,0,0,0,0,0,0
+58,Msp58,Insecta,Coleoptera,Curculionidae,Lixinae,Larinus ,sp,0,0,0,0,0,0,0,0,0,0
+59,Msp59,Insecta,Coleoptera,Coccinellidae,Scymninae,Thalassa ,montezumae,0,0,0,0,0,0,0,0,0,0
+60,Msp60,Insecta,Hemiptera,Membracidae,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+62,Msp62,Arachnida,Araneae,Gnaphosidae,Gnaphosinae,Haplodrassus ,sp,0,0,0,0,0,0,0,0,0,0
+63,Msp63,Insecta,Hymenoptera,Formicidae,Myrmicinae,Crematogaster ,sp,0,0,0,0,0,0,0,0,0,0
+64,Msp64,Insecta,Coleoptera,Bruchidae, Bruchinae,Acanthoscelides ,obtectus,0,0,0,0,0,0,0,0,0,0
+65,Msp65,Insecta,Blattodea,Blaberidae,Blaberinae,Blaptica ,sp,0,0,0,0,0,0,0,0,0,0
+66,Msp66,Arachnida,Araneae,Linyphiidae,Linyphiinae,Neriene ,sp,0,0,0,0,0,0,0,0,0,0
+67,Msp67,Insecta,Coleoptera,Cerambycidae,Lamiinae,Pterolophia ,melanura,0,0,0,0,0,0,0,0,0,0
+68,Msp68,Insecta,Coleoptera,Chrysomelidae,Criocerinae,Lema ,diversipes,0,0,0,0,0,0,0,0,0,0
+69,Msp69,Arachnida,Araneae,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+70,Msp70,Arachnida,Araneae,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+71,Msp71,Insecta,Hemiptera,Reduviidae,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+72,Msp72,Arachnida,Araneae,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+73,Msp73,Insecta,Coleoptera,Coccinellidae,Chilocorinae,Axion ,sp,1,0,0,0,0,0,0,0,0,0
+74,Msp74,Insecta,Dermaptera,Forficulidae,Forficulinae,Forficula ,auricularia,3,0,2,2,5,0,5,8,5,4
+75,Msp75,Insecta,Coleoptera,lycidae,Metriorrhynchinae,Porrostoma ,sp,2,0,1,0,0,0,0,0,0,0
+76,Msp76,Insecta,Coleoptera,Tenebrionidae,Tenebrioninae,Gonocephalum ,adpressiforme,1,0,1,0,0,1,0,0,0,0
+77,Msp77,Insecta,Coleoptera,Coccinellidae,Scymninae,Scymnus ,tenebrosus,1,0,0,0,0,0,0,0,0,0
+78,Msp78,Arachnida,Araneae,Linyphiidae,Linyphiinae,Agyneta ,sp,1,0,0,0,2,0,0,0,0,0
+79,Msp79,Insecta,Hemiptera,Piesmatidae,Piesmatinae,Parapiesma ,quadratum,1,0,0,0,0,0,0,0,0,0
+80,Msp80,Insecta,Hemiptera,Pentatomidae,Pentatominae,Cosmopepla, binotata,0,1,0,1,0,0,0,0,1,0
+82,Msp82,Insecta,Orthoptera,Tettigoniidae,Tettigoniinae ,Tettigonia, sp,0,0,1,0,0,0,0,0,0,0
+83,Msp83,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,1,0,0,0,0,0,0,0
+84,Msp84,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,1,0,0,0,0,0,0
+85,Msp85,Malacostraca,Isopoda,Armadillidiidae,Armadillidiinae ,Armadillidium ,nasatum,0,0,0,0,2,1,0,0,0,0
+86,Msp86,Insecta,Hymenoptera,Scelionidae,Teleasinae,Trimorus ,caraborum,0,0,0,0,1,0,0,0,0,0
+87,Msp87,Insecta,Coleoptera,Lampyridae,Lampyrinae.,Lampyris ,noctiluca,0,0,0,0,0,1,0,0,0,0
+88,Msp88,Insecta,Orthoptera,Tetrigidae,Cladonotinae,Tettilobus ,trishula,0,0,0,0,0,1,0,0,0,0
+89,Msp89,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,1,0,0,0,0
+90,Msp90,Insecta,Hemiptera,Rhapalidae,Serinethinae,Boisea ,sp,0,0,0,0,0,1,0,0,0,0
+91,Msp91,Insecta,Hemiptera,Geocoridae,Geocorinae,Geocoris ,uliginosus,0,0,0,0,0,1,0,0,1,1
+92,Msp92,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,1,0,0,0,0
+93,Msp93,Insecta,Orthoptera,Thericleidae,Thericleinae,Thericles ,sp,0,0,0,0,0,1,0,0,0,0
+94,Msp94,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,1,0,0,0,0
+95,Msp95,Insecta,Coleoptera,Tenebrionidae,Tenebrioninae,Dendarus ,coarcticollis,0,0,0,0,0,0,1,0,0,0
+96,Msp96,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,1,0,0
+97,Msp97,Insecta,Hymenoptera,Formicidae,Myrmicinae,Cardiocondyla ,obscurior,0,0,0,0,0,0,0,1,0,0
+99,Msp99,Insecta,Coleoptera,Endomychidae,Lycoperdininae,Indalmus ,strigalus,0,0,0,0,0,0,0,0,1,0
+100,Msp100,Insecta,Coleoptera,Chrysomelidae, Chrysomelinae,Chrysolina ,sp,0,0,0,0,0,0,0,0,1,0
+101,Msp101,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,1
+102,Msp102,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,1
+103,Msp103,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+104,Msp104,Insecta,Hemiptera,Membracidae,Smilinae,Anisostylus ,sp,0,0,0,0,0,0,0,0,0,0
+105,Msp105,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+106,Msp106,Insecta,Hemiptera,Veliidae,Microveliinae,Microvelia,sp,0,0,0,0,0,0,0,0,0,0
+107,Msp107,Insecta,Hemiptera,Lygaeidae,Lygaeinae,Lygaeus ,sp,0,0,0,0,0,0,0,0,0,0
+108,Msp108,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+109,Msp109,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+110,Msp110,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+111,Msp111,Insecta,Coleoptera ,Chrysomelidae,Cassidinae,Charidotella ,sexpunctata,0,0,0,0,0,0,0,0,0,0
+112,Msp112,Arachnida,Araneae,Cprinnidae,Orthocentrinae,Myrmecolypus ,sp,0,0,0,0,0,0,0,0,0,0
+113,Msp113,Insecta,Hemiptera,Pentatomidae,Asopinae,Zicrona ,caerulea,0,0,0,0,0,0,0,0,0,0
+114,Msp114,Insecta,Coleoptera,carabidae,Harpalinae,Lebia ,chlorocephala,0,0,0,0,0,0,0,0,0,0
+115,Msp115,Arachnida,Araneae,Thericleidae,Theridiinae,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+116,Msp116,Insecta,Coleoptera,carabidae,Harpalinae,lebia ,viridis,0,0,0,0,0,0,0,0,0,0
+117,Msp117,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+118,Msp118,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+119,Msp119,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+120,Msp120,Arachnida,Araneae,Araneae,Araneinae,Larinioides ,cornutus,0,0,0,0,0,0,0,0,0,0
+121,Msp121,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+122,Msp122,Insecta,Hemiptera,Lygaeidae,Oxycareninae,Oxycarenus ,lavaterae,0,0,0,0,0,0,0,0,0,0
+123,Msp123,Insecta,Hymenoptera,Encyrtidae,Encyrtinae,Tachinaephagus ,zealandicus,0,0,0,0,0,0,0,0,0,0
+124,Msp124,Insecta,Diptera,Ulidiidae,Ulidiinae,Euxesta ,annonae,0,0,0,0,0,0,0,0,0,0
+125,Msp125,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+126,Msp126,Insecta,Coleoptera,Coccinellidae,Scymninae,Diomus ,pseudolaedatus,0,0,0,0,0,0,0,0,0,0
+127,Msp127,Insecta,Coleoptera,Lycidae,Lycinae,Calopteron,reticulatum,0,0,0,0,0,0,0,0,0,0
+128,Msp128,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+129,Msp129,Insecta,Hymenoptera,Formicidae,Myrmicinae,Crematogaster ,mytans,0,0,0,0,0,0,0,0,0,0
+130,Msp130,Insecta,Hemiptera,Cicadellidae,Deltocephalinae,Penthimia ,nitida,0,0,0,0,0,0,0,0,0,0
+131,Msp131,Insecta,Diptera,Stratiomyidae,Hermetiinae,Hermetia ,illucens,0,0,0,0,0,0,0,0,0,0
+132,Msp132,Arachnida,Araneae,Salticidae,Salticinae,Mago ,sp,0,0,0,0,0,0,0,0,0,0
+133,Msp133,Arachnida,Araneae,Salticidae,Salticinae,Saitis ,sp,0,0,0,0,0,0,0,0,0,0
+134,Msp134,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+135,Msp135,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+136,Msp136,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+137,Msp137,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+138,Msp138,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+139,Msp139,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+140,Msp140,Arachnida,Araneae,Palpimanidae,Palpimaninae,Sarascelis ,chaper,0,0,0,0,0,0,0,0,0,0
+141,Msp141,Insecta,Hemiptera,Alydidae,Alydidae,Alydus ,calcaratus,0,0,0,0,0,0,0,0,0,0
+142,Msp142,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+143,Msp143,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+144,Msp144,Arachnida,Oribatida,Euzetidae,Euzetidae,Euzetes ,sp,0,0,0,0,0,0,0,0,0,0
+145,Msp145,Insecta,Hemiptera,Plataspidae,Plataspinae,Brachyplatys,sp,0,0,0,0,0,0,0,0,0,0
+146,Msp146,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+147,Msp147,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+148,Msp148,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+149,Msp149,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+150,Msp150,Insecta,Coleoptera ,Staphylinidae,Paederinae,Rugilus ,orbiculalus,0,0,0,0,0,0,0,0,0,0
+151,Msp151,Insecta,Coleoptera,Curculionidae,Curculioninae,Neomastix ,sp,0,0,0,0,0,0,0,0,0,0
+152,Msp152,Insecta,Coleoptere,Scarabaeidae,Scarabaeinae,Copris ,sp,0,0,0,0,0,0,0,0,0,0
+153,Msp153,Insecta,Hemiptera,Oxycarenidae,Oxycareninae,Oxycarenus ,hyalinipennis,0,0,0,0,0,0,0,0,0,0
+154,Msp154,Malacostraca,Isopoda,Armadillidiidae,Armadillidiinae,Armadillidium ,granulatum,0,0,0,0,0,0,0,0,0,0
+155,Msp155,Insecta,Hemiptera,Plataspidae,Plataspinae,Megacopta,sp,0,0,0,0,0,0,0,0,0,0
+156,Msp156,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+157,Msp157,insecta,Coleoptera,Coccinellidae,Coccinellinae,Cheilomenes,sulphurea,0,0,0,0,0,0,0,0,0,0
+158,Msp158,Insecta,Blattodea,Blattidae,Blattinae,Periplaneta,americana,0,0,0,0,0,0,0,0,0,0
+159,Msp159,Insecta,Coleoptera,Tenebrionidae,Alleculinae,Hymenalia,rufipes,0,0,0,0,0,0,0,0,0,0
+160,Msp160,Insecta,Hemiptera,Plataspidae,Plataspinae,Coptosoma,xanthogramma,0,0,0,0,0,0,0,0,0,0
+161,Msp161,Diplopoda,Platydesmida,Andrognathidae,Andrognathidae,Brachycybe,producta,0,0,0,0,0,0,0,0,0,0
+162,Msp162,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+163,Msp163,Insecta,Coleoptera,Chrysomelidae,Cassidinae,Charidotella sp,,0,0,0,0,0,0,0,0,0,0
+164,Msp164,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+165,Msp165,Insecta,Hemiptera,Rhyparochromidae,Rhyparochrominae,Rhyparochromus,vulgaris,0,0,0,0,0,0,0,0,0,0
+166,Msp166,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+167,Msp167,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+168,Msp168,Insecta,Coleoptera,carabidae,Harpalinae,Lebia,sp,0,0,0,0,0,0,0,0,0,0
+169,Msp169,Insecta,Lepidoptera,Nymphalidae,Heliconiinae,Acraea,sp,0,0,0,0,0,0,0,0,0,0
+170,Msp170,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+171,Msp171,Insecta,Coleoptera,Corylophidae,Corylophinae,Holopsis,marginicollis,0,0,0,0,0,0,0,0,0,0
+172,Msp172,Insecta,Tenebrionidae,Lagridae,Lagriinae,Luprops,orientalis,0,0,0,0,0,0,0,0,0,0
+173,Msp173,Insecta,Coleoptera,Tenebrionidae,Diaperinae,Phaleria,cadaverina,0,0,0,0,0,0,0,0,0,0
+174,Msp174,Insecta,Coleoptera,Scarabaeidae,Dynastinae,Cyclocephala,lurida,0,0,0,0,0,0,0,0,0,0
+175,Msp175,Arachnida,Araneae,Salticidae,Salticinae,Plexippus,paykulli,0,0,0,0,0,0,0,0,0,0
+177,Msp177,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+178,Msp178,unknown,unknown,unknown,unknown,unknown,unknown,0,0,0,0,0,0,0,0,0,0
+179,Msp179,unknown,unknown,unknown,unknown,unknown,unknown,0,0,0,0,0,0,0,0,0,0
+180,Msp180,unknown,unknown,unknown,unknown,unknown,unknown,0,0,0,0,0,0,0,0,0,0
+181,Msp181,unknown,unknown,unknown,unknown,unknown,unknown,0,0,0,0,0,0,0,0,0,0
+182,Msp182,unknown,unknown,unknown,unknown,unknown,unknown,0,0,0,0,0,0,0,0,0,0
+183,Msp183,unknown,unknown,unknown,unknown,unknown,unknown,0,0,0,0,0,0,0,0,0,0
+184,Msp184,Arachnida,Araneae,Salticidae,Salticinae,Mago,sp,0,0,0,0,0,0,0,0,0,0
+185,Msp185,Insecta,Hemiptera,Plataspidae,Plataspinae,Megacopta,sp,0,0,0,0,0,0,0,0,0,0
+186,Msp186,Insecta,Coleoptera,Cerambycidae,Cerambycinae,Anelaphus, villosus,0,0,0,0,0,0,0,0,0,0
+187,Msp187,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+188,Msp188,Insecta,Coleoptera,Cerambycidae,Lamiinae,Monochamus,sartor,0,0,0,0,0,0,0,0,0,0
+189,Msp189,Insecta,Hemiptera,Plataspidae,Plataspinae,Brachyplatys,Subaeneus,0,0,0,0,0,0,0,0,0,0
+190,Msp190,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+191,Msp191,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+192,Msp192,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+193,Msp193,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+194,Msp194,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+195,Msp195,Insecta,Hemiptera,Coreidae,Coreinae,Acanthocephala,sp,0,0,0,0,0,0,0,0,0,0
+196,Msp196,Insecta,Hemiptera,Coreidae,Coreinae,Piezogaster,sp,0,0,0,0,0,0,0,0,0,0
+197,Msp197,Insecta,Coleoptera,Cerambycidae,Lamiinae,Monochamus,sp,0,0,0,0,0,0,0,0,0,0
+198,Msp198,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+199,Msp199,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+200,Msp200,Insecta,Diptera,Calliphoridae,Chrysomyinae,Cochliomyia,sp,0,0,0,0,0,0,0,0,0,0
+201,Msp201,Insecta,Hemiptera,Tingidae,Tinginae,Ammianus,sp,0,0,0,0,0,0,0,0,0,0
+202,Msp202,Insecta,Hemiptera,Plataspidae,Plataspinae,Megacopta,cribraria,0,0,0,0,0,0,0,0,0,0
+203,Msp203,insecta,coleoptera,Staphylinidae,Paederinae,Paederus,sp,0,0,0,0,0,0,0,0,0,0
+204,Msp204,Insecta,Hemiptera,Scutelleridae,Scutellerinae,Sphaerocoris,annulus,0,0,0,0,0,0,0,0,0,0
+205,Msp205,Insecta,coleoptera,Coccinellidae,Chilocorinae,Chilocorus,nigritus,0,0,0,0,0,0,0,0,0,0
+206,Msp206,insecta,Diptera,Nemestrinidae,Nemestrinidae,Moegistorhynchus,sp,0,0,0,0,0,0,0,0,0,0
+207,Msp207,insecta,Hemiptera,Clastopteridae,Clastopterinae,Clastoptera,xanthocephala,0,0,0,0,0,0,0,0,0,0
+208,Msp208,Insecta,Hemiptera,Membracidae,Similinae,Acutalis,sp,0,0,0,0,0,0,0,0,0,0
+209,Msp209,Insecta,Hemiptera,Plataspidae,Plataspinae,Megacopta,sp,0,0,0,0,0,0,0,0,0,0
+210,Msp210,Insecta,Lepidoptera,Erebidae,Arctiinae,Pareuchaetes,pseudoinsulata,0,0,0,0,0,0,0,0,0,0
+211,Msp211,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+212,Msp212,Insecta,Coleoptera,Cerambycidae,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+213,Msp213,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+214,Msp214,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+215,Msp215,Insecta,Orthoptera,Gryllidae,Gryllinae,Gryllus,sp,0,0,0,0,0,0,0,0,0,0
+216,Msp216,Insecta,Mantodae,Amplidae,Amplinae,Litaneutria,sp,0,0,0,0,0,0,0,0,0,0
+217,Msp217,unknown,unknown,unknown,unknown,unknown,unknown,0,0,0,0,0,0,0,0,0,0
+218,Msp218,Insecta,Orthoptera,Gryllidae,Oecanthinae,Oecanthus,sp,0,0,0,0,0,0,0,0,0,0
+219,Msp219,Insecta,Orthoptera,Gryllidae,Oecanthinae,Oecanthus,pellucens,0,0,0,0,0,0,0,0,0,0
+220,Msp220,Insecta,Hemiptera,Reduviidae,Stenopodainae,Oncocephalus,sp,0,0,0,0,0,0,0,0,0,0
+221,Msp221,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+222,Msp222,Insecta,Coleoptera,Curculionidae,Cryptorhynchinae,Eubulus,sp,0,0,0,0,0,0,0,0,0,0
+223,Msp223,Insecta,coleoptera,Cerambycidae,Lamiinae,Hippopsis,lemniscata,0,0,0,0,0,0,0,0,0,0
+224,Msp224,Insecta,coleoptera,Tenebrionidae, Lagriinae,Statira,sp,0,0,0,0,0,0,0,0,0,0
+225,Msp225,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+226,Msp226,Insecta,coleoptera,Chysomelidae,Galerucinae ,Monolepta,sp,0,0,0,0,0,0,0,0,0,0
+227,Msp227,Insecta,Hemiptera,Scatelleridae,Pachycorinae,Homaemus,proteus,0,0,0,0,0,0,0,0,0,0
+228,Msp228,unknown,unknown,unknown,unknown,unknown,unknown,0,0,0,0,0,0,0,0,0,0
+229,Msp229,Insecta,Hymenoptera,Formicidae,Ponerinae,Odontomachus,troglodytes,0,0,0,0,0,0,0,0,0,0
+230,Msp230,unknown,unknown,unknown,unknown,unknown,unknown,0,0,0,0,0,0,0,0,0,0
+231,Msp231,unknown,unknown,unknown,unknown,unknown,unknown,0,0,0,0,0,0,0,0,0,0
+232,Msp232,unknown,unknown,unknown,unknown,unknown,unknown,0,0,0,0,0,0,0,0,0,0
+233,Msp233,unknown,unknown,unknown,unknown,unknown,unknown,0,0,0,0,0,0,0,0,0,0
+234,Msp234,Insecta,Hemiptera,Rhyparochromidae,Rhyparochrominae,Dieuches,armatipes,0,0,0,0,0,0,0,0,0,0
+235,Msp235,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+236,Msp236,Insecta,Hemiptera,Miridae,Phylinae,Plagiognathus,sp,0,0,0,0,0,0,0,0,0,0
+237,Msp237,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+238,Msp238,insecta,Diptera,Muscidae,Atherigoninae,Atherigona,orientalis,0,0,0,0,0,0,0,0,0,0
+239,Msp239,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+240,Msp240,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+241,Msp241,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+242,Msp242,Insecta,Hymenoptera,Pentatomidae,Pentatominae,Brochymena,sp,0,0,0,0,0,0,0,0,0,0
+243,Msp243,Insecta,Orthoptera,Acrididae,Cyrtacanthacridinae,Schistocerca,sp,0,0,0,0,0,0,0,0,0,0
+245,Msp245,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+246,Msp246,Insecta,Coleoptera,Tenebrionidae,Diaperinae ,Phaleria,sp,0,0,0,0,0,0,0,0,0,0
+247,Msp247,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+248,Msp248,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+249,Msp249,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+250,Msp250,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+251,Msp251,Insecta,Hemiptera,Coreidae,Coreinae,Leptoglossus,sp,0,0,0,0,0,0,0,0,0,0
+252,Msp252,insecta,Hemiptera,Pentatomidae,Pentanomidae,Pentatoma,sp,0,0,0,0,0,0,0,0,0,0
+253,Msp253,insecta,Orthoptera,Acrididae,Oxyinae,Oxya,sp,0,0,0,0,0,0,0,0,0,0
+254,Msp254,insecta,Mantodae,Mantidae,Stagmomantinae,Stagmomantis,sp,0,0,0,0,0,0,0,0,0,0
+255,Msp255,insecta,Hymenoptera,Formicidae,Formicinae,Oecophylla,longinoda,0,0,0,0,0,0,0,0,0,0
+256,Msp256,insecta,Diptera,Stratiomyidae,Sarginae,Microchrysa,sp,0,0,0,0,0,0,0,0,0,0
+257,Msp257,Arachnida,Araneae,salticidae,Salticinae,Myrmarachne,sp,0,0,0,0,0,0,0,0,0,0
+Pt1,MSp 258,Insecta,Coleoptera,Carabidae,Carabinae,Brachyodes , nigrita,0,0,0,0,0,0,0,0,0,0
+Pt3,MSp 260,Arachnida,Araneae,Theridiosomatidae,Theridiosomatinae,Baalzebub ,baubo,0,0,0,0,0,0,0,0,0,0
+Pt4,MSp 261,Insecta,Diptera,Muscidae,Musicinae,Neomyia,sp,0,0,0,0,0,0,0,0,0,0
+Pt7,MSp 264,Insecta,Hymenoptera,Crabronidae,Crabronidae,Trypoxylon ,sp,0,0,0,0,0,0,0,0,0,0
+Pt8,MSp 265,Insecta,Coleoptera,Carabidae,Harpalinae,Platynus ,sp,0,0,0,0,0,0,0,0,0,0
+Pt9,MSp 266,Insecta,Hymenoptera,Formicidae, Ponerinae,Paltothyreus ,tarsatus,0,0,0,0,0,0,0,0,0,0
+Pt10,MSp 267,Insecta,Coleoptera,Carabidae,Harpalinae,Cymindis ,sp,0,0,0,0,0,0,0,0,0,0
+Pt11,MSp 268,Insecta,Coleoptera,Elateridae ,Elaterinae,Melanotus ,castanipes,0,0,0,0,0,0,0,0,0,0
+Pt12,MSp 269,Insecta,Hymenoptera,Formicidae,Formicinae,Camponotus ,vividus,0,0,0,0,0,0,0,0,0,0
+Pt13,MSp 270,Insecta,Hymenoptera,Evaniidae,Evaniinae ,Evania ,appendigaster,0,0,0,0,0,0,0,0,0,0
+Pt14,MSp 271,Insecta,Diptera,Muscidae,Phaoniinae,Phaonia ,subventa,0,0,0,0,0,0,0,0,0,0
+Pt15,MSp 272,Insecta,Coleoptera,Scarabaeidae,Scarabaeinae,Copris ,sp,0,0,0,0,0,0,0,0,0,0
+Pt16,MSp 273,Arachnida,Araneae,Gnaphosidae,Gnaphosinae,Scotophaeus ,sp,0,0,0,0,0,0,0,0,0,0
+Pt18,MSp 275,Insecta,Coleoptera,Scarabaeidae,Scarabaeinae,Canthon ,sp,0,0,0,0,0,0,0,0,0,0
+Pt20,MSp 277,insecta,Hymenoptera,Formicidae,Formicinae,Camponotus, flavomarginatus,0,0,0,0,0,0,0,0,0,0
+Pt21,MSp 278,Insecta,Coleoptera,Curculionidae, Entiminae,Blosyrus ,sp,0,0,0,0,0,0,0,0,0,0
+Pt22,MSp 279,Insecta,Hymenoptera,Tiphiidae,Tiphiinae,Tiphia ,femorata,0,0,0,0,0,0,0,0,0,0
+Pt23,MSp 280,Arachnida,Araneae,Linyphiidae,Linyphiinae,Walckenaeria,antica,0,0,0,0,0,0,0,0,0,0
+Pt25,MSp 282,Insecta,Diptera,Glossinidae,Glossininae,Glossina ,fusca,0,0,0,0,0,0,0,0,0,0
+Pt26,MSp 283,Insecta,Hemiptera,Reduviidae,Reduviinae,Reduvius ,personatus,0,0,0,0,0,0,0,0,0,0
+Pt27,MSp 284,Insecta,Hemiptera,Cydnidae,Cydninae,Cydnus ,aterrimus,0,0,0,0,0,0,0,0,0,0
+Pt28,MSp 285,Insecta,Coleoptera,Scarabaeidae, Melolonthinae,Maladera ,sp,0,0,0,0,0,0,0,0,0,0
+Pt30,MSp 287,Arachnida,Araneae,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+Pt31,MSp 288,Insecta,Blattodae,Hodotermopsidae,Hodotermopsinae,Hodotermopsis ,sjostedti,0,0,0,0,0,0,0,0,0,0
+Pt32,MSp 289,Insecta,Hemiptera,Thyreocoridae,Corimelaeninae,Corimelaena ,sp,0,0,0,0,0,0,0,0,0,0
+Pt33,MSp 290,Insecta,Coleoptera,Carabidae,Scaritinae,Dyschirius ,obscurus,0,0,0,0,0,0,0,0,0,0
+Pt34,MSp 291,Insecta,Orthoptera,Tettigoniidae,Conocephalinae,Colossopus ,grandidieri,0,0,0,0,0,0,0,0,0,0
+Pt35,MSp 292,Insecta,Coleoptera,Tenebrionidae,Tenebrionidae,Tenebrio, sp,0,0,0,0,0,0,0,0,0,0
+Pt36,MSp 293,Malacostraca,Isopoda,Armadillidiidae,Aramadillidiinae,Armadillidium ,sp,0,0,0,0,0,0,0,0,0,0
+Pt37,MSp 294,Arachnida,Araneae,Salticidae,Salticinae,Hasarius ,adansoni,0,0,0,0,0,0,0,0,0,0
+Pt39,MSp 296,Diplopoda,Spirostreptida,Spirostreptidae,Spirostreptinae ,Orthoporus ,ornatus,0,0,0,0,0,0,0,0,0,0
+Pt40,MSp 297,Insecta,Coleoptera ,Tenebrionidae,Tenebrioninae,Gonopus ,tibialis,0,0,0,0,0,0,0,0,0,0
+Pt41,MSp 298,Arachnida,Araneae,Lycosidae,Lycosinae,Pitata ,sp,0,0,0,0,0,0,0,0,0,0
+Pt42,MSp 299,Arachnida,Araneae,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+Pt43,MSp 300,Insecta,Hymenoptera,Formicidae,Myrmicinae,Crematogaster, sp,0,0,0,0,0,0,0,0,0,0
+Pt44,MSp 301,Insecta,Thysanura,Meinertellidae,Meinertellinae,Machilinus,sp,0,0,0,0,0,0,0,0,0,0
+Pt45,MSp 302,Arachnida,Araneae,Titanoecidae,Titanoecinae,Pandava ,laminata,0,0,0,0,0,0,0,0,0,0
+Pt46,MSp 303,Arachnida,Araneae,Cyrbaucheniidae,Cyrbaucheniinae,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+Pt48,MSp 305,Insecta,Diptera,Calliphoridae, Calliphorinae,Cordylobia  ,anthropophaga,0,0,0,0,0,0,0,0,0,0
+Pt50,MSp 307,Insecta,Hymenoptera,Formicidae,Formicinae,Camponotus ,sp,0,0,0,0,0,0,0,0,0,0
+Pt51,MSp 308,Arachnida,Araneae,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+Pt52,MSp 309,Arachnida,Araneae,Ctinidae,Ctininae,Acanthoctenus ,sp,0,0,0,0,0,0,0,0,0,0
+Pt53,MSp 310,Insecta,Coleoptera,Scarabaeidae,Scarabaeinae,Scybalocanthon ,adisi,0,0,0,0,0,0,0,0,0,0
+Pt54,MSp 311,Insecta,Coleoptera,Staphylinidae,Staphylininae,Hemiquidius,ferox,0,0,0,0,0,0,0,0,0,0
+Pt55,MSp 312,Insecta,Hymenoptera,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+Pt56,MSp 313,Insecta,Coleoptera,Scarabaeidae,Scarabaeinae,Copris ,lunaris,0,0,0,0,0,0,0,0,0,0
+Pt57,MSp 314,Insecta,Coleoptera,Nitidulidae,Nitidulinae,Stelidota ,geminata,0,0,0,0,0,0,0,0,0,0
+Pt58,MSp 315,Insecta,Hymenoptera,Crabronidae,Crabroninae,Stigmus ,fronticoncavus,0,0,0,0,0,0,0,0,0,0
+Pt59,MSp 316,Insecta,Hymenoptera,Formicidae,Myrmicinae,Monomorium ,opacum,0,0,0,0,0,0,0,0,0,0
+Pt60,MSp 317,Arachnida,Araneae,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+Pt61,MSp 318,Insecta,Diptera,Ceratopogonidae,Ceratopogoninae,Culicoides ,biguttalus,0,0,0,0,0,0,0,0,0,0
+Pt62,MSp 319,Insecta,Hymenoptera,Formicidae,Ponerinae,Mesoponera ,escherichi,0,0,0,0,0,0,0,0,0,0
+Pt63,MSp 320,Arachnida,Araneae,Segetriidae,Segetriinae,Segestria ,florentina,0,0,0,0,0,0,0,0,0,0
+Pt64,MSp 321,Insecta,Hymenoptera,Formicidae,Myrmicinae,Tetramorium ,sericeiventre,0,0,0,0,0,0,0,0,0,0
+Pt65,MSp 322,Insecta,Coleoptera,Carabidae,Scaritinae,Clivina ,collaris,0,0,0,0,0,0,0,0,0,0
+Pt66,MSp 323,Insecta,Hymenoptera,Formicidae,Myrmicinae,Monomorium, salomonis,0,0,0,0,0,0,0,0,0,0
+Pt67,MSp 324,Insecta,Hymenoptera,Formicidae,Formicinae,Nylanderia ,sp,0,0,0,0,0,0,0,0,0,0
+Pt68,MSp 325,Insecta,Coleoptera,Carabidae,Harpalinae,Amara ,sp,0,0,0,0,0,0,0,0,0,0
+Pt69,MSp 326,Insecta,Coleoptera,Scarabaeidae,Rutelinae,Adoretus ,sp,0,0,0,0,0,0,0,0,0,0
+Pt70,MSp 327,Insecta,Hymenoptera,Formicidae,Formicinae,Camponotus ,sp,0,0,0,0,0,0,0,0,0,0
+Pt72,MSp 329,Insecta,Coleoptera,Nitidulidae,Carpophilinae,Carpophilus ,marginellus ,0,0,0,0,0,0,0,0,0,0
+Pt73,MSp 330,Insecta,Hymenoptera,Formicidae,Formicinae,Paratrechina, longicornis,0,0,0,0,0,0,0,0,0,0
+Pt74,MSp 331,Insecta,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+Pt75,MSp 332,Insecta,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+Pt76,MSp 333,Arachnida,Araneae,Ctenidae,Ctenidae,Phoneutria ,nigriventer,0,0,0,0,0,0,0,0,0,0
+Pt77,MSp 334,Insecta,Orthoptera,Tetrigidae,Tetriginae,Tetrix ,subulata,0,0,0,0,0,0,0,0,0,0
+Pt78,MSp 335,Insecta,Diptera,Calliphoridae,Calliphorinae,Calliphora ,vomitoria,0,0,0,0,0,0,0,0,0,0
+Pt79,MSp 336,Malacostraca,Isopoda,Oniscidae,Oniscinae,Oniscus ,asellus,0,0,0,0,0,0,0,0,0,0
+Pt80,MSp 337,Insecta,Hemiptera,Reduviidae,Triatominae,Triatoma,sp,0,0,0,0,0,0,0,0,0,0
+Pt81,MSp 338,Insecta,Hemiptera,Reduviidae,Phymatinae,Reduvius ,sp,0,0,0,0,0,0,0,0,0,0
+Pt82,MSp 339,Arachnida,Araneae,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+Pt83,MSp 340,Insecta,Hymenoptera,Formicidae,Ponerinae,Mesoponera ,escherichi,0,0,0,0,0,0,0,0,0,0
+Pt84,MSp 341,Insecta,Coleoptera,Staphylinidae,Scydmaeninae,Euconnus ,sp,0,0,0,0,0,0,0,0,0,0
+Pt85,MSp 342,Insecta,Hemiptera,Fulgoridae,,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+Pt86,MSp 343,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+Pt88,MSp 345,Diplopoda,Polydesmida,Paradoxomatidae,Paradoxomantinae,Oxidus ,gracilis,0,0,0,0,0,0,0,0,0,0
+Pt89,MSp 346,Arachnida,Araneae,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+Pt91,MSp 348,Insecta,Coleoptera,Scarabaeidae, Melolonthinae,Maladera ,japonica,0,0,0,0,0,0,0,0,0,0
+Pt92,MSp 349,Insecta,Orthoptera,Gryllacrididae,Hyperbaeninae,Paragryllacris ,combusta,0,0,0,0,0,0,0,0,0,0
+Pt93,MSp 350,Arachnida,Araneae,Ctenidae,Cteninae,Ctenus ,hibernalis,0,0,0,0,0,0,0,0,0,0
+Pt94,MSp 351,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+Pt95,MSp 352,Insect,Hymenoptera,Formicidae,Formicinae,Lepisiota ,canescens,0,0,0,0,0,0,0,0,0,0
+Pt96,MSp 353,Insecta,Hymenoptera,Formicidae,Formicinae,Camponotus ,maculatus,0,0,0,0,0,0,0,0,0,0
+Pt97,MSp 354,Insecta,Coleoptera,Staphylinidae,Steninae,Stenus ,sp,0,0,0,0,0,0,0,0,0,0
+Pt98,MSp 355,Insecta,Coleoptera,Cryptophagidae,Cryptophaginae,Curelius ,jaegeri,0,0,0,0,0,0,0,0,0,0
+Pt99,MSp 356,Insecta,Hymenoptera,Formicidae,Myrmicinae,Monomorium ,opacum,0,0,0,0,0,0,0,0,0,0
+Pt100,MSp 357,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+Pt101,MSp 358,Insecta,Hymenoptera,Formicidae,Formicinae,Oecophylla ,sp,0,0,0,0,0,0,0,0,0,0
+Pt102,MSp 359,Diplopoda,Polydesmida,Paradoxomatidae,Paradoxomatinae,Oxidus ,gracilis,0,0,0,0,0,0,0,0,0,0
+Pt103,MSp 360,Insecta,Diptera,Muscidae,Musicinae,Musca ,domestica,0,0,0,0,0,0,0,0,0,0
+Pt104,MSp 361,Chilopoda,Scolopendromorpha,Scolopendridae,Otostigminae,Rhysida,longipes,0,0,0,0,0,0,0,0,0,0
+Pt105,MSp 362,Insecta,Isopoda (Blattodea),Archotermopsidae,Archotermopsinae,Zootermopsis ,angusticollis,0,0,0,0,0,0,0,0,0,0
+Pt106,MSp 363,Insecta,Hemiptera,Cydnidae,Cydninae,Cydnus ,aterrimus,0,0,0,0,0,0,0,0,0,0
+Pt107,MSp 364,Insecta,Hymenoptera,Formicidae,Formicinae,Paratrechina ,longicornis,0,0,0,0,0,0,0,0,0,0
+Pt108,MSp 365,Insecta,Coleoptera,Coccinellidae,Sticholotidinae,Gnathoweisea ,texana,0,0,0,0,0,0,0,0,0,0
+Pt109,MSp 366,Insecta,Hemiptera,Pentatomidae,Pentatominae,Halyomorpha ,halys,0,0,0,0,0,0,0,0,0,0
+Pt110,MSp 367,Insecta,Neuroptera,Myrmeleontidae,Myrmeleontinae,Distoleon ,tetragrammicus,0,0,0,0,0,0,0,0,0,0
+Pt111,MSp 368,Arachnida,Araneae,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+Pt112,MSp 369,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+Pt113,MSp 370,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+Pt114,MSp 371,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+Pt115,MSp 372,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+Pt116,MSp 373,Insecta,Hymenoptera,Crabronidae,Crabroninae,Stigmus ,fronticoncavus,0,0,0,0,0,0,0,0,0,0
+Pt117,MSp 374,Arachnida,Oribatida,Euzetidae,Euzetinae,Euzetes ,sp,0,0,0,0,0,0,0,0,0,0
+Pt118,MSp 375,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+Pt119,MSp 376,Insecta,Coleoptera,Curculionidae,Scolytinae,Coccotrypes ,dactyliperda,0,0,0,0,0,0,0,0,0,0
+Pt120,MSp 377,Unknown,Unknown,Unknown,Unknown,Unknown,unknown,0,0,0,0,0,0,0,0,0,0
+Pt121,MSp 378,Unknown,Unknown,Unknown,Unknown,Unknown,unknown,0,0,0,0,0,0,0,0,0,0
+Pt122,MSp 379,Unknown,Unknown,Unknown,Unknown,Unknown,unknown,0,0,0,0,0,0,0,0,0,0
+Pt123,MSp 380,Insecta,Blattodea,Unknown,Unknown,Unknown,unknown,0,0,0,0,0,0,0,0,0,0
+Pt124,MSp 381,Insecta,Orthoptera  ,Tetrigidae,Cladonotinae,Afrolarcus ,aequalis,0,0,0,0,0,0,0,0,0,0
+Pt125,MSp 382,Insecta,Coleoptera,Curcilionidae,Scolytinae,Hylastinus ,obscurus,0,0,0,0,0,0,0,0,0,0
+Pt126,MSp 383,Chilopoda,Lithoblomorpha,Lithobiidae,Lithobiinae,Lithobius ,nodulipes,0,0,0,0,0,0,0,0,0,0
+Pt127,MSp 384,Insecta,Coleoptera,Carabidae,Cicindelinae,Cylindera ,germanica,0,0,0,0,0,0,0,0,0,0
+Pt130,MSp 387,Arachnida,Araneae,Ctenidae,Cteninae,Ctenus ,medius,0,0,0,0,0,0,0,0,0,0
+Pt131,MSp 388,Insecta,Coleoptera,Scarabaeidae,Melolonthinae,Maladera, castanea,0,0,0,0,0,0,0,0,0,0
+Pt132,MSp 389,Insecta,Orthoptera,Tetrigidae,Tetriginae,Tettilobus ,prashadi,0,0,0,0,0,0,0,0,0,0
+Pt133,MSp 390,Insecta,Coleoptera,Staphylinidae,Scydmaeninae,Scydmaenus,sp,0,0,0,0,0,0,0,0,0,0
+Pt135,MSp 392,Insecta,Hemiptera,Veliidae,Microveliinae,Microvelia ,reticulata,0,0,0,0,0,0,0,0,0,0
+Pt136,MSp 393,Insecta,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+Pt137,MSp 394,Insecta,Coleoptera,Carabidae, Brachininae,Brachinus ,tetracolon,0,0,0,0,0,0,0,0,0,0
+Pt138,MSp 395,Arachnida,Araneae,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+Pt139,MSp 396,Insecta,Hymenoptera,Formicidae, Dolichoderinae,Technomyrmex ,pallipes,0,0,0,0,0,0,0,0,0,0
+Pt140,MSp 397,Insecta,Hymenoptera,Scelionidae,Teleasinae,Trimorus ,caraborum,0,0,0,0,0,0,0,0,0,0
+Pt142,MSp 399,Insecta,Hymenoptera,Mutillidae,Sphaeropthalminae,Pseudomethoca ,sp,0,0,0,0,0,0,0,0,0,0
+Pt143,MSp 400,Arachnida,Araneae,Ageleniidae,Ageleniinae,Agelenopsis ,pennsylvanica,0,0,0,0,0,0,0,0,0,0
+Pt144,MSp 401,Arachnida,Araneae,Zodariidae,Zodariidnae,Zodarion ,rubidum,0,0,0,0,0,0,0,0,0,0
+Pt145,MSp 402,Arachnida,Araneae,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+Pt146,MSp 403,Arachnida,Araneae,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+Pt147,MSp 404,Insecta,Hymenoptera,Pompilidae,Pepsinae,Hemipepsis,Sp,0,0,0,0,0,0,0,0,0,0
+Pt149,MSp 406,Insecta,Hymenoptera,Formicidae,Dorylinae,Dorylus ,molestus,0,0,0,0,0,0,0,0,0,0
+Pt151,MSp 408,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+Pt152,MSp 409,Insecta,Hemiptera,Reduviidae,Phymatinae,Reduvius ,sp,0,0,0,0,0,0,0,0,0,0
+Pt153,MSp 410,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+Pt154,MSp 411,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+Pt155,MSp 412,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+Pt156,MSp 413,Insecta,Hymenoptera,Pompilidae,Pepsinae,Hemipepsis ,sp,0,0,0,0,0,0,0,0,0,0
+Pt157,MSp 414,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+Pt158,MSp 415,Insecta,Orthoptera,Gryllidae,Gryllinae,Gryllus ,vernalis,0,0,0,0,0,0,0,0,0,0
+Pt159,MSp 416,Insecta,Coleoptera,Staphylinidae,Staphylinidae,Philonthus ,asper,0,0,0,0,0,0,0,0,0,0
+Pt160,MSp 417,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+Pt162,MSp 419,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+Pt163,MSp 420,Insecta,Coleoptera,Staphylinidae,Paederinae,Lathrobium ,nigrum,0,0,0,0,0,0,0,0,0,0
+Pt164,MSp 421,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+Pt165,MSp 422,insecta,Diptera,Tipulidae,Tipulinae,Tipula ,sp,0,0,0,0,0,0,0,0,0,0
+Pt166,MSp 423,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+Pt167,MSp 424,insecta,Othoptera,Acrididae,Gomphocerinae,Chorthippus ,sp,0,0,0,0,0,0,0,0,0,0
+Pt168,MSp 425,Insecta,Coleoptera,Carabidae,Harpalinae,Laemostenus ,complanatus,0,0,0,0,0,0,0,0,0,0
+Pt169,MSp 426,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+Pt170,MSp 427,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+Pt172,MSp 429,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+Pt173,MSp 430,Insecta,Hymenoptera,Sphecidae,Ammophilinae,Eremnophila  ,sp,0,0,0,0,0,0,0,0,0,0
+Pt174,MSp 431,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+Pt176,MSp 433,Insecta,Hymenoptera,Sphecidae, Sphecinae,Sphex ,argentatus,0,0,0,0,0,0,0,0,0,0
+Pt177,MSp 434,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+Pt178,MSp 435,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+Pt179,MSp 436,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+Pt180,MSp 437,Insecta,Diptera,Calliphoridae,Calliphorinae,Calliphora ,vomitoria,0,0,0,0,0,0,0,0,0,0
+Pt181,MSp 438,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+Pt182,MSp 439,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+Pt183,MSp 440,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+Pt184,MSp 441,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+Pt185,MSp 442,Insecta,Coleoptera,Carabidae,Brachininae,Brachinus ,sp,0,0,0,0,0,0,0,0,0,0
+Pt186,MSp 443,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+Pt187,MSp 444,Insecta,Blattodae,Blaberidae,Blaberinae,Pycnoscelus ,surinamensis,0,0,0,0,0,0,0,0,0,0
+Pt188,MSp 445,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+Pt190,MSp 447,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+Pt191,MSp 448,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+Pt192,MSp 449,Insecta,Hemiptera,Pentatomidae,Pentatominae,Menecles ,insertus,0,0,0,0,0,0,0,0,0,0
+Pt193,MSp 450,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+Pt194,MSp 451,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+Pt195,MSp 452,Insecta,Orthoptera,Phalangopsidae,Cachoplistinae,Meloimorpha ,japonica,0,0,0,0,0,0,0,0,0,0
+Pt196,MSp 453,Insecta,Coleoptera,Chrysomelidae,Galerucinae ,Asphaera ,lustrans,0,0,0,0,0,0,0,0,0,0
+Pt197,MSp 454,Insecta,Orthoptera,Aerididae,Gomphocerinae,Pseudochorthippus ,sp,0,0,0,0,0,0,0,0,0,0
+Pt198,MSp 455,Diplopoda,Platydesmida,Andrognathidae,Andrognathinae,Brachycybe ,producta,0,0,0,0,0,0,0,0,0,0
+Pt199,MSp 456,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+Pt200,MSp 457,Insecta,Coleoptera,Elateridae , Elaterinae,Melanotus ,similis,0,0,0,0,0,0,0,0,0,0
+Pt201,MSp 458,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+Pt202,MSp 459,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+Pt203,MSp 460,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+Pt204,MSp 461,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+Pt205,MSp 462,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+Pt206,MSp 463,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+Pt208,MSp 465,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+Pt209,MSp 466,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+Pt210,MSp 467,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,0,0,0,0,0,0,0,0,0,0
+Pt211,MSp 468,insecta,Coleoptera,Dytiscidae,Dytiscinae,Dytiscus ,sp,0,0,0,0,0,0,0,0,0,0
+Pt211,MSp 468,insecta,Coleoptera,Dytiscidae,Dytiscinae,Dytiscus ,sp,0,0,0,0,0,0,0,0,0,0
