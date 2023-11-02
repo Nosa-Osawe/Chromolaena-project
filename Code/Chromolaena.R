@@ -6,48 +6,17 @@ Igue_PF_0 <- read.csv("C:\\Users\\HP\\Documents\\Chromolaena-project\\Data\\C_Be
 Igue_PF_1 <- read.csv("C:\\Users\\HP\\Documents\\Chromolaena-project\\Data\\C_Benin_Igueosagie_less_than_PF50%.csv")
 Igue_PF_2 <- read.csv("C:\\Users\\HP\\Documents\\Chromolaena-project\\Data\\C_Benin_Igueosagie_PF_greater_than_50%.csv")
 
-
-view(Ogua_PF_0)   # check missing values
+ # check missing values
 sum(is.na(Ogua_PF_0))
 sum(is.na(Ogua_PF_1))
 sum(is.na(Ogua_PF_2))
 
-summary(Ogua_PF_0)
-
-Ogua_PF_0$SN <- seq_along(Ogua_PF_0$ID) ## assign serial number to data frame
-max_Ogua_PF_0_SN <-max(Ogua_PF_0$SN)
-
-# Specify the starting serial number
-starting_number1 <- max_Ogua_PF_0_SN + 1
-
-# Create a new column with serial numbers
-Ogua_PF_1$SN <- seq(starting_number1, starting_number1 + nrow(Ogua_PF_1) - 1)
-view(Ogua_PF_1)   # ok
-max_Ogua_PF_1_SN <- max(Ogua_PF_1$SN)
-# Create a new column with serial numbers
-starting_number2 <- max_Ogua_PF_1_SN + 1
-
-Ogua_PF_2$SN <- seq(starting_number2, starting_number2 + nrow(Ogua_PF_2) - 1)
-view(Ogua_PF_2) 
-
-max_Ogua_PF_2_SN <- max(Ogua_PF_2$SN)
-# Create a new column with serial numbers
-starting_number3 <- max_Ogua_PF_2_SN + 1
-
-Igue_PF_0$SN <- seq(starting_number3, starting_number3 + nrow(Igue_PF_0) - 1)
-
-max_Igue_PF_0_SN <- max(Igue_PF_0$SN)
-# Create a new column with serial numbers
-starting_number4 <- max_Igue_PF_0_SN + 1
-
-Igue_PF_1$SN <- seq(starting_number4, starting_number4 + nrow(Igue_PF_1) - 1)
-
-
-max_Igue_PF_1_SN <- max(Igue_PF_1$SN)
-# Create a new column with serial numbers
-starting_number5 <- max_Igue_PF_1_SN + 1
-
-Igue_PF_2$SN <- seq(starting_number5, starting_number5 + nrow(Igue_PF_2) - 1)
+Ogua_PF_0$SN <- seq_along(Ogua_PF_0$ID)
+Ogua_PF_1$SN <- seq_along(Ogua_PF_1$ID)
+Ogua_PF_2$SN <- seq_along(Ogua_PF_2$ID)
+Igue_PF_0$SN <- seq_along(Igue_PF_0$ID)
+Igue_PF_1$SN <- seq_along(Igue_PF_1$ID)
+Igue_PF_2$SN <- seq_along(Igue_PF_2$ID)
 
 # add location and Chromolaena level as columns
 
@@ -103,8 +72,45 @@ View(Igue_PF)
 
 Benin <- rbind(Ogua_PF, Igue_PF)
 view(Benin)
+# we spotted repetitions in the data which needs filtering
 
+filtered_Benin <- Benin %>% 
+  filter(!(SN >= 441 & SN <= 453))
+
+Benin <- filtered_Benin
+
+# remove the SN for now since its not correct for this combined data frame
 Benin <- Benin %>%
   select(-SN)
+#### lets give a new serial number (SN)
 
+Benin$SN <- seq_along(Benin$ID)
+Max_SN <- max(Benin$SN)
+# Count the number of distinct ID
+count_distinct_ID<- Benin %>%distinct(ID) %>% count()
+
+count_ID<- Benin %>%
+  group_by(ID) %>%
+  summarize(count = n()) ## most should be 6
+
+# Filter rows where count is not equal to 6
+filtered_count_ID <- count_ID %>%
+  filter(count != 6)
+
+#  number of rows where count is not equal to 6
+rows_not_equal_to_6 <- nrow(filtered_count_ID)
+
+# Print the count of rows where count is not equal to 6
+print(rows_not_equal_to_6)
+
+Benin <- edit(Benin)
+view(Benin)
+
+# one more check
+sum(is.na(Benin)) ### good
+
+## This the corrected Benin pitfall collection data that will be used for this analysis
+write.csv(Benin, 
+          file = "C:\\Users\\HP\\Documents\\Chromolaena-project\\Data\\Benin_PF.csv", 
+          row.names = FALSE)
 
