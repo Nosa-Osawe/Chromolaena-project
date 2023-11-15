@@ -55,15 +55,15 @@ Igue_PF_0 <- Igue_PF_0 %>%  # rename column headers appropriately
          PT14 = Pt14,
          PT15 = Pt15)
 
-Igue_PF_0 <- Ogua_PF_0 %>%
+Igue_PF_0 <- Igue_PF_0 %>%
   mutate(Location = "Igueosagie",
          Chromolaena_level = "0%")
 
-Igue_PF_1 <- Ogua_PF_1 %>%
+Igue_PF_1 <- Igue_PF_1 %>%
   mutate(Location = "Igueosagie",
          Chromolaena_level = "<50%")
 
-Igue_PF_2 <- Ogua_PF_2 %>%
+Igue_PF_2 <- Igue_PF_2 %>%
   mutate(Location = "Igueosagie",
          Chromolaena_level = ">50%")
 
@@ -104,7 +104,7 @@ rows_not_equal_to_6 <- nrow(filtered_count_ID)
 # Print the count of rows where count is not equal to 6
 print(rows_not_equal_to_6)
 
-Benin <- edit(Benin)
+Benin <- edit(Benin)   ### changed some repeated msp 126. take note!!
 view(Benin)
 
 # one more check
