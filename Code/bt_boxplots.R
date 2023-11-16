@@ -1,13 +1,14 @@
 library(tidyverse)
 
-PT_diversity <- read.csv("C:\\Users\\HP\\Desktop\\Pt_diversity.csv", stringsAsFactors = TRUE)
-View(PT_diversity)
-attach(PT_diversity)
+BT_div <- read.csv("C:\\Users\\HP\\Desktop\\bt_div.csv", stringsAsFactors = TRUE)
+View(BT_div)
+attach(BT_div)
 
-PT_diversity$Site <- factor(PT_diversity$Site, levels = c("0%", "<50%", ">50%"))
+BT_div$Site <- factor(BT_div$Site, levels = c("0%", "<50%", ">50%"))
 
 
-PT_shannon <- PT_diversity %>%
+
+BT_shannon <- BT_div %>%
   select(Location, Shannon_H, Site) %>%
   mutate(Site = as.factor(Site)) %>%  # Convert Site to a factor
   ggplot() +
@@ -19,7 +20,7 @@ PT_shannon <- PT_diversity %>%
   geom_point(aes(x = Location, y = Shannon_H, colour = Site),
              position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.8),
              size = 1.8, alpha = 0.75) +
-  scale_fill_manual(values = c("#FFD700", "#ADD8E0", "#90EA90")) +  # Set fill colors
+  scale_fill_manual(values = c("#FFD700", "#ADD8E0", "#90EE90")) +  # Set fill colors
   scale_color_manual(values = c("0%" = "orange", 
                                 "<50%" = "blue",
                                 ">50%" = "darkgreen")) + 
@@ -28,12 +29,10 @@ PT_shannon <- PT_diversity %>%
   theme(
     text = element_text(family = "Times New Roman", size = 24))+# Color of the mean points
   theme_bw()
-print(PT_shannon)
+print(BT_shannon)
 
 
-
-
-PT_simpson <- PT_diversity %>%
+BT_simpson <- BT_div %>%
   select(Location, Simpson_1.D, Site) %>%
   mutate(Site = as.factor(Site)) %>%  # Convert Site to a factor
   ggplot() +
@@ -54,10 +53,10 @@ PT_simpson <- PT_diversity %>%
   theme(
     text = element_text(family = "Times New Roman", size = 24))+# Color of the mean points
   theme_bw()
-print(PT_simpson)
+print(BT_simpson)
 
 
-PT_Margalef <- PT_diversity %>%
+BT_Margalef <- BT_div %>%
   select(Location, Margalef, Site) %>%
   mutate(Site = as.factor(Site)) %>%  # Convert Site to a factor
   ggplot() +
@@ -78,10 +77,10 @@ PT_Margalef <- PT_diversity %>%
   theme(
     text = element_text(family = "Times New Roman", size = 24))+# Color of the mean points
   theme_bw()
-print(PT_Margalef)
+print(BT_Margalef)
 
 
-PT_Taxa <- PT_diversity %>%
+BT_Taxa <- BT_div %>%
   select(Location, Taxa_S, Site) %>%
   mutate(Site = as.factor(Site)) %>%  # Convert Site to a factor
   ggplot() +
@@ -102,10 +101,10 @@ PT_Taxa <- PT_diversity %>%
   theme(
     text = element_text(family = "Times New Roman", size = 24))+# Color of the mean points
   theme_bw()
-print(PT_Taxa)
+print(BT_Taxa)
 
 
-PT_evenness <- PT_diversity %>%
+BT_evenness <- BT_div %>%
   select(Location, Evenness_e.H.S, Site) %>%
   mutate(Site = as.factor(Site)) %>%  # Convert Site to a factor
   ggplot() +
@@ -126,10 +125,10 @@ PT_evenness <- PT_diversity %>%
   theme(
     text = element_text(family = "Times New Roman", size = 24))+# Color of the mean points
   theme_bw()
-print(PT_evenness)
+print(BT_evenness)
 
 
-PT_dominance <- PT_diversity %>%
+BT_dominance <- BT_div %>%
   select(Location, Dominance_D, Site) %>%
   mutate(Site = as.factor(Site)) %>%  # Convert Site to a factor
   ggplot() +
@@ -150,11 +149,11 @@ PT_dominance <- PT_diversity %>%
   theme(
     text = element_text(family = "Times New Roman", size = 24))+# Color of the mean points
   theme_bw()
-print(PT_dominance)
+print(BT_dominance)
 
 
 
-PT_abundance <- PT_diversity %>%
+BT_abundance <- BT_div %>%
   select(Location, Individuals, Site) %>%
   mutate(Site = as.factor(Site)) %>%  # Convert Site to a factor
   ggplot() +
@@ -175,6 +174,4 @@ PT_abundance <- PT_diversity %>%
   theme(
     text = element_text(family = "Times New Roman", size = 24))+# Color of the mean points
   theme_bw()
-print(PT_abundance)
-
-#########################################################################################################3
+print(BT_abundance)
