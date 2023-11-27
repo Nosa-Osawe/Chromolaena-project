@@ -1,6 +1,7 @@
 library(tidyverse)
 
-PT_diversity <- read.csv("C:\\Users\\HP\\Desktop\\Pt_diversity.csv", stringsAsFactors = TRUE)
+PT_diversity <- read.csv("C:\\Users\\HP\\Documents\\Chromolaena-project\\Data\\Pt_diversity.csv", 
+                         stringsAsFactors = TRUE)
 View(PT_diversity)
 attach(PT_diversity)
 
@@ -19,7 +20,7 @@ PT_shannon <- PT_diversity %>%
   geom_point(aes(x = Location, y = Shannon_H, colour = Site),
              position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.8),
              size = 1.8, alpha = 0.75) +
-  scale_fill_manual(values = c("#FFD700", "#ADD8E0", "#90EA90")) +  # Set fill colors
+  scale_fill_manual(values = c("#FFE699", "#D6EBF2", "#B4F7B4")) +  # Set fill colors
   scale_color_manual(values = c("0%" = "orange", 
                                 "<50%" = "blue",
                                 ">50%" = "darkgreen")) + 
@@ -29,7 +30,6 @@ PT_shannon <- PT_diversity %>%
     text = element_text(family = "Times New Roman", size = 24))+# Color of the mean points
   theme_bw()
 print(PT_shannon)
-
 
 
 
@@ -45,7 +45,7 @@ PT_simpson <- PT_diversity %>%
   geom_point(aes(x = Location, y = Simpson_1.D, colour = Site),
              position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.8),
              size = 1.8, alpha = 0.75) +
-  scale_fill_manual(values = c("#FFD700", "#ADD8E0", "#90EE90")) +  # Set fill colors
+  scale_fill_manual(values = c("#FFE699", "#D6EBF2", "#B4F7B4")) +  # Set fill colors
   scale_color_manual(values = c("0%" = "orange", 
                                 "<50%" = "blue",
                                 ">50%" = "darkgreen")) + 
@@ -69,7 +69,7 @@ PT_Margalef <- PT_diversity %>%
   geom_point(aes(x = Location, y = Margalef, colour = Site),
              position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.8),
              size = 1.8, alpha = 0.75) +
-  scale_fill_manual(values = c("#FFD700", "#ADD8E0", "#90EE90")) +  # Set fill colors
+  scale_fill_manual(values = c("#FFE699", "#D6EBF2", "#B4F7B4")) +  # Set fill colors
   scale_color_manual(values = c("0%" = "orange", 
                                 "<50%" = "blue",
                                 ">50%" = "darkgreen")) + 
@@ -93,7 +93,7 @@ PT_Taxa <- PT_diversity %>%
   geom_point(aes(x = Location, y = Taxa_S, colour = Site),
              position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.8),
              size = 1.8, alpha = 0.75) +
-  scale_fill_manual(values = c("#FFD700", "#ADD8E0", "#90EE90")) +  # Set fill colors
+  scale_fill_manual(values = c("#FFE699", "#D6EBF2", "#B4F7B4")) +  # Set fill colors
   scale_color_manual(values = c("0%" = "orange", 
                                 "<50%" = "blue",
                                 ">50%" = "darkgreen")) + 
@@ -117,7 +117,7 @@ PT_evenness <- PT_diversity %>%
   geom_point(aes(x = Location, y = Evenness_e.H.S, colour = Site),
              position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.8),
              size = 1.8, alpha = 0.75) +
-  scale_fill_manual(values = c("#FFD700", "#ADD8E0", "#90EE90")) +  # Set fill colors
+  scale_fill_manual(values = c("#FFE699", "#D6EBF2", "#B4F7B4")) +  # Set fill colors
   scale_color_manual(values = c("0%" = "orange", 
                                 "<50%" = "blue",
                                 ">50%" = "darkgreen")) + 
@@ -141,7 +141,7 @@ PT_dominance <- PT_diversity %>%
   geom_point(aes(x = Location, y = Dominance_D, colour = Site),
              position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.8),
              size = 1.8, alpha = 0.75) +
-  scale_fill_manual(values = c("#FFD700", "#ADD8E0", "#90EE90")) +  # Set fill colors
+  scale_fill_manual(values = c("#FFE699", "#D6EBF2", "#B4F7B4")) +  # Set fill colors
   scale_color_manual(values = c("0%" = "orange", 
                                 "<50%" = "blue",
                                 ">50%" = "darkgreen")) + 
@@ -166,7 +166,7 @@ PT_abundance <- PT_diversity %>%
   geom_point(aes(x = Location, y = Individuals, colour = Site),
              position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.8),
              size = 1.8, alpha = 0.75) +
-  scale_fill_manual(values = c("#FFD700", "#ADD8E0", "#90EE90")) +  # Set fill colors
+  scale_fill_manual(values = c("#FFE699", "#D6EBF2", "#B4F7B4")) +  # Set fill colors
   scale_color_manual(values = c("0%" = "orange", 
                                 "<50%" = "blue",
                                 ">50%" = "darkgreen")) + 

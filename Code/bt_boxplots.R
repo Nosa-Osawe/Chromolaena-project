@@ -1,6 +1,7 @@
 library(tidyverse)
 
-BT_div <- read.csv("C:\\Users\\HP\\Desktop\\bt_div.csv", stringsAsFactors = TRUE)
+BT_div <- read.csv("C:\\Users\\HP\\Documents\\Chromolaena-project\\Data\\bt_div.csv", 
+                   stringsAsFactors = TRUE)
 View(BT_div)
 attach(BT_div)
 
@@ -20,7 +21,7 @@ BT_shannon <- BT_div %>%
   geom_point(aes(x = Location, y = Shannon_H, colour = Site),
              position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.8),
              size = 1.8, alpha = 0.75) +
-  scale_fill_manual(values = c("#FFD700", "#ADD8E0", "#90EE90")) +  # Set fill colors
+  scale_fill_manual(values = c("#FFE699", "#D6EBF2", "#B4F7B4")) +  # Set fill colors
   scale_color_manual(values = c("0%" = "orange", 
                                 "<50%" = "blue",
                                 ">50%" = "darkgreen")) + 
@@ -44,7 +45,7 @@ BT_simpson <- BT_div %>%
   geom_point(aes(x = Location, y = Simpson_1.D, colour = Site),
              position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.8),
              size = 1.8, alpha = 0.75) +
-  scale_fill_manual(values = c("#FFD700", "#ADD8E0", "#90EE90")) +  # Set fill colors
+  scale_fill_manual(values = c("#FFE699", "#D6EBF2", "#B4F7B4")) +  # Set fill colors
   scale_color_manual(values = c("0%" = "orange", 
                                 "<50%" = "blue",
                                 ">50%" = "darkgreen")) + 
@@ -68,7 +69,7 @@ BT_Margalef <- BT_div %>%
   geom_point(aes(x = Location, y = Margalef, colour = Site),
              position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.8),
              size = 1.8, alpha = 0.75) +
-  scale_fill_manual(values = c("#FFD700", "#ADD8E0", "#90EE90")) +  # Set fill colors
+  scale_fill_manual(values = c("#FFE699", "#D6EBF2", "#B4F7B4")) +  # Set fill colors
   scale_color_manual(values = c("0%" = "orange", 
                                 "<50%" = "blue",
                                 ">50%" = "darkgreen")) + 
@@ -92,7 +93,7 @@ BT_Taxa <- BT_div %>%
   geom_point(aes(x = Location, y = Taxa_S, colour = Site),
              position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.8),
              size = 1.8, alpha = 0.75) +
-  scale_fill_manual(values = c("#FFD700", "#ADD8E0", "#90EE90")) +  # Set fill colors
+  scale_fill_manual(values = c("#FFE699", "#D6EBF2", "#B4F7B4")) +  # Set fill colors
   scale_color_manual(values = c("0%" = "orange", 
                                 "<50%" = "blue",
                                 ">50%" = "darkgreen")) + 
@@ -116,7 +117,7 @@ BT_evenness <- BT_div %>%
   geom_point(aes(x = Location, y = Evenness_e.H.S, colour = Site),
              position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.8),
              size = 1.8, alpha = 0.75) +
-  scale_fill_manual(values = c("#FFD700", "#ADD8E0", "#90EE90")) +  # Set fill colors
+  scale_fill_manual(values = c("#FFE699", "#D6EBF2", "#B4F7B4")) +  # Set fill colors
   scale_color_manual(values = c("0%" = "orange", 
                                 "<50%" = "blue",
                                 ">50%" = "darkgreen")) + 
@@ -140,7 +141,7 @@ BT_dominance <- BT_div %>%
   geom_point(aes(x = Location, y = Dominance_D, colour = Site),
              position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.8),
              size = 1.8, alpha = 0.75) +
-  scale_fill_manual(values = c("#FFD700", "#ADD8E0", "#90EE90")) +  # Set fill colors
+  scale_fill_manual(values = c("#FFE699", "#D6EBF2", "#B4F7B4")) +  # Set fill colors
   scale_color_manual(values = c("0%" = "orange", 
                                 "<50%" = "blue",
                                 ">50%" = "darkgreen")) + 
@@ -165,7 +166,7 @@ BT_abundance <- BT_div %>%
   geom_point(aes(x = Location, y = Individuals, colour = Site),
              position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.8),
              size = 1.8, alpha = 0.75) +
-  scale_fill_manual(values = c("#FFD700", "#ADD8E0", "#90EE90")) +  # Set fill colors
+  scale_fill_manual(values = c("#FFE699", "#D6EBF2", "#B4F7B4")) +  # Set fill colors
   scale_color_manual(values = c("0%" = "orange", 
                                 "<50%" = "blue",
                                 ">50%" = "darkgreen")) + 

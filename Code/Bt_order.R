@@ -2,7 +2,8 @@ library(tidyverse)
 library(dunn.test)
 library(FSA)
 
-bt_order <- read.csv("C:\\Users\\HP\\Desktop\\bt_order.csv", stringsAsFactors = TRUE)
+bt_order <- read.csv( "C:\\Users\\HP\\Documents\\Chromolaena-project\\Data\\bt_order.csv",
+                      stringsAsFactors = TRUE)
 View(bt_order)
 attach(bt_order)
 

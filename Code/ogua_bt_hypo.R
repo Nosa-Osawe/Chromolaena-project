@@ -3,7 +3,8 @@ library(tidyverse)
 library(dunn.test)
 library(FSA)
 
-BT_diversity <- read.csv("C:\\Users\\HP\\Desktop\\bt_div.csv", stringsAsFactors = TRUE)
+BT_diversity <- read.csv("C:\\Users\\HP\\Documents\\Chromolaena-project\\Data\\bt_div.csv",
+                         stringsAsFactors = TRUE)
 View(BT_diversity)
 attach(BT_diversity)
 
@@ -29,8 +30,9 @@ kruskal.test(bt_div_ogua$Simpson_1.D ~ bt_div_ogua$Site)
 dunn.test(bt_div_ogua$Simpson_1.D, bt_div_ogua$Site, method = "bonferroni")
 Simpson_1 <- aggregate(bt_div_ogua$Simpson_1.D,
                        by = list(bt_div_ogua$Site),
-                       FUN = function(x) c(median = median(x), 
-                                           mean = mean(x), sd = sd(x)))
+                       FUN = function(x)  c(median = median(x, na.rm = TRUE), 
+                                            mean = mean(x, na.rm = TRUE),
+                                            sd = sd(x, na.rm = TRUE)))
 Simpson_1
 
 kruskal.test(bt_div_ogua$Individuals ~ bt_div_ogua$Site)  

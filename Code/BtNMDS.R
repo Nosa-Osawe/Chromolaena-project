@@ -6,7 +6,7 @@ library(vegan)
 library(tidyverse)
 library(pairwiseAdonis)  
 
-OguaBTnmDS <- read.csv("C:\\Users\\HP\\Desktop\\OguaBTnMDS.csv")
+OguaBTnmDS <- read.csv("C:\\Users\\HP\\Documents\\Chromolaena-project\\Data\\oguaNMDS_pt.csv")
 View(OguaBTnmDS)
 sum(is.na(OguaBTnmDS))
 data1_ogua <- OguaBTnmDS[,3:20]
@@ -21,7 +21,7 @@ NMDS_ogua_n <- metaMDS(data1_ogua, distance = "bray", k=2)
 NMDS_ogua_n$stress
 ########################################################################################
 
-igue_pt <- read.csv("C:\\Users\\HP\\Desktop\\IgueNMDS_pt.csv")
+igue_pt <- read.csv("C:\\Users\\HP\\Documents\\Chromolaena-project\\Data\\IgueNMDS_pt.csv")
 igue_pt$Site<- factor(igue_pt$Site, levels = c("0%", "<50%", ">50%"))
 data1_igue_pt <- igue_pt[,3:18]
 data2_igue_pt <- igue_pt[,1:2]
@@ -58,7 +58,7 @@ ggplot(igue_pt, aes(x = igue_pt_nmds$MDS1, y = igue_pt_nmds$MDS2, color = Site))
 ##########################################################################################
 
 
-ogua_pt <- read.csv("C:\\Users\\HP\\Desktop\\oguaNMDS_pt.csv")
+ogua_pt <- read.csv("C:\\Users\\HP\\Documents\\Chromolaena-project\\Data\\oguaNMDS_pt.csv")
 ogua_pt$Site<- factor(ogua_pt$Site, levels = c("0%", "<50%", ">50%"))
 
 data1_ogua_pt <- ogua_pt[,3:21]

@@ -2,7 +2,8 @@ library(tidyverse)
 library(dunn.test)
 library(FSA)
 
-pt_order <- read.csv("C:\\Users\\HP\\Desktop\\pt_order_div.csv", stringsAsFactors = TRUE)
+pt_order <- read.csv("C:\\Users\\HP\\Documents\\Chromolaena-project\\Data\\pt_order_div.csv",
+                     stringsAsFactors = TRUE)
 View(pt_order)
 attach(pt_order)
 

@@ -1,6 +1,7 @@
 library(tidyverse)
 
-PT_diversity <- read.csv("C:\\Users\\HP\\Desktop\\Pt_diversity.csv", stringsAsFactors = TRUE)
+PT_diversity <- read.csv( "C:\\Users\\HP\\Documents\\Chromolaena-project\\Data\\Pt_diversity.csv",
+                          stringsAsFactors = TRUE)
 View(PT_diversity)
 attach(PT_diversity)
 

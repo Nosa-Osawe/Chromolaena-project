@@ -3,7 +3,8 @@ library(tidyverse)
 library(dunn.test)
 library(FSA)
 
-PT_diversity <- read.csv("C:\\Users\\HP\\Desktop\\Pt_diversity.csv", stringsAsFactors = TRUE)
+PT_diversity <- read.csv("C:\\Users\\HP\\Documents\\Chromolaena-project\\Data\\Pt_diversity.csv",
+                         stringsAsFactors = TRUE)
 View(PT_diversity)
 attach(PT_diversity)
 
@@ -23,6 +24,14 @@ Shannon <- aggregate(pt_div_ogua$Shannon_H,
                            FUN = function(x) c(median = median(x), 
                                                mean = mean(x), sd = sd(x)))
 Shannon
+
+kruskal.test(pt_div_ogua$Simpson_1.D ~ pt_div_ogua$Site)  
+dunn.test(pt_div_ogua$Simpson_1.D, pt_div_ogua$Site, method = "bonferroni")
+simpson <- aggregate(pt_div_ogua$Simpson_1.D,
+                     by = list(pt_div_ogua$Site),
+                     FUN = function(x) c(median = median(x), 
+                                         mean = mean(x), sd = sd(x)))
+simpson
 
 kruskal.test(pt_div_ogua$Individuals ~ pt_div_ogua$Site)  
 dunn.test(pt_div_ogua$Individuals, pt_div_ogua$Site, method = "bonferroni")
@@ -82,7 +91,8 @@ margalef.summary
 
 
 ##################### ====   igue
-pt_div_igue
+pt_div_igue <- PT_diversity %>% 
+  filter(Location== "Igueosagie")
 
 kruskal.test(pt_div_igue$Shannon_H ~ pt_div_igue$Site)  
 dunn.test(pt_div_igue$Shannon_H, pt_div_igue$Site, method = "bonferroni")
@@ -91,6 +101,14 @@ Shannon <- aggregate(pt_div_igue$Shannon_H,
                      FUN = function(x) c(median = median(x), 
                                          mean = mean(x), sd = sd(x)))
 Shannon
+
+kruskal.test(pt_div_igue$Simpson_1.D ~ pt_div_igue$Site)  
+dunn.test(pt_div_igue$Simpson_1.D, pt_div_igue$Site, method = "bonferroni")
+simpsonn <- aggregate(pt_div_igue$Simpson_1.D,
+                     by = list(pt_div_igue$Site),
+                     FUN = function(x) c(median = median(x), 
+                                         mean = mean(x), sd = sd(x)))
+simpsonn
 
 kruskal.test(pt_div_igue$Individuals ~ pt_div_igue$Site)  
 dunn.test(pt_div_igue$Individuals, pt_div_igue$Site, method = "bonferroni")
