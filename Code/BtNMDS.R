@@ -27,6 +27,12 @@ data1_igue_pt <- igue_pt[,3:18]
 data2_igue_pt <- igue_pt[,1:2]
 NMDS_igue_pt <- metaMDS(data1_igue_pt, distance = "bray", k=2)
 NMDS_igue_pt$stress
+stressplot(NMDS_igue_pt)
+
+scores(NMDS_igue_pt) #### very important 
+
+plot(NMDS_igue_pt$points)
+plot(as.data.frame(NMDS_igue_pt$points), geom = "text", legend = "none")
 
 # adonis2 is recommended 
 fit_igue_pt <- adonis2 (data1_igue_pt~Site, data = data2_igue_pt, permutations = 999, method = "bray")
@@ -36,7 +42,6 @@ distance_data_igue_pt <- vegdist(data1_igue_pt)
 anova(betadisper(distance_data_igue_pt, data2_igue_pt$Site))
 
 igue_pt_nmds <- as.data.frame(NMDS_igue_pt$points)
-
 
 # Create a ggplot2 plot
 ggplot(igue_pt, aes(x = igue_pt_nmds$MDS1, y = igue_pt_nmds$MDS2, color = Site)) +
