@@ -42,9 +42,10 @@ distance_data_igue_pt <- vegdist(data1_igue_pt)
 anova(betadisper(distance_data_igue_pt, data2_igue_pt$Site))
 
 igue_pt_nmds <- as.data.frame(NMDS_igue_pt$points)
-
+igue_pt_nmds_sc <- as.data.frame(scores(NMDS_igue_pt)$species)  
+combined_nmds <- as.data.frame(cbind(igue_pt, igue_pt_nmds))
 # Create a ggplot2 plot
-ggplot(igue_pt, aes(x = igue_pt_nmds$MDS1, y = igue_pt_nmds$MDS2, color = Site)) +
+nmds_plot_igue_pt <- ggplot(igue_pt, aes(x = igue_pt_nmds$MDS1, y = igue_pt_nmds$MDS2, color = Site)) +
   geom_point(size = 3) +  # Customize the point size
   labs(x = "NMDS1", y = "NMDS2") +  # Set axis labels
   scale_fill_manual(values = c("0%" = "orange", "<50%" = "blue", ">50%" = "darkgreen")) +  # Set fill colors
@@ -60,8 +61,28 @@ ggplot(igue_pt, aes(x = igue_pt_nmds$MDS1, y = igue_pt_nmds$MDS2, color = Site))
     text = element_text(family = "Times New Roman", size = 20)  # Set font to Times New Roman and font size to 14
   )+
   theme_classic()
-##########################################################################################
 
+
+#### Make a plot that ordinates the species associated with the Chromolaena invasion
+
+nmds_plot_igue_pt_rough1 <- ggplot() +
+  geom_point(data = combined_nmds, aes(x = MDS1, y = MDS2, color = Site, fill = Site), size = 3) + 
+  stat_ellipse(data = combined_nmds,  geom = "polygon", aes(x = MDS1, y = MDS2, group = Site, fill = Site),
+               level = 0.95, 
+               linewidth = 0.1,
+               alpha = 0.1,
+               show.legend = NA)+ 
+  scale_fill_manual(values = c("0%" = "orange", "<50%" = "blue", ">50%" = "darkgreen")) +
+  scale_color_manual(values = c("orange", "blue", "darkgreen"), 
+                     breaks = c("0%", "<50%", ">50%"))+
+  geom_text(data = igue_pt_nmds_sc, aes(x = NMDS1, y = NMDS2, label = rownames(igue_pt_nmds_sc)))+ 
+  theme(
+    text = element_text(family = "Times New Roman", size = 20)
+  ) + labs(x = "NMDS1", y = "NMDS2")+
+  theme_minimal()
+nmds_plot_igue_pt_rough1
+
+###################################################################################
 
 ogua_pt <- read.csv("C:\\Users\\HP\\Documents\\Chromolaena-project\\Data\\oguaNMDS_pt.csv")
 ogua_pt$Site<- factor(ogua_pt$Site, levels = c("0%", "<50%", ">50%"))
