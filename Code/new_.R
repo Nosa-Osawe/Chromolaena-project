@@ -38,5 +38,8 @@ view(ogua_pf_by_fam_by_invation)
 write.csv(ogua_pf_by_fam_by_invation,
           "C:\\Users\\HP\\Documents\\Chromolaena-project\\Data\\ogua_pf_fam.csv")
 
-write.csv(ogua_pf_by_fam_by_invation,
-          "C:\\Users\\HP\\Documents\\Chromolaena-project\\Data\\ogua_pf_fam.csv")
+write.csv(ogua_bt_by_fam_by_invation,
+          "C:\\Users\\HP\\Documents\\Chromolaena-project\\Data\\ogua_bt_fam.csv")
+
+
+
