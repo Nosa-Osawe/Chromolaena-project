@@ -3,6 +3,8 @@ library(tidyverse)
 library(pairwiseAdonis)  
 
 Ogua_nmds <- read.csv("C:\\Users\\HP\\Documents\\Chromolaena-project\\Data\\Ogua_fam_nmds.csv")
+Ogua_nmds <- read.csv("C:\\Users\\DELL\\Documents\\Git in R\\Chromolaena-project\\Data\\Ogua_fam_nmds.csv")
+
 view(Ogua_nmds)
 attach(Ogua_nmds)
 Ogua_nmds$Chromolaena_level <- factor(Ogua_nmds$Chromolaena_level)
@@ -30,38 +32,67 @@ data1_Ogua_nmds <- as.data.frame(NMDS_Ogua$points)
 NMDS_Ogua_nmds_sc <- as.data.frame(scores(NMDS_Ogua)$species)  
 combined_ <- as.data.frame(cbind(Ogua_nmds, data1_Ogua_nmds))
 
+# lets hide the "Unknown" rowname
+NMDS_Ogua_nmds_sc$show_label <- ifelse(rownames(NMDS_Ogua_nmds_sc) == "Unknown",
+                                       FALSE, TRUE)
+NMDS_Ogua_nmds_sc<-NMDS_Ogua_nmds_sc %>% 
+  filter(show_label == TRUE)
+
+## Prepare the NMDS PLOT
 ogua_nmds_plot  <- ggplot() +
   geom_point(data = combined_, aes(x = MDS1, y = MDS2, 
                                    color = Chromolaena_level, 
                                    fill = Chromolaena_level,
                                    shape = Method), 
              size = 3) + 
+  
   stat_ellipse(data = combined_,  geom = "polygon", 
                aes(x = MDS1, y = MDS2, 
                    group = Chromolaena_level, fill = Chromolaena_level),
                level = 0.95, 
-               linewidth = 0.1,
-               alpha = 0.1,
+               #linewidth = 1,
+               # size = 10,
+               alpha = 0.2,
                show.legend = NA)+ 
-  scale_fill_manual(values = c("0%" = "orange", "<50%" = "blue", ">50%" = "darkgreen")) +
-  scale_color_manual(values = c("orange", "blue", "darkgreen"), 
+  
+  stat_ellipse(data = combined_, 
+               aes(x = MDS1, y = MDS2, 
+                   group = Chromolaena_level, 
+                   color = Chromolaena_level), 
+               geom = "path", 
+               level = 0.95, 
+               linewidth = 0.5,  # Adjust this value to make the line bold
+               show.legend = NA) +
+  
+  
+  scale_fill_manual(values = c("0%" = "orange", "<50%" = "#0000FF", ">50%" = "#7CFC00")) +
+  scale_color_manual(values = c("orange", "darkblue",  "#228B22"), 
                      breaks = c("0%", "<50%", ">50%"))+
+  scale_shape_manual(values = c("BT" = 17, "PT" = 19)) + 
+  
   geom_text(data = NMDS_Ogua_nmds_sc, 
             aes(x = NMDS1, y = NMDS2, label = rownames(NMDS_Ogua_nmds_sc)))+ 
   theme(
     text = element_text(family = "Times New Roman", size = 20)
   ) + labs(x = "NMDS1", y = "NMDS2")+
-  theme_minimal()
+  theme_minimal()+
+  guides(
+    color = guide_legend(title = "Chromolaena Level"),   
+    shape = guide_legend(title = "Method"), 
+    fill = "none"  # To hide fill legend
+  )
 ogua_nmds_plot
 
 ################################################################################################
 
 Igue_nmds <- read.csv("C:\\Users\\HP\\Documents\\Chromolaena-project\\Data\\igueosagie_fam_nmds.csv")
+Igue_nmds <- read.csv("C:\\Users\\DELL\\Documents\\Git in R\\Chromolaena-project\\Data\\igueosagie_fam_nmds.csv")
+
+
 view(Igue_nmds)
 attach(Igue_nmds)
 length(Igue_nmds)
 Igue_nmds$Chromolaena_level <- factor(Igue_nmds$Chromolaena_level)
-
 
 
 data1_igue_nmds <- Igue_nmds[,3:20]
@@ -83,33 +114,56 @@ fit_igue    ### No sig. difference, this time
 distance_data_igue <- vegdist(data1_igue_nmds)
 anova(betadisper(distance_data_igue, data2_igue_nmds$Chromolaena_level))
 
-data1_Ogua_nmds <- as.data.frame(NMDS_Ogua$points)
-NMDS_Ogua_nmds_sc <- as.data.frame(scores(NMDS_Ogua)$species)  
-combined_ <- as.data.frame(cbind(Ogua_nmds, data1_Ogua_nmds))
+data1_igue_nmds <- as.data.frame(NMDS_igue$points)
+NMDS_igue_nmds_sc <- as.data.frame(scores(NMDS_igue)$species)  
+combined_igue <- as.data.frame(cbind(Igue_nmds, data1_igue_nmds))
 
-ogua_nmds_plot  <- ggplot() +
-  geom_point(data = combined_, aes(x = MDS1, y = MDS2, 
+# lets hide the "Unknown" rowname
+NMDS_igue_nmds_sc$show_label <- ifelse(rownames(NMDS_igue_nmds_sc) == "Unknown",
+                                       FALSE, TRUE)
+NMDS_igue_nmds_sc<-NMDS_igue_nmds_sc %>% 
+  filter(show_label == TRUE)
+
+Igue_nmds_plot  <- ggplot() +
+  geom_point(data = combined_igue, aes(x = MDS1, y = MDS2, 
                                    color = Chromolaena_level, 
                                    fill = Chromolaena_level,
                                    shape = Method), 
              size = 3) + 
-  stat_ellipse(data = combined_,  geom = "polygon", 
+  stat_ellipse(data = combined_igue,  geom = "polygon", 
                aes(x = MDS1, y = MDS2, 
                    group = Chromolaena_level, fill = Chromolaena_level),
                level = 0.95, 
                linewidth = 0.1,
                alpha = 0.1,
                show.legend = NA)+ 
-  scale_fill_manual(values = c("0%" = "orange", "<50%" = "blue", ">50%" = "darkgreen")) +
-  scale_color_manual(values = c("orange", "blue", "darkgreen"), 
+  stat_ellipse(data = combined_igue, 
+               aes(x = MDS1, y = MDS2, 
+                   group = Chromolaena_level, 
+                   color = Chromolaena_level), 
+               geom = "path", 
+               level = 0.95, 
+               linewidth = 0.5,  # Adjust this value to make the line bold
+               show.legend = NA) +
+  
+  scale_fill_manual(values = c("0%" = "orange", "<50%" = "#0000FF", ">50%" = "#7CFC00")) +
+  scale_color_manual(values = c("orange", "darkblue",  "#228B22"), 
                      breaks = c("0%", "<50%", ">50%"))+
-  geom_text(data = NMDS_Ogua_nmds_sc, 
-            aes(x = NMDS1, y = NMDS2, label = rownames(NMDS_Ogua_nmds_sc)))+ 
+  scale_shape_manual(values = c("BT" = 17, "PT" = 19)) + 
+  
+  geom_text(data = NMDS_igue_nmds_sc, 
+            aes(x = NMDS1, y = NMDS2, label = rownames(NMDS_igue_nmds_sc)))+ 
   theme(
     text = element_text(family = "Times New Roman", size = 20)
   ) + labs(x = "NMDS1", y = "NMDS2")+
-  theme_minimal()
-ogua_nmds_plot
+  theme_minimal()+
+  
+  guides(
+    color = guide_legend(title = "Chromolaena Level"),   
+    shape = guide_legend(title = "Method"), 
+    fill = "none"  # To hide fill legend
+  )
+Igue_nmds_plot
 
 
 
