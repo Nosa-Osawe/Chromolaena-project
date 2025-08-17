@@ -2,6 +2,11 @@ library(tidyverse)
 
 PT_diversity <- read.csv("C:\\Users\\HP\\Documents\\Chromolaena-project\\Data\\Pt_diversity.csv", 
                          stringsAsFactors = TRUE)
+
+PT_diversity <- read.csv("C:\\Users\\DELL\\Documents\\Git in R\\Chromolaena-project\\Data\\Pt_diversity.csv", 
+                         stringsAsFactors = TRUE)
+
+
 View(PT_diversity)
 attach(PT_diversity)
 
@@ -11,12 +16,13 @@ PT_diversity$Site <- factor(PT_diversity$Site, levels = c("0%", "<50%", ">50%"))
 PT_shannon <- PT_diversity %>%
   select(Location, Shannon_H, Site) %>%
   mutate(Site = as.factor(Site)) %>%  # Convert Site to a factor
+  
   ggplot() +
   geom_boxplot(aes(x = Location, y = Shannon_H, fill = Site),
                notch = FALSE,
                outlier.colour = NULL,
                outlier.color = "transparent",
-               outlier.fill = NULL,) +
+               outlier.fill = NULL) +
   geom_point(aes(x = Location, y = Shannon_H, colour = Site),
              position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.8),
              size = 1.8, alpha = 0.75) +
@@ -29,6 +35,9 @@ PT_shannon <- PT_diversity %>%
   theme(
     text = element_text(family = "Times New Roman", size = 24))+# Color of the mean points
   theme_bw()
+
+
+
 print(PT_shannon)
 
 
