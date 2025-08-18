@@ -1,6 +1,10 @@
 library(readxl)
 library(tidyverse)
 library(vegan)
+library(performance)
+library(ggeffects)
+library(multcomp)
+
 
 mgt <- read_excel("C:\\Users\\DELL\\Desktop\\Jane PhD\\Chromolena_management.xlsx",
                   sheet = "Sheet1")
@@ -102,6 +106,134 @@ ggplot() +
   coord_cartesian(ylim = c(0, 120)) +
   theme(legend.position = "none")+
   facet_wrap(~Period,nrow = 2, ncol = 3)
+
+
+indices.mgt %>% 
+  ggplot() +
+  geom_boxplot(aes(x = Period, y = Abundance, fill = Treatment),
+               notch = FALSE,
+               outlier.colour = NULL,
+               outlier.color = "transparent",
+               outlier.fill = NULL) +
+  geom_point(aes(x = Period, y = Abundance, shape = Site, fill = Treatment),
+             position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.8),
+             size = 1.8, alpha = 0.45) +
+  labs(x= "Period", y= "Abundance")+
+  theme(text = element_text(family = "Times New Roman", size = 24))+
+  theme_bw()+
+  coord_cartesian(ylim = c(0, 120)) +
+  theme(legend.position = "none")+
+  facet_wrap(~Treatment,nrow = 2, ncol = 3)
+
+
+################################################################################
+
+# Model Abundance
+
+abundance <- glm(Abundance~Treatment+ period_n +Site, data = indices.mgt,
+                 family = poisson(link = "log"))
+summary(abundance)
+
+check_model(abundance)
+performance(abundance)
+check_residuals(abundance)
+
+pred_abundance_treat <- ggpredict(abundance, terms = "Treatment")
+plot(pred_abundance_treat,
+     show_title = FALSE,dot_size = 4) + 
+  labs(y = "(Predicted) Abundance", x = "Treatment")
+
+pred_abundance_site <- ggpredict(abundance, terms = "Site")
+plot(pred_abundance_site,
+     show_title = FALSE,
+     data_labels = TRUE,dot_size = 4) + 
+  labs(y = "(Predicted) Abundance", x = "Site")
+
+e.abundance.treat <- emmeans(abundance, ~ Treatment)
+pairs_abundance.treat <- pairs(e.abundance.treat, adjust = "sidak")
+letter_abundance.treat <- cld(e.abundance.treat, Letters = letters, adjust = "sidak")
+letter_abundance.treat
+
+
+
+# Model Richness
+
+richness <- glm(Richness~Treatment+ period_n, data = indices.mgt,
+                 family = poisson(link = "log"))
+summary(richness)
+
+performance(richness)
+check_residuals(richness)
+
+pred_richness_treat <- ggpredict(richness, terms = "Treatment")
+plot(pred_richness_treat,
+     show_title = FALSE,dot_size = 4) + 
+  labs(y = "(Predicted) Richness", x = "Treatment")
+
+e.richness.treat <- emmeans(richness, ~ Treatment)
+pairs_richness.treat <- pairs(e.richness.treat, adjust = "sidak")
+letter_richness.treat <- cld(e.richness.treat, Letters = letters, adjust = "sidak")
+letter_richness.treat
+
+
+# Model Shannon
+
+shannon <- lm(Shannon~Treatment+ period_n , data = indices.mgt)
+summary(shannon)
+
+performance(shannon)
+check_residuals(shannon)
+
+pred_shannon_treat <- ggpredict(shannon, terms = "Treatment")
+plot(pred_shannon_treat,
+     show_title = FALSE,dot_size = 4) + 
+  labs(y = "(Predicted) Shannon", x = "Treatment")
+
+e.shannon.treat <- emmeans(shannon, ~ Treatment)
+pairs_shannon.treat <- pairs(e.shannon.treat, adjust = "sidak")
+letter_shannon.treat <- cld(e.shannon.treat, Letters = letters, adjust = "sidak")
+letter_shannon.treat
+
+
+# Model Shannon
+
+simpson <- lm(Simpson~Treatment+ period_n, data = indices.mgt)
+summary(simpson)
+
+performance(simpson)
+check_residuals(simpson)
+
+pred_simpson_treat <- ggpredict(simpson, terms = "Treatment")
+plot(pred_simpson_treat,
+     show_title = FALSE,dot_size = 4) + 
+  labs(y = "(Predicted) Simpson", x = "Treatment")
+
+e.simpson.treat <- emmeans(simpson, ~ Treatment)
+pairs_simpson.treat <- pairs(e.simpson.treat, adjust = "sidak")
+letter_simpson.treat <- cld(e.simpson.treat, Letters = letters, adjust = "sidak")
+letter_simpson.treat
+
+
+
+# Model Margalef
+
+margalef <- lm(Margalef~Treatment+ period_n, data = indices.mgt)
+summary(margalef)
+
+performance(margalef)
+check_residuals(margalef)
+
+pred_margalef_treat <- ggpredict(margalef, terms = "Treatment")
+plot(pred_margalef_treat,
+     show_title = FALSE,dot_size = 4) + 
+  labs(y = "(Predicted) Margalef", x = "Treatment")
+
+e.margalef.treat <- emmeans(margalef, ~ Treatment)
+pairs_margalef.treat <- pairs(e.margalef.treat, adjust = "sidak")
+letter_margalef.treat <- cld(e.margalef.treat, Letters = letters, adjust = "sidak")
+letter_margalef.treat
+
+
 
 
 

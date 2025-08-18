@@ -264,7 +264,6 @@ bt.final <- bt.abundance_LT %>%
  
  
  
- 
  library(vegan)
  
  data(dune)
@@ -315,4 +314,11 @@ bt.final <- bt.abundance_LT %>%
      y = "Species Richness"
    ) +
    theme_minimal(base_size = 14)
+ 
+ 
+ Iguegosagie_pa <- decostand(Iguegosagie_nmds, method = "pa")
+ 
+ Iguegosagie_jaccard_nmds <- metaMDS(Iguegosagie_pa,
+                                     distance = "jaccard", k = 2, na.rm = TRUE)
+ 
  

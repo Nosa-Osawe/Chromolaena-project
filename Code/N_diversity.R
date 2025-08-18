@@ -2,6 +2,52 @@
 
 library(vegan)
 
+full.summary <- full_Data %>%
+  group_by(Village, Seasons, Collection_method, Infestation_Gradient, Sample) %>%
+  summarise(across(where(is.numeric), sum), .groups = "drop") 
+
+
+full.summary.d <- full.summary%>%
+  dplyr::select(where(is.numeric))
+
+
+full.summary.c <- full.summary%>%
+  dplyr::select(Negate(where(is.numeric)))
+
+shannon <- diversity(full.summary.d, index = "shannon")
+simpson <- diversity(full.summary.d, index = "simpson")
+richness <- specnumber(full.summary.d)
+total_abundance <- rowSums(full.summary.d)
+margalef <- (richness - 1) / log(total_abundance)
+
+ 
+indices.full.summary.d <- data.frame(
+  Shannon = shannon,
+  Simpson = simpson,
+  Margalef = margalef,
+  Richness = richness,
+  Abundance = total_abundance
+) %>% cbind(full.summary.c) %>% 
+  mutate(Infestation_Gradient = factor(Infestation_Gradient,
+                                       level = c("Zero", "Mild", "High")))
+
+
+abundance.d <- glm(Abundance~Village + Infestation_Gradient+
+                     Collection_method+
+                     Seasons,
+                   data= indices.full.summary.d,
+                   family = "poisson")
+
+summary(abundance.d)
+
+richness.d <- glm(Richness~Village + Infestation_Gradient+
+                     Collection_method+
+                     Seasons,
+                   data= indices.full.summary.d,
+                   family = "poisson")
+
+summary(richness.d)
+
 Iguegosagie_wet.d <- full_Data %>% 
   filter(Village== "Iguegosagie", Seasons == "Wet") %>%
   select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>% 
