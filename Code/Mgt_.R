@@ -4,6 +4,7 @@ library(vegan)
 library(performance)
 library(ggeffects)
 library(multcomp)
+library(emmeans)
 
 
 mgt <- read_excel("C:\\Users\\DELL\\Desktop\\Jane PhD\\Chromolena_management.xlsx",
@@ -35,11 +36,11 @@ mgt.summary<- mgt.fam %>%
   group_by(Treatment, Period, Site, Pitfall) %>% 
   summarise(across(where(is.numeric), sum))
 
-mgt.summary.c<- St1.Before%>% 
+mgt.summary.c<- mgt.summary%>% 
   ungroup() %>% 
   dplyr::select(1:4)
 
-mgt.summary.d <- St1.Before%>% 
+mgt.summary.d <- mgt.summary%>% 
   ungroup() %>% 
   dplyr::select(-c(1:4))
 
@@ -90,7 +91,7 @@ indices.mgt <- indices.mgt %>%
 
 
 
-indices.mgt %>% 
+abundance.period.plot <- indices.mgt %>% 
 ggplot() +
   geom_boxplot(aes(x = Treatment, y = Abundance, fill = Treatment),
                notch = FALSE,
@@ -108,7 +109,10 @@ ggplot() +
   facet_wrap(~Period,nrow = 2, ncol = 3)
 
 
-indices.mgt %>% 
+ggsave("Figures/abundance.period_mgt.jpg", abundance.period.plot, width = 15, height = 8)
+
+
+abundance.treatment.plot <- indices.mgt %>% 
   ggplot() +
   geom_boxplot(aes(x = Period, y = Abundance, fill = Treatment),
                notch = FALSE,
@@ -125,6 +129,8 @@ indices.mgt %>%
   theme(legend.position = "none")+
   facet_wrap(~Treatment,nrow = 2, ncol = 3)
 
+ggsave("Figures/abundance.treatment_mgt.jpg", abundance.treatment.plot, width = 15, height = 8)
+
 
 ################################################################################
 
@@ -134,14 +140,23 @@ abundance <- glm(Abundance~Treatment+ period_n +Site, data = indices.mgt,
                  family = poisson(link = "log"))
 summary(abundance)
 
-check_model(abundance)
-performance(abundance)
-check_residuals(abundance)
+abundance.summary <- summary(abundance)
+abundance.summary <- abundance.summary$coefficients %>% 
+  as.data.frame() %>% 
+  mutate(Indices = "Abundance")
+  
+# check_model(abundance)
+# performance(abundance)
+# check_residuals(abundance)
 
 pred_abundance_treat <- ggpredict(abundance, terms = "Treatment")
-plot(pred_abundance_treat,
+pred_abundance_treat.plot <- plot(pred_abundance_treat,
      show_title = FALSE,dot_size = 4) + 
   labs(y = "(Predicted) Abundance", x = "Treatment")
+ggsave(plot = pred_abundance_treat.plot, 
+       filename = "Figures/pred_abundance_treat_mgt.jpg",
+       width = 6, height = 4)
+
 
 pred_abundance_site <- ggpredict(abundance, terms = "Site")
 plot(pred_abundance_site,
@@ -153,27 +168,38 @@ e.abundance.treat <- emmeans(abundance, ~ Treatment)
 pairs_abundance.treat <- pairs(e.abundance.treat, adjust = "sidak")
 letter_abundance.treat <- cld(e.abundance.treat, Letters = letters, adjust = "sidak")
 letter_abundance.treat
-
-
+letter_abundance.treat <- letter_abundance.treat %>% 
+  as.data.frame() %>% 
+  mutate(Indices = "Abundance")  
 
 # Model Richness
 
 richness <- glm(Richness~Treatment+ period_n, data = indices.mgt,
                  family = poisson(link = "log"))
 summary(richness)
+richness.summary <- summary(richness)$coefficients%>% 
+  as.data.frame() %>% 
+  mutate(Indices = "Richness")
 
-performance(richness)
-check_residuals(richness)
+# performance(richness)
+# check_residuals(richness)
 
 pred_richness_treat <- ggpredict(richness, terms = "Treatment")
-plot(pred_richness_treat,
+pred_richness_treat.plot<- plot(pred_richness_treat,
      show_title = FALSE,dot_size = 4) + 
   labs(y = "(Predicted) Richness", x = "Treatment")
+
+ggsave(plot = pred_richness_treat.plot, 
+       filename = "Figures/pred_richness_treat_mgt.jpg",
+       width = 6, height = 4)
 
 e.richness.treat <- emmeans(richness, ~ Treatment)
 pairs_richness.treat <- pairs(e.richness.treat, adjust = "sidak")
 letter_richness.treat <- cld(e.richness.treat, Letters = letters, adjust = "sidak")
-letter_richness.treat
+letter_richness.treat<- letter_richness.treat %>% 
+  as.data.frame() %>% 
+  mutate(Indices = "Richness")
+  
 
 
 # Model Shannon
@@ -181,32 +207,49 @@ letter_richness.treat
 shannon <- lm(Shannon~Treatment+ period_n , data = indices.mgt)
 summary(shannon)
 
-performance(shannon)
-check_residuals(shannon)
+shannon.summary <- summary(shannon)$coefficients%>% 
+  as.data.frame() %>% 
+  mutate(Indices = "Shannon")
+# performance(shannon)
+# check_residuals(shannon)
 
 pred_shannon_treat <- ggpredict(shannon, terms = "Treatment")
-plot(pred_shannon_treat,
+pred_shannon_treat.plot <- plot(pred_shannon_treat,
      show_title = FALSE,dot_size = 4) + 
   labs(y = "(Predicted) Shannon", x = "Treatment")
+
+ggsave(plot = pred_shannon_treat.plot, 
+       filename = "Figures/pred_shannon_treat_mgt.jpg",
+       width = 6, height = 4)
 
 e.shannon.treat <- emmeans(shannon, ~ Treatment)
 pairs_shannon.treat <- pairs(e.shannon.treat, adjust = "sidak")
 letter_shannon.treat <- cld(e.shannon.treat, Letters = letters, adjust = "sidak")
-letter_shannon.treat
+letter_shannon.treat<- letter_shannon.treat %>% 
+  as.data.frame() %>% 
+  mutate(Indices = "Shannon")
 
 
-# Model Shannon
+# Model Simpson
 
 simpson <- lm(Simpson~Treatment+ period_n, data = indices.mgt)
 summary(simpson)
 
-performance(simpson)
-check_residuals(simpson)
+simpson.summary <- summary(simpson)$coefficients%>% 
+  as.data.frame() %>% 
+  mutate(Indices = "Simpson")
+#performance(simpson)
+#check_residuals(simpson)
 
 pred_simpson_treat <- ggpredict(simpson, terms = "Treatment")
-plot(pred_simpson_treat,
+
+pred_simpson_treat.plot<-plot(pred_simpson_treat,
      show_title = FALSE,dot_size = 4) + 
   labs(y = "(Predicted) Simpson", x = "Treatment")
+
+ggsave(plot = pred_simpson_treat.plot, 
+       filename = "Figures/pred_simpson_treat_mgt.jpg",
+       width = 6, height = 4)
 
 e.simpson.treat <- emmeans(simpson, ~ Treatment)
 pairs_simpson.treat <- pairs(e.simpson.treat, adjust = "sidak")
