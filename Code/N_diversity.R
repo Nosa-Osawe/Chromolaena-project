@@ -8,11 +8,11 @@ full.summary <- full_Data %>%
 
 
 full.summary.d <- full.summary%>%
-  dplyr::select(where(is.numeric))
+  dplyr::dplyr::select(where(is.numeric))
 
 
 full.summary.c <- full.summary%>%
-  dplyr::select(Negate(where(is.numeric)))
+  dplyr::dplyr::select(Negate(where(is.numeric)))
 
 shannon <- diversity(full.summary.d, index = "shannon")
 simpson <- diversity(full.summary.d, index = "simpson")
@@ -50,10 +50,10 @@ summary(richness.d)
 
 Iguegosagie_wet.d <- full_Data %>% 
   filter(Village== "Iguegosagie", Seasons == "Wet") %>%
-  select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>% 
+  dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>% 
   group_by(Infestation_Gradient) %>% 
   summarise(across(where(is.numeric), sum)) %>% 
-  select(-1)
+  dplyr::select(-1)
 
 # Built-in vegan diversity indices
 shannon <- diversity(Iguegosagie_wet.d, index = "shannon")
@@ -77,10 +77,10 @@ margalef <- (richness - 1) / log(total_abundance)
 
 Ogua_wet.d <- full_Data %>% 
   filter(Village== "Ogua", Seasons == "Wet") %>%
-  select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>% 
+  dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>% 
   group_by(Infestation_Gradient) %>% 
   summarise(across(where(is.numeric), sum)) %>% 
-  select(-1)
+  dplyr::select(-1)
 
 # Built-in vegan diversity indices
 shannon <- diversity(Ogua_wet.d, index = "shannon")
@@ -104,10 +104,10 @@ margalef <- (richness - 1) / log(total_abundance)
 
 Ahor_Urokosa_wet.d <- full_Data %>% 
   filter(Village== "Ahor-Urokosa", Seasons == "Wet") %>%
-  select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>% 
+  dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>% 
   group_by(Infestation_Gradient) %>% 
   summarise(across(where(is.numeric), sum)) %>% 
-  select(-1)
+  dplyr::select(-1)
 
 # Built-in vegan diversity indices
 shannon <- diversity(Ahor_Urokosa_wet.d, index = "shannon")
@@ -131,10 +131,10 @@ margalef <- (richness - 1) / log(total_abundance)
 
 Iguovbiobo_wet.d <- full_Data %>% 
   filter(Village== "Iguovbiobo", Seasons == "Wet") %>%
-  select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>% 
+  dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>% 
   group_by(Infestation_Gradient) %>% 
   summarise(across(where(is.numeric), sum)) %>% 
-  select(-1)
+  dplyr::select(-1)
 
 # Built-in vegan diversity indices
 shannon <- diversity(Iguovbiobo_wet.d, index = "shannon")
@@ -159,10 +159,10 @@ margalef <- (richness - 1) / log(total_abundance)
 
 Iguegosagie_Dry.d <- full_Data %>% 
   filter(Village== "Iguegosagie", Seasons == "Dry") %>%
-  select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>% 
+  dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>% 
   group_by(Infestation_Gradient) %>% 
   summarise(across(where(is.numeric), sum)) %>% 
-  select(-1)
+  dplyr::select(-1)
 
 # Built-in vegan diversity indices
 shannon <- diversity(Iguegosagie_Dry.d, index = "shannon")
@@ -186,10 +186,10 @@ margalef <- (richness - 1) / log(total_abundance)
 
 Ogua_Dry.d <- full_Data %>% 
   filter(Village== "Ogua", Seasons == "Dry") %>%
-  select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>% 
+  dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>% 
   group_by(Infestation_Gradient) %>% 
   summarise(across(where(is.numeric), sum)) %>% 
-  select(-1)
+  dplyr::select(-1)
 
 # Built-in vegan diversity indices
 shannon <- diversity(Ogua_Dry.d, index = "shannon")
@@ -213,10 +213,10 @@ margalef <- (richness - 1) / log(total_abundance)
 
 Ahor_Urokosa_Dry.d <- full_Data %>% 
   filter(Village== "Ahor-Urokosa", Seasons == "Dry") %>%
-  select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>% 
+  dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>% 
   group_by(Infestation_Gradient) %>% 
   summarise(across(where(is.numeric), sum)) %>% 
-  select(-1)
+  dplyr::select(-1)
 
 # Built-in vegan diversity indices
 shannon <- diversity(Ahor_Urokosa_Dry.d, index = "shannon")
@@ -240,10 +240,10 @@ margalef <- (richness - 1) / log(total_abundance)
 
 Iguovbiobo_Dry.d <- full_Data %>% 
   filter(Village== "Iguovbiobo", Seasons == "Dry") %>%
-  select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>% 
+  dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>% 
   group_by(Infestation_Gradient) %>% 
   summarise(across(where(is.numeric), sum)) %>% 
-  select(-1)
+  dplyr::select(-1)
 
 # Built-in vegan diversity indices
 shannon <- diversity(Iguovbiobo_Dry.d, index = "shannon")
@@ -300,8 +300,8 @@ Iguegosagie_wet.PT.H.s <- full_Data %>%
          Collection_method == "Pitfall",
          Infestation_Gradient == "High") %>%
   ungroup() %>% 
-  select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
-  select(where(is.numeric)) %>%   
+  dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
+  dplyr::select(where(is.numeric)) %>%   
   mutate(across(everything(), ~ as.numeric(.x))) %>%   
   mutate(across(everything(), ~ replace_na(.x, 0)))   
 
@@ -327,8 +327,8 @@ Iguegosagie_wet.PT.M.s <- full_Data %>%
          Collection_method == "Pitfall",
          Infestation_Gradient == "Mild") %>%
   ungroup() %>% 
-  select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
-  select(where(is.numeric)) %>%   
+  dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
+  dplyr::select(where(is.numeric)) %>%   
   mutate(across(everything(), ~ as.numeric(.x))) %>%   
   mutate(across(everything(), ~ replace_na(.x, 0)))   
 
@@ -354,8 +354,8 @@ Iguegosagie_wet.PT.Z.s <- full_Data %>%
          Collection_method == "Pitfall",
          Infestation_Gradient == "Zero") %>%
   ungroup() %>% 
-  select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
-  select(where(is.numeric)) %>%   
+  dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
+  dplyr::select(where(is.numeric)) %>%   
   mutate(across(everything(), ~ as.numeric(.x))) %>%   
   mutate(across(everything(), ~ replace_na(.x, 0)))   
 
@@ -403,8 +403,8 @@ Iguegosagie_Dry.PT.H.s <- full_Data %>%
          Collection_method == "Pitfall",
          Infestation_Gradient == "High") %>%
   ungroup() %>% 
-  select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
-  select(where(is.numeric)) %>%   
+  dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
+  dplyr::select(where(is.numeric)) %>%   
   mutate(across(everything(), ~ as.numeric(.x))) %>%   
   mutate(across(everything(), ~ replace_na(.x, 0)))   
 
@@ -430,8 +430,8 @@ Iguegosagie_Dry.PT.M.s <- full_Data %>%
          Collection_method == "Pitfall",
          Infestation_Gradient == "Mild") %>%
   ungroup() %>% 
-  select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
-  select(where(is.numeric)) %>%   
+  dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
+  dplyr::select(where(is.numeric)) %>%   
   mutate(across(everything(), ~ as.numeric(.x))) %>%   
   mutate(across(everything(), ~ replace_na(.x, 0)))   
 
@@ -457,8 +457,8 @@ Iguegosagie_Dry.PT.Z.s <- full_Data %>%
          Collection_method == "Pitfall",
          Infestation_Gradient == "Zero") %>%
   ungroup() %>% 
-  select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
-  select(where(is.numeric)) %>%   
+  dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
+  dplyr::select(where(is.numeric)) %>%   
   mutate(across(everything(), ~ as.numeric(.x))) %>%   
   mutate(across(everything(), ~ replace_na(.x, 0)))   
 
@@ -505,8 +505,8 @@ Iguegosagie_wet.BT.H.s <- full_Data %>%
          Collection_method == "Beating tray",
          Infestation_Gradient == "High") %>%
   ungroup() %>% 
-  select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
-  select(where(is.numeric)) %>%   
+  dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
+  dplyr::select(where(is.numeric)) %>%   
   mutate(across(everything(), ~ as.numeric(.x))) %>%   
   mutate(across(everything(), ~ replace_na(.x, 0)))   
 
@@ -532,8 +532,8 @@ Iguegosagie_wet.BT.M.s <- full_Data %>%
          Collection_method == "Beating tray",
          Infestation_Gradient == "Mild") %>%
   ungroup() %>% 
-  select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
-  select(where(is.numeric)) %>%   
+  dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
+  dplyr::select(where(is.numeric)) %>%   
   mutate(across(everything(), ~ as.numeric(.x))) %>%   
   mutate(across(everything(), ~ replace_na(.x, 0)))   
 
@@ -559,8 +559,8 @@ Iguegosagie_wet.BT.Z.s <- full_Data %>%
          Collection_method == "Beating tray",
          Infestation_Gradient == "Zero") %>%
   ungroup() %>% 
-  select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
-  select(where(is.numeric)) %>%   
+  dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
+  dplyr::select(where(is.numeric)) %>%   
   mutate(across(everything(), ~ as.numeric(.x))) %>%   
   mutate(across(everything(), ~ replace_na(.x, 0)))   
 
@@ -608,8 +608,8 @@ Iguegosagie_Dry.BT.H.s <- full_Data %>%
          Collection_method == "Beating tray",
          Infestation_Gradient == "High") %>%
   ungroup() %>% 
-  select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
-  select(where(is.numeric)) %>%   
+  dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
+  dplyr::select(where(is.numeric)) %>%   
   mutate(across(everything(), ~ as.numeric(.x))) %>%   
   mutate(across(everything(), ~ replace_na(.x, 0)))   
 
@@ -635,8 +635,8 @@ Iguegosagie_Dry.BT.M.s <- full_Data %>%
          Collection_method == "Beating tray",
          Infestation_Gradient == "Mild") %>%
   ungroup() %>% 
-  select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
-  select(where(is.numeric)) %>%   
+  dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
+  dplyr::select(where(is.numeric)) %>%   
   mutate(across(everything(), ~ as.numeric(.x))) %>%   
   mutate(across(everything(), ~ replace_na(.x, 0)))   
 
@@ -662,8 +662,8 @@ Iguegosagie_Dry.BT.Z.s <- full_Data %>%
          Collection_method == "Beating tray",
          Infestation_Gradient == "Zero") %>%
   ungroup() %>% 
-  select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
-  select(where(is.numeric)) %>%   
+  dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
+  dplyr::select(where(is.numeric)) %>%   
   mutate(across(everything(), ~ as.numeric(.x))) %>%   
   mutate(across(everything(), ~ replace_na(.x, 0)))   
 
@@ -715,8 +715,8 @@ Ogua_wet.PT.H.s <- full_Data %>%
          Collection_method == "Pitfall",
          Infestation_Gradient == "High") %>%
   ungroup() %>% 
-  select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
-  select(where(is.numeric)) %>%   
+  dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
+  dplyr::select(where(is.numeric)) %>%   
   mutate(across(everything(), ~ as.numeric(.x))) %>%   
   mutate(across(everything(), ~ replace_na(.x, 0)))   
 
@@ -742,8 +742,8 @@ Ogua_wet.PT.M.s <- full_Data %>%
          Collection_method == "Pitfall",
          Infestation_Gradient == "Mild") %>%
   ungroup() %>% 
-  select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
-  select(where(is.numeric)) %>%   
+  dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
+  dplyr::select(where(is.numeric)) %>%   
   mutate(across(everything(), ~ as.numeric(.x))) %>%   
   mutate(across(everything(), ~ replace_na(.x, 0)))   
 
@@ -769,8 +769,8 @@ Ogua_wet.PT.Z.s <- full_Data %>%
          Collection_method == "Pitfall",
          Infestation_Gradient == "Zero") %>%
   ungroup() %>% 
-  select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
-  select(where(is.numeric)) %>%   
+  dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
+  dplyr::select(where(is.numeric)) %>%   
   mutate(across(everything(), ~ as.numeric(.x))) %>%   
   mutate(across(everything(), ~ replace_na(.x, 0)))   
 
@@ -818,8 +818,8 @@ Ogua_Dry.PT.H.s <- full_Data %>%
          Collection_method == "Pitfall",
          Infestation_Gradient == "High") %>%
   ungroup() %>% 
-  select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
-  select(where(is.numeric)) %>%   
+  dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
+  dplyr::select(where(is.numeric)) %>%   
   mutate(across(everything(), ~ as.numeric(.x))) %>%   
   mutate(across(everything(), ~ replace_na(.x, 0)))   
 
@@ -845,8 +845,8 @@ Ogua_Dry.PT.M.s <- full_Data %>%
          Collection_method == "Pitfall",
          Infestation_Gradient == "Mild") %>%
   ungroup() %>% 
-  select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
-  select(where(is.numeric)) %>%   
+  dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
+  dplyr::select(where(is.numeric)) %>%   
   mutate(across(everything(), ~ as.numeric(.x))) %>%   
   mutate(across(everything(), ~ replace_na(.x, 0)))   
 
@@ -872,8 +872,8 @@ Ogua_Dry.PT.Z.s <- full_Data %>%
          Collection_method == "Pitfall",
          Infestation_Gradient == "Zero") %>%
   ungroup() %>% 
-  select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
-  select(where(is.numeric)) %>%   
+  dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
+  dplyr::select(where(is.numeric)) %>%   
   mutate(across(everything(), ~ as.numeric(.x))) %>%   
   mutate(across(everything(), ~ replace_na(.x, 0)))   
 
@@ -920,8 +920,8 @@ Ogua_wet.BT.H.s <- full_Data %>%
          Collection_method == "Beating tray",
          Infestation_Gradient == "High") %>%
   ungroup() %>% 
-  select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
-  select(where(is.numeric)) %>%   
+  dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
+  dplyr::select(where(is.numeric)) %>%   
   mutate(across(everything(), ~ as.numeric(.x))) %>%   
   mutate(across(everything(), ~ replace_na(.x, 0)))   
 
@@ -947,8 +947,8 @@ Ogua_wet.BT.M.s <- full_Data %>%
          Collection_method == "Beating tray",
          Infestation_Gradient == "Mild") %>%
   ungroup() %>% 
-  select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
-  select(where(is.numeric)) %>%   
+  dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
+  dplyr::select(where(is.numeric)) %>%   
   mutate(across(everything(), ~ as.numeric(.x))) %>%   
   mutate(across(everything(), ~ replace_na(.x, 0)))   
 
@@ -974,8 +974,8 @@ Ogua_wet.BT.Z.s <- full_Data %>%
          Collection_method == "Beating tray",
          Infestation_Gradient == "Zero") %>%
   ungroup() %>% 
-  select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
-  select(where(is.numeric)) %>%   
+  dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
+  dplyr::select(where(is.numeric)) %>%   
   mutate(across(everything(), ~ as.numeric(.x))) %>%   
   mutate(across(everything(), ~ replace_na(.x, 0)))   
 
@@ -1023,8 +1023,8 @@ Ogua_Dry.BT.H.s <- full_Data %>%
          Collection_method == "Beating tray",
          Infestation_Gradient == "High") %>%
   ungroup() %>% 
-  select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
-  select(where(is.numeric)) %>%   
+  dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
+  dplyr::select(where(is.numeric)) %>%   
   mutate(across(everything(), ~ as.numeric(.x))) %>%   
   mutate(across(everything(), ~ replace_na(.x, 0)))   
 
@@ -1050,8 +1050,8 @@ Ogua_Dry.BT.M.s <- full_Data %>%
          Collection_method == "Beating tray",
          Infestation_Gradient == "Mild") %>%
   ungroup() %>% 
-  select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
-  select(where(is.numeric)) %>%   
+  dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
+  dplyr::select(where(is.numeric)) %>%   
   mutate(across(everything(), ~ as.numeric(.x))) %>%   
   mutate(across(everything(), ~ replace_na(.x, 0)))   
 
@@ -1077,8 +1077,8 @@ Ogua_Dry.BT.Z.s <- full_Data %>%
          Collection_method == "Beating tray",
          Infestation_Gradient == "Zero") %>%
   ungroup() %>% 
-  select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
-  select(where(is.numeric)) %>%   
+  dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
+  dplyr::select(where(is.numeric)) %>%   
   mutate(across(everything(), ~ as.numeric(.x))) %>%   
   mutate(across(everything(), ~ replace_na(.x, 0)))   
 
@@ -1133,8 +1133,8 @@ Iguovbiobo_wet.PT.H.s <- full_Data %>%
          Collection_method == "Pitfall",
          Infestation_Gradient == "High") %>%
   ungroup() %>% 
-  select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
-  select(where(is.numeric)) %>%   
+  dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
+  dplyr::select(where(is.numeric)) %>%   
   mutate(across(everything(), ~ as.numeric(.x))) %>%   
   mutate(across(everything(), ~ replace_na(.x, 0)))   
 
@@ -1160,8 +1160,8 @@ Iguovbiobo_wet.PT.M.s <- full_Data %>%
          Collection_method == "Pitfall",
          Infestation_Gradient == "Mild") %>%
   ungroup() %>% 
-  select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
-  select(where(is.numeric)) %>%   
+  dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
+  dplyr::select(where(is.numeric)) %>%   
   mutate(across(everything(), ~ as.numeric(.x))) %>%   
   mutate(across(everything(), ~ replace_na(.x, 0)))   
 
@@ -1187,8 +1187,8 @@ Iguovbiobo_wet.PT.Z.s <- full_Data %>%
          Collection_method == "Pitfall",
          Infestation_Gradient == "Zero") %>%
   ungroup() %>% 
-  select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
-  select(where(is.numeric)) %>%   
+  dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
+  dplyr::select(where(is.numeric)) %>%   
   mutate(across(everything(), ~ as.numeric(.x))) %>%   
   mutate(across(everything(), ~ replace_na(.x, 0)))   
 
@@ -1236,8 +1236,8 @@ Iguovbiobo_Dry.PT.H.s <- full_Data %>%
          Collection_method == "Pitfall",
          Infestation_Gradient == "High") %>%
   ungroup() %>% 
-  select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
-  select(where(is.numeric)) %>%   
+  dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
+  dplyr::select(where(is.numeric)) %>%   
   mutate(across(everything(), ~ as.numeric(.x))) %>%   
   mutate(across(everything(), ~ replace_na(.x, 0)))   
 
@@ -1263,8 +1263,8 @@ Iguovbiobo_Dry.PT.M.s <- full_Data %>%
          Collection_method == "Pitfall",
          Infestation_Gradient == "Mild") %>%
   ungroup() %>% 
-  select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
-  select(where(is.numeric)) %>%   
+  dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
+  dplyr::select(where(is.numeric)) %>%   
   mutate(across(everything(), ~ as.numeric(.x))) %>%   
   mutate(across(everything(), ~ replace_na(.x, 0)))   
 
@@ -1290,8 +1290,8 @@ Iguovbiobo_Dry.PT.Z.s <- full_Data %>%
          Collection_method == "Pitfall",
          Infestation_Gradient == "Zero") %>%
   ungroup() %>% 
-  select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
-  select(where(is.numeric)) %>%   
+  dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
+  dplyr::select(where(is.numeric)) %>%   
   mutate(across(everything(), ~ as.numeric(.x))) %>%   
   mutate(across(everything(), ~ replace_na(.x, 0)))   
 
@@ -1338,8 +1338,8 @@ Iguovbiobo_wet.BT.H.s <- full_Data %>%
          Collection_method == "Beating tray",
          Infestation_Gradient == "High") %>%
   ungroup() %>% 
-  select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
-  select(where(is.numeric)) %>%   
+  dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
+  dplyr::select(where(is.numeric)) %>%   
   mutate(across(everything(), ~ as.numeric(.x))) %>%   
   mutate(across(everything(), ~ replace_na(.x, 0)))   
 
@@ -1365,8 +1365,8 @@ Iguovbiobo_wet.BT.M.s <- full_Data %>%
          Collection_method == "Beating tray",
          Infestation_Gradient == "Mild") %>%
   ungroup() %>% 
-  select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
-  select(where(is.numeric)) %>%   
+  dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
+  dplyr::select(where(is.numeric)) %>%   
   mutate(across(everything(), ~ as.numeric(.x))) %>%   
   mutate(across(everything(), ~ replace_na(.x, 0)))   
 
@@ -1392,8 +1392,8 @@ Iguovbiobo_wet.BT.Z.s <- full_Data %>%
          Collection_method == "Beating tray",
          Infestation_Gradient == "Zero") %>%
   ungroup() %>% 
-  select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
-  select(where(is.numeric)) %>%   
+  dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
+  dplyr::select(where(is.numeric)) %>%   
   mutate(across(everything(), ~ as.numeric(.x))) %>%   
   mutate(across(everything(), ~ replace_na(.x, 0)))   
 
@@ -1441,8 +1441,8 @@ Iguovbiobo_Dry.BT.H.s <- full_Data %>%
          Collection_method == "Beating tray",
          Infestation_Gradient == "High") %>%
   ungroup() %>% 
-  select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
-  select(where(is.numeric)) %>%   
+  dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
+  dplyr::select(where(is.numeric)) %>%   
   mutate(across(everything(), ~ as.numeric(.x))) %>%   
   mutate(across(everything(), ~ replace_na(.x, 0)))   
 
@@ -1468,8 +1468,8 @@ Iguovbiobo_Dry.BT.M.s <- full_Data %>%
          Collection_method == "Beating tray",
          Infestation_Gradient == "Mild") %>%
   ungroup() %>% 
-  select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
-  select(where(is.numeric)) %>%   
+  dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
+  dplyr::select(where(is.numeric)) %>%   
   mutate(across(everything(), ~ as.numeric(.x))) %>%   
   mutate(across(everything(), ~ replace_na(.x, 0)))   
 
@@ -1495,8 +1495,8 @@ Iguovbiobo_Dry.BT.Z.s <- full_Data %>%
          Collection_method == "Beating tray",
          Infestation_Gradient == "Zero") %>%
   ungroup() %>% 
-  select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
-  select(where(is.numeric)) %>%   
+  dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
+  dplyr::select(where(is.numeric)) %>%   
   mutate(across(everything(), ~ as.numeric(.x))) %>%   
   mutate(across(everything(), ~ replace_na(.x, 0)))   
 
@@ -1549,8 +1549,8 @@ Ahor_Urokosa_wet.PT.H.s <- full_Data %>%
          Collection_method == "Pitfall",
          Infestation_Gradient == "High") %>%
   ungroup() %>% 
-  select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
-  select(where(is.numeric)) %>%   
+  dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
+  dplyr::select(where(is.numeric)) %>%   
   mutate(across(everything(), ~ as.numeric(.x))) %>%   
   mutate(across(everything(), ~ replace_na(.x, 0)))   
 
@@ -1576,8 +1576,8 @@ Ahor_Urokosa_wet.PT.M.s <- full_Data %>%
          Collection_method == "Pitfall",
          Infestation_Gradient == "Mild") %>%
   ungroup() %>% 
-  select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
-  select(where(is.numeric)) %>%   
+  dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
+  dplyr::select(where(is.numeric)) %>%   
   mutate(across(everything(), ~ as.numeric(.x))) %>%   
   mutate(across(everything(), ~ replace_na(.x, 0)))   
 
@@ -1603,8 +1603,8 @@ Ahor_Urokosa_wet.PT.Z.s <- full_Data %>%
          Collection_method == "Pitfall",
          Infestation_Gradient == "Zero") %>%
   ungroup() %>% 
-  select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
-  select(where(is.numeric)) %>%   
+  dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
+  dplyr::select(where(is.numeric)) %>%   
   mutate(across(everything(), ~ as.numeric(.x))) %>%   
   mutate(across(everything(), ~ replace_na(.x, 0)))   
 
@@ -1652,8 +1652,8 @@ Ahor_Urokosa_Dry.PT.H.s <- full_Data %>%
          Collection_method == "Pitfall",
          Infestation_Gradient == "High") %>%
   ungroup() %>% 
-  select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
-  select(where(is.numeric)) %>%   
+  dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
+  dplyr::select(where(is.numeric)) %>%   
   mutate(across(everything(), ~ as.numeric(.x))) %>%   
   mutate(across(everything(), ~ replace_na(.x, 0)))   
 
@@ -1679,8 +1679,8 @@ Ahor_Urokosa_Dry.PT.M.s <- full_Data %>%
          Collection_method == "Pitfall",
          Infestation_Gradient == "Mild") %>%
   ungroup() %>% 
-  select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
-  select(where(is.numeric)) %>%   
+  dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
+  dplyr::select(where(is.numeric)) %>%   
   mutate(across(everything(), ~ as.numeric(.x))) %>%   
   mutate(across(everything(), ~ replace_na(.x, 0)))   
 
@@ -1706,8 +1706,8 @@ Ahor_Urokosa_Dry.PT.Z.s <- full_Data %>%
          Collection_method == "Pitfall",
          Infestation_Gradient == "Zero") %>%
   ungroup() %>% 
-  select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
-  select(where(is.numeric)) %>%   
+  dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
+  dplyr::select(where(is.numeric)) %>%   
   mutate(across(everything(), ~ as.numeric(.x))) %>%   
   mutate(across(everything(), ~ replace_na(.x, 0)))   
 
@@ -1754,8 +1754,8 @@ Ahor_Urokosa_wet.BT.H.s <- full_Data %>%
          Collection_method == "Beating tray",
          Infestation_Gradient == "High") %>%
   ungroup() %>% 
-  select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
-  select(where(is.numeric)) %>%   
+  dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
+  dplyr::select(where(is.numeric)) %>%   
   mutate(across(everything(), ~ as.numeric(.x))) %>%   
   mutate(across(everything(), ~ replace_na(.x, 0)))   
 
@@ -1781,8 +1781,8 @@ Ahor_Urokosa_wet.BT.M.s <- full_Data %>%
          Collection_method == "Beating tray",
          Infestation_Gradient == "Mild") %>%
   ungroup() %>% 
-  select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
-  select(where(is.numeric)) %>%   
+  dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
+  dplyr::select(where(is.numeric)) %>%   
   mutate(across(everything(), ~ as.numeric(.x))) %>%   
   mutate(across(everything(), ~ replace_na(.x, 0)))   
 
@@ -1808,8 +1808,8 @@ Ahor_Urokosa_wet.BT.Z.s <- full_Data %>%
          Collection_method == "Beating tray",
          Infestation_Gradient == "Zero") %>%
   ungroup() %>% 
-  select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
-  select(where(is.numeric)) %>%   
+  dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
+  dplyr::select(where(is.numeric)) %>%   
   mutate(across(everything(), ~ as.numeric(.x))) %>%   
   mutate(across(everything(), ~ replace_na(.x, 0)))   
 
@@ -1857,8 +1857,8 @@ Ahor_Urokosa_Dry.BT.H.s <- full_Data %>%
          Collection_method == "Beating tray",
          Infestation_Gradient == "High") %>%
   ungroup() %>% 
-  select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
-  select(where(is.numeric)) %>%   
+  dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
+  dplyr::select(where(is.numeric)) %>%   
   mutate(across(everything(), ~ as.numeric(.x))) %>%   
   mutate(across(everything(), ~ replace_na(.x, 0)))   
 
@@ -1884,8 +1884,8 @@ Ahor_Urokosa_Dry.BT.M.s <- full_Data %>%
          Collection_method == "Beating tray",
          Infestation_Gradient == "Mild") %>%
   ungroup() %>% 
-  select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
-  select(where(is.numeric)) %>%   
+  dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
+  dplyr::select(where(is.numeric)) %>%   
   mutate(across(everything(), ~ as.numeric(.x))) %>%   
   mutate(across(everything(), ~ replace_na(.x, 0)))   
 
@@ -1911,8 +1911,8 @@ Ahor_Urokosa_Dry.BT.Z.s <- full_Data %>%
          Collection_method == "Beating tray",
          Infestation_Gradient == "Zero") %>%
   ungroup() %>% 
-  select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
-  select(where(is.numeric)) %>%   
+  dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
+  dplyr::select(where(is.numeric)) %>%   
   mutate(across(everything(), ~ as.numeric(.x))) %>%   
   mutate(across(everything(), ~ replace_na(.x, 0)))   
 

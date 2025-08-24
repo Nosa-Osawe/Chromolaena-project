@@ -1,0 +1,605 @@
+---
+title: "Chromoleana odorata"
+author: "Nosa Osawe"
+date: "`r Sys.Date()`"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+## Load libraries
+```{r Libraries, results='hide', warning=FALSE, message=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+library(readxl)
+library(vegan)
+
+```
+
+## **Load data**
+
+```{r cars}
+
+pt.abundance <- read_excel("Data/Nosa_Pitfall.xlsx", 
+                      sheet = "Abundance")
+
+pt.tax <- read_excel("Data/Nosa_Pitfall.xlsx", 
+                      sheet = "Taxonomy")
+
+bt.abundance <- read_excel("Data/Nosa_Beating_Tray.xlsx",
+                           sheet = "Abundance")
+
+bt.tax <- read_excel( "Data/Nosa_Beating_Tray.xlsx",
+                            sheet = "Taxonomy")
+
+correct_fam <- read.csv("Data/corrected_family_names.csv") %>% 
+  select(c(1,2))
+
+```
+
+
+
+
+# Exploratory Data analysis
+
+## Data Cleaning and Validation
+
+
+
+```{r cleaning}
+pt.tax <- pt.tax %>% 
+  mutate(Family = ifelse(is.na(Family), Order, Family),
+         Species = ifelse(is.na(Species), Family, Species))
+
+bt.tax <- bt.tax %>% 
+  mutate(Family = ifelse(is.na(Family), Order, Family),
+         Species = ifelse(is.na(Species), Family, Species))
+
+
+```
+```{r clean, results= 'hide'}
+
+semi_join(pt.tax, bt.tax,by = "ID")   # Looks good!
+anti_join(pt.tax, bt.tax,by = "ID")   # Just Four IDs
+anti_join(bt.tax, pt.tax, by = "ID")  # Just three IDs
+
+```
+
+``` {r}
+bt.family <- as.data.frame(unique(bt.tax$Family)) %>%
+  rename(Family = 1)
+
+pt.family <- as.data.frame(unique(pt.tax$Family)) %>%
+  rename(Family = 1)
+
+full_families <- full_join(bt.family, pt.family, by = "Family")
+```
+
+
+
+```{r write full families file}
+write.csv(full_families, file = "C:\\Users\\DELL\\Desktop\\Jane PhD\\full_families.csv", 
+          row.names = FALSE) # for my reference
+```
+
+
+```{r}
+correct_fam<- correct_fam %>% 
+  rename("Family" = "Original")
+
+```
+
+
+## update the taxonomy in pt and bt
+```{r Update Taxonomy}
+pt.tax_update <- left_join(pt.tax, correct_fam, by = "Family") %>% 
+  select(-c("Family")) %>% 
+  rename("Family" = "Corrected")
+
+bt.tax_update <- left_join(bt.tax, correct_fam, by = "Family") %>% 
+  select(-c("Family")) %>% 
+  rename("Family" = "Corrected")
+
+```
+
+```{r message=FALSE, warning=FALSE, results='hide'}
+
+pt.abundance_L<- pt.abundance %>% # Long format
+  rename(Sample = ID) %>%
+  mutate(across(starts_with("Msp"), as.numeric)) %>%
+  pivot_longer(cols = starts_with("Msp"),
+               names_to = "ID",
+               values_to = "Abundance") %>% 
+  as.data.frame() %>% 
+  mutate(Abundance = ifelse(is.na(Abundance), 0, Abundance)) # Deals with NAs
+#  sum(is.na(pt.abundance_L))
+
+bt.abundance_L<- bt.abundance %>% # Long format
+  rename(Sample = ID) %>%
+  mutate(across(starts_with("Msp"), as.numeric)) %>%
+  pivot_longer(cols = starts_with("Msp"),
+               names_to = "ID",
+               values_to = "Abundance") %>% 
+  as.data.frame() %>% 
+  mutate(Abundance = ifelse(is.na(Abundance), 0, Abundance))
+
+pt.abundance_LT <- left_join(pt.abundance_L, pt.tax_update, by  = "ID")
+bt.abundance_LT <- left_join(bt.abundance_L, bt.tax_update, by = "ID")
+bt.abundance_LT
+```
+
+
+```{r message=FALSE, warning=FALSE, message=FALSE, results='hide'}
+
+pt.final <- pt.abundance_LT %>% 
+  select(State,LGA,Village,Infestation_Gradient,Seasons,Sample,Family,Abundance) %>% 
+  group_by(State,LGA,Village,Infestation_Gradient,Seasons,Sample,Family) %>% 
+  summarise(Abundance = sum(Abundance)) %>% 
+  pivot_wider(names_from = "Family",
+              values_from = "Abundance")
+
+pt.final <- pt.final %>%
+  mutate(Sample = case_when(
+    Sample %in% c("Pt1", "PT1", "Pf1") ~ "PT1",
+    Sample %in% c("Pt2", "PT2", "Pf2") ~ "PT2",
+    Sample %in% c("Pt3", "PT3", "Pf3") ~ "PT3",
+    Sample %in% c("Pt4", "PT4", "Pf4") ~ "PT4",
+    Sample %in% c("Pt5", "PT5", "Pf5") ~ "PT5",
+    Sample %in% c("Pt6", "PT6", "Pf6") ~ "PT6",
+    Sample %in% c("Pt7", "PT7", "Pf7") ~ "PT7",
+    Sample %in% c("Pt8", "PT8", "Pf8") ~ "PT8",
+    Sample %in% c("Pt9", "PT9", "Pf9") ~ "PT9",
+    Sample %in% c("Pt10", "PT10", "Pf10") ~ "PT10",
+    Sample %in% c("Pt11", "PT11", "Pf11") ~ "PT11",
+    Sample %in% c("Pt12", "PT12", "Pf12") ~ "PT12",
+    Sample %in% c("Pt13", "PT13", "Pf13") ~ "PT13",
+    Sample %in% c("Pt14", "PT14", "Pf14") ~ "PT14",
+    Sample %in% c("Pt15", "PT15", "Pf15") ~ "PT15",
+    TRUE ~ Sample
+  ))
+
+# length(unique(pt.final$Sample))  Great - We expect 15 of them!
+
+bt.final <- bt.abundance_LT %>% 
+  select(State,`Local Government Area`, Village,Infestion_Gradient,Season,Sample,Family,Abundance) %>% 
+  rename("LGA" = "Local Government Area",
+         "Infestation_Gradient" = "Infestion_Gradient",
+         "Seasons" = "Season") %>% 
+  group_by(State,LGA,Village,Infestation_Gradient,Seasons,Sample,Family) %>% 
+  summarise(Abundance = sum(Abundance)) %>% 
+  pivot_wider(names_from = "Family",
+              values_from = "Abundance")
+
+# length(unique(bt.final$Sample))# Great
+   
+   pt.final <- pt.final %>%
+     select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0))
+   
+ 
+ full_Data <-  rbind(
+   pt.abundance_LT %>% 
+          select(State,LGA,Village,Infestation_Gradient,Seasons,Sample,Family,Abundance) %>% 
+          group_by(State,LGA,Village,Infestation_Gradient,Seasons,Sample,Family) %>% 
+          summarise(Abundance = sum(Abundance)),
+   
+   bt.abundance_LT %>% 
+          select(State,`Local Government Area`, Village,Infestion_Gradient,Season,Sample,Family,Abundance) %>% 
+          rename("LGA" = "Local Government Area",
+                 "Infestation_Gradient" = "Infestion_Gradient",
+                 "Seasons" = "Season") %>% 
+          group_by(State,LGA,Village,Infestation_Gradient,Seasons,Sample,Family) %>% 
+          summarise(Abundance = sum(Abundance))
+        )  %>%
+   mutate(Sample = case_when(
+     Sample %in% c("Pt1", "PT1", "Pf1") ~ "PT1",
+     Sample %in% c("Pt2", "PT2", "Pf2") ~ "PT2",
+     Sample %in% c("Pt3", "PT3", "Pf3") ~ "PT3",
+     Sample %in% c("Pt4", "PT4", "Pf4") ~ "PT4",
+     Sample %in% c("Pt5", "PT5", "Pf5") ~ "PT5",
+     Sample %in% c("Pt6", "PT6", "Pf6") ~ "PT6",
+     Sample %in% c("Pt7", "PT7", "Pf7") ~ "PT7",
+     Sample %in% c("Pt8", "PT8", "Pf8") ~ "PT8",
+     Sample %in% c("Pt9", "PT9", "Pf9") ~ "PT9",
+     Sample %in% c("Pt10", "PT10", "Pf10") ~ "PT10",
+     Sample %in% c("Pt11", "PT11", "Pf11") ~ "PT11",
+     Sample %in% c("Pt12", "PT12", "Pf12") ~ "PT12",
+     Sample %in% c("Pt13", "PT13", "Pf13") ~ "PT13",
+     Sample %in% c("Pt14", "PT14", "Pf14") ~ "PT14",
+     Sample %in% c("Pt15", "PT15", "Pf15") ~ "PT15",
+     TRUE ~ Sample
+   )) %>% 
+   pivot_wider(names_from = "Family",
+                 values_from = "Abundance")
+```
+ 
+ # Complete Data
+ 
+```{r full_Data}
+
+ full_Data <- full_Data %>%
+   mutate(across(where(is.numeric), ~ replace_na(.x, 0))) %>% 
+   mutate(LGA = ifelse(LGA == "Ovia North East", "Ovia NE", LGA))%>%
+   select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  # drop column its sum = 0
+   mutate(Collection_method = ifelse(str_starts(Sample, "P"),
+                                     "Pitfall",
+                                     "Beating tray")) %>% 
+   mutate(Village = ifelse((Village=="Iguoviobo"), "Iguovbiobo", Village))
+
+
+ write.csv(full_Data, 
+           file = "Data/full_Data.csv", 
+           row.names = FALSE)
+ 
+ 
+```
+
+# Divesity indices
+
+```{r, results='hide'}
+
+
+Iguegosagie_wet.d <- full_Data %>% 
+  filter(Village== "Iguegosagie", Seasons == "Wet") %>%
+  dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>% 
+  group_by(Infestation_Gradient) %>% 
+  summarise(across(where(is.numeric), sum)) %>% 
+  dplyr::select(-1)
+
+# Built-in vegan diversity indices
+shannon <- diversity(Iguegosagie_wet.d, index = "shannon")
+simpson <- diversity(Iguegosagie_wet.d, index = "simpson")
+richness <- specnumber(Iguegosagie_wet.d)
+total_abundance <- rowSums(Iguegosagie_wet.d)
+margalef <- (richness - 1) / log(total_abundance)
+
+# Combine into data frame
+(indices.Iguegosagie_wet.d <- data.frame(
+  Infestation_gradient = c("High", "Mild", "Zero"),
+  Shannon = shannon,
+  Simpson = simpson,
+  Margalef = margalef,
+  Richness = richness,
+  Abundance = total_abundance
+) %>% 
+    mutate(Season = "Wet",
+           Village = "Iguegosagie"))
+
+
+```
+
+```{r}
+head(indices.Iguegosagie_wet.d)
+```
+
+```{r,results='hide'}
+
+Ogua_wet.d <- full_Data %>% 
+  filter(Village== "Ogua", Seasons == "Wet") %>%
+  dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>% 
+  group_by(Infestation_Gradient) %>% 
+  summarise(across(where(is.numeric), sum)) %>% 
+  dplyr::select(-1)
+
+# Built-in vegan diversity indices
+shannon <- diversity(Ogua_wet.d, index = "shannon")
+simpson <- diversity(Ogua_wet.d, index = "simpson")
+richness <- specnumber(Ogua_wet.d)
+total_abundance <- rowSums(Ogua_wet.d)
+margalef <- (richness - 1) / log(total_abundance)
+
+# Combine into data frame
+(indices.Ogua_wet.d <- data.frame(
+  Infestation_gradient = c("High", "Mild", "Zero"),
+  Shannon = shannon,
+  Simpson = simpson,
+  Margalef = margalef,
+  Richness = richness,
+  Abundance = total_abundance
+) %>% 
+    mutate(Season = "Wet",
+           Village = "Ogua"))
+
+
+Ahor_Urokosa_wet.d <- full_Data %>% 
+  filter(Village== "Ahor-Urokosa", Seasons == "Wet") %>%
+  dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>% 
+  group_by(Infestation_Gradient) %>% 
+  summarise(across(where(is.numeric), sum)) %>% 
+  dplyr::select(-1)
+
+# Built-in vegan diversity indices
+shannon <- diversity(Ahor_Urokosa_wet.d, index = "shannon")
+simpson <- diversity(Ahor_Urokosa_wet.d, index = "simpson")
+richness <- specnumber(Ahor_Urokosa_wet.d)
+total_abundance <- rowSums(Ahor_Urokosa_wet.d)
+margalef <- (richness - 1) / log(total_abundance)
+
+# Combine into data frame
+(indices.Ahor_Urokosa_wet.d <- data.frame(
+  Infestation_gradient = c("High", "Mild", "Zero"),
+  Shannon = shannon,
+  Simpson = simpson,
+  Margalef = margalef,
+  Richness = richness,
+  Abundance = total_abundance
+) %>% 
+    mutate(Season = "Wet",
+           Village = "Ahor-Urokosa"))
+
+
+Iguovbiobo_wet.d <- full_Data %>% 
+  filter(Village== "Iguovbiobo", Seasons == "Wet") %>%
+  dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>% 
+  group_by(Infestation_Gradient) %>% 
+  summarise(across(where(is.numeric), sum)) %>% 
+  dplyr::select(-1)
+
+# Built-in vegan diversity indices
+shannon <- diversity(Iguovbiobo_wet.d, index = "shannon")
+simpson <- diversity(Iguovbiobo_wet.d, index = "simpson")
+richness <- specnumber(Iguovbiobo_wet.d)
+total_abundance <- rowSums(Iguovbiobo_wet.d)
+margalef <- (richness - 1) / log(total_abundance)
+
+# Combine into data frame
+(indices.Iguovbiobo_wet.d <- data.frame(
+  Infestation_gradient = c("High", "Mild", "Zero"),
+  Shannon = shannon,
+  Simpson = simpson,
+  Margalef = margalef,
+  Richness = richness,
+  Abundance = total_abundance
+) %>% 
+    mutate(Season = "Wet",
+           Village = "Iguovbiobo"))
+
+
+
+Iguegosagie_Dry.d <- full_Data %>% 
+  filter(Village== "Iguegosagie", Seasons == "Dry") %>%
+  dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>% 
+  group_by(Infestation_Gradient) %>% 
+  summarise(across(where(is.numeric), sum)) %>% 
+  dplyr::select(-1)
+
+# Built-in vegan diversity indices
+shannon <- diversity(Iguegosagie_Dry.d, index = "shannon")
+simpson <- diversity(Iguegosagie_Dry.d, index = "simpson")
+richness <- specnumber(Iguegosagie_Dry.d)
+total_abundance <- rowSums(Iguegosagie_Dry.d)
+margalef <- (richness - 1) / log(total_abundance)
+
+# Combine into data frame
+(indices.Iguegosagie_Dry.d <- data.frame(
+  Infestation_gradient = c("High", "Mild", "Zero"),
+  Shannon = shannon,
+  Simpson = simpson,
+  Margalef = margalef,
+  Richness = richness,
+  Abundance = total_abundance
+) %>% 
+    mutate(Season = "Dry",
+           Village = "Iguegosagie"))
+
+
+Ogua_Dry.d <- full_Data %>% 
+  filter(Village== "Ogua", Seasons == "Dry") %>%
+  dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>% 
+  group_by(Infestation_Gradient) %>% 
+  summarise(across(where(is.numeric), sum)) %>% 
+  dplyr::select(-1)
+
+# Built-in vegan diversity indices
+shannon <- diversity(Ogua_Dry.d, index = "shannon")
+simpson <- diversity(Ogua_Dry.d, index = "simpson")
+richness <- specnumber(Ogua_Dry.d)
+total_abundance <- rowSums(Ogua_Dry.d)
+margalef <- (richness - 1) / log(total_abundance)
+
+# Combine into data frame
+(indices.Ogua_Dry.d <- data.frame(
+  Infestation_gradient = c("High", "Mild", "Zero"),
+  Shannon = shannon,
+  Simpson = simpson,
+  Margalef = margalef,
+  Richness = richness,
+  Abundance = total_abundance
+) %>% 
+    mutate(Season = "Dry",
+           Village = "Ogua"))
+
+
+Ahor_Urokosa_Dry.d <- full_Data %>% 
+  filter(Village== "Ahor-Urokosa", Seasons == "Dry") %>%
+  dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>% 
+  group_by(Infestation_Gradient) %>% 
+  summarise(across(where(is.numeric), sum)) %>% 
+  dplyr::select(-1)
+
+# Built-in vegan diversity indices
+shannon <- diversity(Ahor_Urokosa_Dry.d, index = "shannon")
+simpson <- diversity(Ahor_Urokosa_Dry.d, index = "simpson")
+richness <- specnumber(Ahor_Urokosa_Dry.d)
+total_abundance <- rowSums(Ahor_Urokosa_Dry.d)
+margalef <- (richness - 1) / log(total_abundance)
+
+# Combine into data frame
+(indices.Ahor_Urokosa_Dry.d <- data.frame(
+  Infestation_gradient = c("High", "Mild", "Zero"),
+  Shannon = shannon,
+  Simpson = simpson,
+  Margalef = margalef,
+  Richness = richness,
+  Abundance = total_abundance
+) %>% 
+    mutate(Season = "Dry",
+           Village = "Ahor-Urokosa"))
+
+
+Iguovbiobo_Dry.d <- full_Data %>% 
+  filter(Village== "Iguovbiobo", Seasons == "Dry") %>%
+  dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>% 
+  group_by(Infestation_Gradient) %>% 
+  summarise(across(where(is.numeric), sum)) %>% 
+  dplyr::select(-1)
+
+# Built-in vegan diversity indices
+shannon <- diversity(Iguovbiobo_Dry.d, index = "shannon")
+simpson <- diversity(Iguovbiobo_Dry.d, index = "simpson")
+richness <- specnumber(Iguovbiobo_Dry.d)
+total_abundance <- rowSums(Iguovbiobo_Dry.d)
+margalef <- (richness - 1) / log(total_abundance)
+
+# Combine into data frame
+(indices.Iguovbiobo_Dry.d <- data.frame(
+  Infestation_gradient = c("High", "Mild", "Zero"),
+  Shannon = shannon,
+  Simpson = simpson,
+  Margalef = margalef,
+  Richness = richness,
+  Abundance = total_abundance
+) %>% 
+    mutate(Season = "Dry",
+           Village = "Iguovbiobo"))
+
+
+
+indices.combined <- rbind(indices.Ahor_Urokosa_Dry.d,
+                          indices.Ahor_Urokosa_wet.d,
+                          indices.Iguegosagie_Dry.d,
+                          indices.Iguegosagie_wet.d,
+                          indices.Iguovbiobo_Dry.d,
+                          indices.Iguovbiobo_wet.d,
+                          indices.Ogua_Dry.d,
+                          indices.Ogua_wet.d) %>% 
+  as.data.frame()
+
+
+```
+
+```{r}
+
+head(indices.combined, 15)
+```
+
+
+
+# RAREFRACTIONAND & SPECIES ACCUMULATION CURVE
+
+```{r}
+infestation_colors <- c(
+  "Zero" = "#4DAF4A",   # green
+  "Mild" = "#FFD92F",   # yellow
+  "High" = "#E41A1C"    # red
+)
+
+# Iguegosagie
+
+# High
+
+Iguegosagie_wet.PT.H.s <- full_Data %>%   
+  filter(Village == "Iguegosagie", 
+         Seasons == "Wet", 
+         Collection_method == "Pitfall",
+         Infestation_Gradient == "High") %>%
+  ungroup() %>% 
+  dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
+  dplyr::select(where(is.numeric)) %>%   
+  mutate(across(everything(), ~ as.numeric(.x))) %>%   
+  mutate(across(everything(), ~ replace_na(.x, 0)))   
+
+Iguegosagie_wet.PT.H.sac <- specaccum(Iguegosagie_wet.PT.H.s, method = "random")
+
+Iguegosagie_wet.PT.H.sac.df <- data.frame(
+  Sites = Iguegosagie_wet.PT.H.sac$sites,
+  Richness = Iguegosagie_wet.PT.H.sac$richness,
+  SD = Iguegosagie_wet.PT.H.sac$sd
+) %>%
+  mutate(
+    Lower = Richness - SD,
+    Upper = Richness + SD
+  )%>%
+  mutate(Infestation_Gradient = "High")
+
+
+
+# Mild
+Iguegosagie_wet.PT.M.s <- full_Data %>%   
+  filter(Village == "Iguegosagie", 
+         Seasons == "Wet", 
+         Collection_method == "Pitfall",
+         Infestation_Gradient == "Mild") %>%
+  ungroup() %>% 
+  dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
+  dplyr::select(where(is.numeric)) %>%   
+  mutate(across(everything(), ~ as.numeric(.x))) %>%   
+  mutate(across(everything(), ~ replace_na(.x, 0)))   
+
+Iguegosagie_wet.PT.M.sac <- specaccum(Iguegosagie_wet.PT.M.s, method = "random")
+
+Iguegosagie_wet.PT.M.sac.df <- data.frame(
+  Sites = Iguegosagie_wet.PT.M.sac$sites,
+  Richness = Iguegosagie_wet.PT.M.sac$richness,
+  SD = Iguegosagie_wet.PT.M.sac$sd
+) %>%
+  mutate(
+    Lower = Richness - SD,
+    Upper = Richness + SD
+  )%>%
+  mutate(Infestation_Gradient = "Mild")
+
+
+# Zero
+
+Iguegosagie_wet.PT.Z.s <- full_Data %>%   
+  filter(Village == "Iguegosagie", 
+         Seasons == "Wet", 
+         Collection_method == "Pitfall",
+         Infestation_Gradient == "Zero") %>%
+  ungroup() %>% 
+  dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  
+  dplyr::select(where(is.numeric)) %>%   
+  mutate(across(everything(), ~ as.numeric(.x))) %>%   
+  mutate(across(everything(), ~ replace_na(.x, 0)))   
+
+Iguegosagie_wet.PT.Z.sac <- specaccum(Iguegosagie_wet.PT.Z.s, method = "random")
+
+Iguegosagie_wet.PT.Z.sac.df <- data.frame(
+  Sites = Iguegosagie_wet.PT.Z.sac$sites,
+  Richness = Iguegosagie_wet.PT.Z.sac$richness,
+  SD = Iguegosagie_wet.PT.Z.sac$sd
+) %>%
+  mutate(
+    Lower = Richness - SD,
+    Upper = Richness + SD
+  )%>%
+  mutate(Infestation_Gradient = "Zero")
+
+
+
+Iguegosagie_wet.PT.combined <-rbind(Iguegosagie_wet.PT.H.sac.df,
+                                    Iguegosagie_wet.PT.M.sac.df,
+                                    Iguegosagie_wet.PT.Z.sac.df)
+
+```
+
+ ## *Iguegosagie Wet PT Plot*
+ 
+```{r Iguegosagie Wet PT Plot, out.width= '70%', fig.cap= "This is my figure caption"}
+# Iguegosagie_wet.PT.combined.plot
+Iguegosagie_wet.PT.combined.plot<- ggplot(Iguegosagie_wet.PT.combined, aes(x = Sites, y = Richness,
+          fill = Infestation_Gradient )) +
+  geom_ribbon(aes(ymin = Lower, ymax = Upper),  alpha = 0.4) +
+  geom_line( aes(colour =Infestation_Gradient), linewidth = 1.2) +
+  geom_point(size = 1,color = "#333333") +
+  labs(
+    title = "Species Accumulation Curve",
+    x = "Number of Samples",
+    y = "Family Richness"
+  ) +
+  scale_fill_manual(values = infestation_colors) +
+  scale_colour_manual(values = infestation_colors) +
+  theme_classic()
+Iguegosagie_wet.PT.combined.plot
+```

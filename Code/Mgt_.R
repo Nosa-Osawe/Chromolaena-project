@@ -12,9 +12,9 @@ mgt.fam.tax<- read.csv("C:\\Users\\DELL\\Desktop\\Jane PhD\\Mgt_family_names.csv
 
 mgt.fam <- left_join(mgt, mgt.fam.tax,
                 by = "Family") %>%
-  select(-Family) %>% 
+  dplyr::select(-Family) %>% 
   rename("Family" = "Corrected_Family") %>% 
-  select(Site, Period, Treatment, Class, Order,
+  dplyr::select(Site, Period, Treatment, Class, Order,
          Family, MSp, P1, P2, P3)%>% 
   filter(!is.na(Class)) %>% 
   mutate(Order = ifelse(is.na(Order), Class, Order),
@@ -31,17 +31,17 @@ mgt.fam <- left_join(mgt, mgt.fam.tax,
 
 
 mgt.summary<- mgt.fam %>% 
-  select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%
+  dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%
   group_by(Treatment, Period, Site, Pitfall) %>% 
   summarise(across(where(is.numeric), sum))
 
 mgt.summary.c<- St1.Before%>% 
   ungroup() %>% 
-  select(1:4)
+  dplyr::select(1:4)
 
 mgt.summary.d <- St1.Before%>% 
   ungroup() %>% 
-  select(-c(1:4))
+  dplyr::select(-c(1:4))
 
 
 # Built-in vegan diversity indices
