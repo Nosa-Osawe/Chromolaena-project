@@ -143,7 +143,7 @@ summary(abundance)
 abundance.summary <- summary(abundance)
 abundance.summary <- abundance.summary$coefficients %>% 
   as.data.frame() %>% 
-  mutate(Indices = "Abundance")
+  mutate(Indices = "Abundance")%>% rownames_to_column(var = "Parameters")
   
 # check_model(abundance)
 # performance(abundance)
@@ -179,7 +179,7 @@ richness <- glm(Richness~Treatment+ period_n, data = indices.mgt,
 summary(richness)
 richness.summary <- summary(richness)$coefficients%>% 
   as.data.frame() %>% 
-  mutate(Indices = "Richness")
+  mutate(Indices = "Richness")%>% rownames_to_column(var = "Parameters")
 
 # performance(richness)
 # check_residuals(richness)
@@ -209,7 +209,7 @@ summary(shannon)
 
 shannon.summary <- summary(shannon)$coefficients%>% 
   as.data.frame() %>% 
-  mutate(Indices = "Shannon")
+  mutate(Indices = "Shannon")%>% rownames_to_column(var = "Parameters")
 # performance(shannon)
 # check_residuals(shannon)
 
@@ -235,9 +235,10 @@ letter_shannon.treat<- letter_shannon.treat %>%
 simpson <- lm(Simpson~Treatment+ period_n, data = indices.mgt)
 summary(simpson)
 
+
 simpson.summary <- summary(simpson)$coefficients%>% 
   as.data.frame() %>% 
-  mutate(Indices = "Simpson")
+  mutate(Indices = "Simpson")%>% rownames_to_column(var = "Parameters")
 #performance(simpson)
 #check_residuals(simpson)
 
@@ -254,7 +255,9 @@ ggsave(plot = pred_simpson_treat.plot,
 e.simpson.treat <- emmeans(simpson, ~ Treatment)
 pairs_simpson.treat <- pairs(e.simpson.treat, adjust = "sidak")
 letter_simpson.treat <- cld(e.simpson.treat, Letters = letters, adjust = "sidak")
-letter_simpson.treat
+letter_simpson.treat<- letter_simpson.treat %>% 
+  as.data.frame() %>% 
+  mutate(Indices = "Simpson")
 
 
 
@@ -263,22 +266,41 @@ letter_simpson.treat
 margalef <- lm(Margalef~Treatment+ period_n, data = indices.mgt)
 summary(margalef)
 
-performance(margalef)
-check_residuals(margalef)
+margalef.summary <- summary(margalef)$coefficients%>% 
+  as.data.frame() %>% 
+  mutate(Indices = "Margalef")%>% rownames_to_column(var = "Parameters")
+
+# performance(margalef)
+# check_residuals(margalef)
 
 pred_margalef_treat <- ggpredict(margalef, terms = "Treatment")
-plot(pred_margalef_treat,
+pred_margalef_treat.plot<- plot(pred_margalef_treat,
      show_title = FALSE,dot_size = 4) + 
   labs(y = "(Predicted) Margalef", x = "Treatment")
+
+ggsave(plot = pred_margalef_treat.plot, 
+       filename = "Figures/pred_margalef_treat_mgt.jpg",
+       width = 6, height = 4)
+
 
 e.margalef.treat <- emmeans(margalef, ~ Treatment)
 pairs_margalef.treat <- pairs(e.margalef.treat, adjust = "sidak")
 letter_margalef.treat <- cld(e.margalef.treat, Letters = letters, adjust = "sidak")
-letter_margalef.treat
+letter_margalef.treat<- letter_margalef.treat %>% 
+  as.data.frame() %>% 
+  mutate(Indices = "Margalef")
 
 
 
 
+Indices.summary <-rbind(
+abundance.summary,
+richness.summary,
+shannon.summary,
+simpson.summary,
+margalef.summary) %>% 
+  as.data.frame()
 
 
+length(margalef.summary)
 
