@@ -695,4 +695,18 @@ ggplot() +
   labs(title = "Ahor Urokosa beating tray NMDS")
 
 
-# End
+
+
+
+all_pairwise <- rbind(
+  Iguegosagie.p.pairwise %>% mutate(survey="Iguegosagie.p.pairwise"),
+  Iguegosagie.b.pairwise %>% mutate(survey="Iguegosagie.b.pairwise"),
+  Ogua.b.pairwise %>% mutate(survey="Ogua.b.pairwise"),
+  Ogua.p.pairwise %>% mutate(survey="Ogua.p.pairwise"),
+  Iguovbiobo.p.pairwise %>% mutate(survey="Iguovbiobo.p.pairwise"),
+  Iguovbiobo.b.pairwise %>% mutate(survey="Iguovbiobo.b.pairwise"),
+  Ahor_Urokosa.p.pairwise %>% mutate(survey="Ahor_Urokosa.p.pairwise"),
+  Ahor_Urokosa.b.pairwise %>% mutate(survey="Ahor_Urokosa.b.pairwise"))
+
+
+write.csv(x = all_pairwise, file = "Data/all_pairwise.csv", row.names = FALSE)

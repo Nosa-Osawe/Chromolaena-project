@@ -284,21 +284,20 @@ indices.combined <- rbind(indices.Ahor_Urokosa_Dry.d,
 
 
 ########################################33
-# fit a GLMM or LMM to check whether season, site or infestation level affect diversity
+# fit Lm or GLM to check whether season, site or infestation level affect diversity
 
 
 
 
-abundance.mm<- glmer(Abundance ~ Season+Infestation_gradient+ (Season|Village),
+abundance.mm<- glm(Abundance ~ Season+Infestation_gradient,
                    data = indices.combined,
                    family = poisson(link = "log"))
 summary(abundance.mm)
 
 
 
-
 # Richness
-richness.mm<- glmer(Richness ~ Season+Infestation_gradient+ (1|Village),
+richness.mm<- glm(Richness ~ Season+Infestation_gradient,
                      data = indices.combined,
                      family = poisson(link = "log"))
 summary(richness.mm)
