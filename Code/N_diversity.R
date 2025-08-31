@@ -1,6 +1,7 @@
 # prolly have to run the N_EDA scripts first-- most of it
 
 library(vegan)
+library(lme4)
 
 full.summary <- full_Data %>%
   group_by(Village, Seasons, Collection_method, Infestation_Gradient, Sample) %>%
@@ -8,11 +9,11 @@ full.summary <- full_Data %>%
 
 
 full.summary.d <- full.summary%>%
-  dplyr::dplyr::select(where(is.numeric))
+  dplyr::select(where(is.numeric))
 
 
 full.summary.c <- full.summary%>%
-  dplyr::dplyr::select(Negate(where(is.numeric)))
+ dplyr::select(Negate(where(is.numeric)))
 
 shannon <- diversity(full.summary.d, index = "shannon")
 simpson <- diversity(full.summary.d, index = "simpson")
@@ -274,8 +275,61 @@ indices.combined <- rbind(indices.Ahor_Urokosa_Dry.d,
                           indices.Iguovbiobo_wet.d,
                           indices.Ogua_Dry.d,
                           indices.Ogua_wet.d) %>% 
-  as.data.frame()
+  as.data.frame() %>% 
+  mutate(Infestation_gradient =factor(Infestation_gradient,
+                                        levels = c("Zero",
+                                                   "Mild",
+                                                   "High")))
 
+
+
+########################################33
+# fit a GLMM or LMM to check whether season, site or infestation level affect diversity
+
+abundance.lm <- glm()
+
+
+abundance.mm<- glmer(Abundance ~ Season+Infestation_gradient+ (Season|Village),
+                   data = indices.combined,
+                   family = poisson(link = "log"))
+summary(abundance.mm)
+
+
+
+
+# Richness
+richness.mm<- glmer(Richness ~ Season+Infestation_gradient+ (1|Village),
+                     data = indices.combined,
+                     family = poisson(link = "log"))
+summary(richness.mm)
+
+
+# Shannon
+shannon.mm<- lm(Shannon ~ Season+Infestation_gradient,
+                    data = indices.combined)
+summary(shannon.mm)
+
+
+# Simpson
+simpson.mm<- lm(Simpson ~ Season+Infestation_gradient,
+                data = indices.combined)
+summary(simpson.mm)
+
+
+
+# Margalef
+
+margalef.gamma <- glm(Margalef ~ Season + Infestation_gradient,
+                      data = indices.combined,
+                      family = Gamma(link = "log"))
+summary(margalef.gamma)
+
+
+
+# Shannon
+shannon.gamma<- glm(Shannon ~ Season+Infestation_gradient,
+                data = indices.combined,  family = Gamma(link = "log"))
+summary(shannon.gamma)
 
 
 ################################################################################
@@ -380,7 +434,8 @@ Iguegosagie_wet.PT.combined <-rbind(Iguegosagie_wet.PT.H.sac.df,
 
 
 # Plot in ggplot2
-Iguegosagie_wet.PT.combined.plot<- ggplot(Iguegosagie_wet.PT.combined, aes(x = Sites, y = Richness,
+Iguegosagie_wet.PT.combined.plot<- ggplot(Iguegosagie_wet.PT.combined,
+                                          aes(x = Sites, y = Richness,
           fill = Infestation_Gradient )) +
   geom_ribbon(aes(ymin = Lower, ymax = Upper),  alpha = 0.4) +
   geom_line( aes(colour =Infestation_Gradient), linewidth = 1.2) +
@@ -388,11 +443,17 @@ Iguegosagie_wet.PT.combined.plot<- ggplot(Iguegosagie_wet.PT.combined, aes(x = S
   labs(
     title = "Species Accumulation Curve",
     x = "Number of Samples",
-    y = "Family Richness"
+    y = "Family Richness",
+    colour = "Infestation gradient"
   ) +
   scale_fill_manual(values = infestation_colors) +
   scale_colour_manual(values = infestation_colors) +
+  scale_x_continuous(breaks = seq(0, 15, by = 2)) +
+  guides(fill = "none")+
   theme_classic()
+
+ggsave(filename =  "Figures/Iguegosagie_wet.PT.combined.plot.jpg", 
+       plot = Iguegosagie_wet.PT.combined.plot,  width = 6, height = 4)
 
 
 # DRY
@@ -483,8 +544,10 @@ Iguegosagie_Dry.PT.combined <-rbind(Iguegosagie_Dry.PT.H.sac.df,
 
 
 # Plot in ggplot2
-Iguegosagie_Dry.PT.combined.plot<- ggplot(Iguegosagie_Dry.PT.combined, aes(x = Sites, y = Richness,
-                                                                           fill = Infestation_Gradient )) +
+Iguegosagie_Dry.PT.combined.plot<- ggplot(Iguegosagie_Dry.PT.combined, 
+                                          aes(x = Sites, y = Richness,
+                                                                           
+                                          fill = Infestation_Gradient )) +
   geom_ribbon(aes(ymin = Lower, ymax = Upper),  alpha = 0.4) +
   geom_line( aes(colour =Infestation_Gradient), linewidth = 1.2) +
   geom_point(size = 1,color = "#333333") +
@@ -493,11 +556,15 @@ Iguegosagie_Dry.PT.combined.plot<- ggplot(Iguegosagie_Dry.PT.combined, aes(x = S
   labs(
     title = "Species Accumulation Curve",
     x = "Number of Samples",
-    y = "Family Richness"
+    y = "Family Richness",
+    colour = "Infestation gradient"
   ) +
+  scale_x_continuous(breaks = seq(0, 15, by = 2)) +
+  guides(fill = "none")+
   theme_classic()
 
-
+ggsave(filename =  "Figures/Iguegosagie_Dry.PT.combined.plot.jpg", 
+       plot = Iguegosagie_Dry.PT.combined.plot,  width = 6, height = 4)
 
 Iguegosagie_wet.BT.H.s <- full_Data %>%   
   filter(Village == "Iguegosagie", 
@@ -595,9 +662,16 @@ Iguegosagie_wet.BT.combined.plot<- ggplot(Iguegosagie_wet.BT.combined, aes(x = S
   labs(
     title = "Species Accumulation Curve",
     x = "Number of Samples",
-    y = "Family Richness"
+    y = "Family Richness",
+    colour = "Infestation gradient"
   ) +
+  scale_x_continuous(breaks = seq(0, 15, by = 2)) +
+  guides(fill = "none")+
   theme_classic()
+
+ggsave(plot = Iguegosagie_wet.BT.combined.plot,
+       filename = "Figures/Iguegosagie_wet.BT.combined.plot.jpg",
+       width = 6, height = 4)
 
 
 # DRY
@@ -698,9 +772,17 @@ Iguegosagie_Dry.BT.combined.plot<- ggplot(Iguegosagie_Dry.BT.combined, aes(x = S
   labs(
     title = "Species Accumulation Curve",
     x = "Number of Samples",
-    y = "Family Richness"
+    y = "Family Richness",
+    colour = "Infestation gradient"
   ) +
+  scale_x_continuous(breaks = seq(0, 15, by = 2)) +
+  guides(fill = "none")+
   theme_classic()
+
+ggsave(plot = Iguegosagie_Dry.BT.combined.plot,
+       filename = "Figures/Iguegosagie_dry.BT.combined.plot.jpg",
+       width = 6, height = 4)
+
 
 
 
@@ -803,11 +885,19 @@ Ogua_wet.PT.combined.plot<- ggplot(Ogua_wet.PT.combined, aes(x = Sites, y = Rich
   labs(
     title = "Species Accumulation Curve",
     x = "Number of Samples",
-    y = "Family Richness"
+    y = "Family Richness",
+    colour = "Infestation gradient"
   ) +
+  scale_x_continuous(breaks = seq(0, 15, by = 2)) +
+  guides(fill = "none")+
   scale_fill_manual(values = infestation_colors) +
   scale_colour_manual(values = infestation_colors) +
   theme_classic()
+
+ggsave(plot = Ogua_wet.PT.combined.plot,
+       filename = "Figures/Ogua_wet.PT.combined.plot.jpg",
+       width = 6, height = 4)
+
 
 
 # DRY
@@ -908,9 +998,19 @@ Ogua_Dry.PT.combined.plot<- ggplot(Ogua_Dry.PT.combined, aes(x = Sites, y = Rich
   labs(
     title = "Species Accumulation Curve",
     x = "Number of Samples",
-    y = "Family Richness"
+    y = "Family Richness",
+    colour = "Infestation gradient"
   ) +
+  scale_x_continuous(breaks = seq(0, 15, by = 2)) +
+  guides(fill = "none")+
+  scale_fill_manual(values = infestation_colors) +
+  scale_colour_manual(values = infestation_colors) +
   theme_classic()
+
+ggsave(plot = Ogua_Dry.PT.combined.plot,
+       filename = "Figures/Ogua_Dry.PT.combined.plot.jpg",
+       width = 6, height = 4)
+
 
 
 
@@ -1000,8 +1100,9 @@ Ogua_wet.BT.combined <-rbind(Ogua_wet.BT.H.sac.df,
 
 
 # Plot in ggplot2
-Ogua_wet.BT.combined.plot<- ggplot(Ogua_wet.BT.combined, aes(x = Sites, y = Richness,
-                                                             fill = Infestation_Gradient )) +
+Ogua_wet.BT.combined.plot<- ggplot(Ogua_wet.BT.combined, 
+                                   aes(x = Sites, y = Richness,
+                  fill = Infestation_Gradient )) +
   geom_ribbon(aes(ymin = Lower, ymax = Upper),  alpha = 0.4) +
   geom_line( aes(colour =Infestation_Gradient), linewidth = 1.2) +
   geom_point(size = 1,color = "#333333") +
@@ -1010,9 +1111,18 @@ Ogua_wet.BT.combined.plot<- ggplot(Ogua_wet.BT.combined, aes(x = Sites, y = Rich
   labs(
     title = "Species Accumulation Curve",
     x = "Number of Samples",
-    y = "Family Richness"
+    y = "Family Richness",
+    colour = "Infestation gradient"
   ) +
+  scale_x_continuous(breaks = seq(0, 15, by = 2)) +
+  guides(fill = "none")+
+  scale_fill_manual(values = infestation_colors) +
+  scale_colour_manual(values = infestation_colors) +
   theme_classic()
+
+ggsave(plot = Ogua_wet.BT.combined.plot,
+       filename = "Figures/Ogua_wet.BT.combined.plot.jpg",
+       width = 6, height = 4)
 
 
 # DRY
@@ -1113,10 +1223,16 @@ Ogua_Dry.BT.combined.plot<- ggplot(Ogua_Dry.BT.combined, aes(x = Sites, y = Rich
   labs(
     title = "Species Accumulation Curve",
     x = "Number of Samples",
-    y = "Family Richness"
+    y = "Family Richness",
+    colour = "Infestation gradient"
   ) +
+  scale_x_continuous(breaks = seq(0, 15, by = 2)) +
+  guides(fill = "none")+
   theme_classic()
 
+ggsave(plot = Ogua_Dry.BT.combined.plot,
+       filename = "Figures/Ogua_Dry.BT.combined.plot.jpg",
+       width = 6, height = 4)
 
 
 
@@ -1221,11 +1337,19 @@ Iguovbiobo_wet.PT.combined.plot<- ggplot(Iguovbiobo_wet.PT.combined, aes(x = Sit
   labs(
     title = "Species Accumulation Curve",
     x = "Number of Samples",
-    y = "Family Richness"
+    y = "Family Richness",
+    colour = "Infestation gradient"
   ) +
+  scale_x_continuous(breaks = seq(0, 15, by = 2)) +
   scale_fill_manual(values = infestation_colors) +
   scale_colour_manual(values = infestation_colors) +
+  guides(fill = "none")+
   theme_classic()
+
+ggsave(plot = Iguovbiobo_wet.PT.combined.plot,
+       filename = "Figures/Iguovbiobo_wet.PT.combined.plot.jpg",
+       width = 6, height = 4)
+
 
 
 # DRY
@@ -1316,8 +1440,9 @@ Iguovbiobo_Dry.PT.combined <-rbind(Iguovbiobo_Dry.PT.H.sac.df,
 
 
 # Plot in ggplot2
-Iguovbiobo_Dry.PT.combined.plot<- ggplot(Iguovbiobo_Dry.PT.combined, aes(x = Sites, y = Richness,
-                                                                         fill = Infestation_Gradient )) +
+Iguovbiobo_Dry.PT.combined.plot<- ggplot(Iguovbiobo_Dry.PT.combined, 
+                                         aes(x = Sites, y = Richness,
+                                          fill = Infestation_Gradient )) +
   geom_ribbon(aes(ymin = Lower, ymax = Upper),  alpha = 0.4) +
   geom_line( aes(colour =Infestation_Gradient), linewidth = 1.2) +
   geom_point(size = 1,color = "#333333") +
@@ -1326,9 +1451,17 @@ Iguovbiobo_Dry.PT.combined.plot<- ggplot(Iguovbiobo_Dry.PT.combined, aes(x = Sit
   labs(
     title = "Species Accumulation Curve",
     x = "Number of Samples",
-    y = "Family Richness"
+    y = "Family Richness",
+    colour = "Infestation gradient"
   ) +
+  scale_x_continuous(breaks = seq(0, 15, by = 2)) +
+  guides(fill = "none")+
   theme_classic()
+
+ggsave(plot = Iguovbiobo_Dry.PT.combined.plot,
+       filename = "Figures/Iguovbiobo_Dry.PT.combined.plot.jpg",
+       width = 6, height = 4)
+
 
 
 
@@ -1428,9 +1561,16 @@ Iguovbiobo_wet.BT.combined.plot<- ggplot(Iguovbiobo_wet.BT.combined, aes(x = Sit
   labs(
     title = "Species Accumulation Curve",
     x = "Number of Samples",
-    y = "Family Richness"
+    y = "Family Richness",
+    colour = "Infestation gradient"
   ) +
+  scale_x_continuous(breaks = seq(0, 15, by = 2)) +
+  guides(fill = "none")+
   theme_classic()
+
+ggsave(plot = Iguovbiobo_wet.BT.combined.plot,
+       filename = "Figures/Iguovbiobo_wet.BT.combined.plot.jpg",
+       width = 6, height = 4)
 
 
 # DRY
@@ -1531,9 +1671,16 @@ Iguovbiobo_Dry.BT.combined.plot<- ggplot(Iguovbiobo_Dry.BT.combined, aes(x = Sit
   labs(
     title = "Species Accumulation Curve",
     x = "Number of Samples",
-    y = "Family Richness"
+    y = "Family Richness",
+    colour = "Infestation gradient"
   ) +
+  scale_x_continuous(breaks = seq(0, 15, by = 2)) +
+  guides(fill = "none")+
   theme_classic()
+
+ggsave(plot = Iguovbiobo_Dry.BT.combined.plot,
+       filename = "Figures/Iguovbiobo_Dry.BT.combined.plot.jpg",
+       width = 6, height = 4)
 
 
 
@@ -1634,14 +1781,21 @@ Ahor_Urokosa_wet.PT.combined.plot<- ggplot(Ahor_Urokosa_wet.PT.combined, aes(x =
   geom_ribbon(aes(ymin = Lower, ymax = Upper),  alpha = 0.4) +
   geom_line( aes(colour =Infestation_Gradient), linewidth = 1.2) +
   geom_point(size = 1,color = "#333333") +
+  scale_fill_manual(values = infestation_colors) +
+  scale_colour_manual(values = infestation_colors) +
   labs(
     title = "Species Accumulation Curve",
     x = "Number of Samples",
-    y = "Family Richness"
+    y = "Family Richness",
+    colour = "Infestation gradient"
   ) +
-  scale_fill_manual(values = infestation_colors) +
-  scale_colour_manual(values = infestation_colors) +
+  scale_x_continuous(breaks = seq(0, 15, by = 2)) +
+  guides(fill = "none")+
   theme_classic()
+
+ggsave(plot = Ahor_Urokosa_wet.PT.combined.plot,
+       filename = "Figures/Ahor_Urokosa_wet.PT.combined.plot.jpg",
+       width = 6, height = 4)
 
 
 # DRY
@@ -1742,9 +1896,16 @@ Ahor_Urokosa_Dry.PT.combined.plot<- ggplot(Ahor_Urokosa_Dry.PT.combined, aes(x =
   labs(
     title = "Species Accumulation Curve",
     x = "Number of Samples",
-    y = "Family Richness"
+    y = "Family Richness",
+    colour = "Infestation gradient"
   ) +
+  scale_x_continuous(breaks = seq(0, 15, by = 2)) +
+  guides(fill = "none")+
   theme_classic()
+
+ggsave(plot = Ahor_Urokosa_Dry.PT.combined.plot,
+       filename = "Figures/Ahor_Urokosa_Dry.PT.combined.plot.jpg",
+       width = 6, height = 4)
 
 
 
@@ -1844,9 +2005,17 @@ Ahor_Urokosa_wet.BT.combined.plot<- ggplot(Ahor_Urokosa_wet.BT.combined, aes(x =
   labs(
     title = "Species Accumulation Curve",
     x = "Number of Samples",
-    y = "Family Richness"
+    y = "Family Richness",
+    colour = "Infestation gradient"
   ) +
+  scale_x_continuous(breaks = seq(0, 15, by = 2)) +
+  guides(fill = "none")+
   theme_classic()
+
+ggsave(plot = Ahor_Urokosa_wet.BT.combined.plot,
+       filename = "Figures/Ahor_Urokosa_wet.BT.combined.plot.jpg",
+       width = 6, height = 4)
+
 
 
 # DRY
@@ -1947,9 +2116,16 @@ Ahor_Urokosa_Dry.BT.combined.plot<- ggplot(Ahor_Urokosa_Dry.BT.combined, aes(x =
   labs(
     title = "Species Accumulation Curve",
     x = "Number of Samples",
-    y = "Family Richness"
+    y = "Family Richness",
+    colour = "Infestation gradient"
   ) +
+  scale_x_continuous(breaks = seq(0, 15, by = 2)) +
+  guides(fill = "none")+
   theme_classic()
+
+ggsave(plot = Ahor_Urokosa_Dry.BT.combined.plot,
+       filename = "Figures/Ahor_Urokosa_Dry.BT.combined.plot.jpg",
+       width = 6, height = 4)
 
 
 

@@ -293,14 +293,4 @@ letter_margalef.treat<- letter_margalef.treat %>%
 
 
 
-Indices.summary <-rbind(
-abundance.summary,
-richness.summary,
-shannon.summary,
-simpson.summary,
-margalef.summary) %>% 
-  as.data.frame()
-
-
-length(margalef.summary)
-
+ 

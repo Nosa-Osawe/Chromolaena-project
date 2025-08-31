@@ -87,7 +87,8 @@ ggplot() +
     fill = "none",
     size = "none",
     alpha = "none"
-  )
+  )+
+  labs(title = "Igueosagie Pitfall traps NMDS")
 
 
 
@@ -171,7 +172,8 @@ ggplot() +
     fill = "none",
     size = "none",
     alpha = "none"
-  )
+  )+
+  labs(title = "Igueosagie Beating Tray NMDS")
 
 
 
@@ -257,7 +259,9 @@ ggplot() +
     fill = "none",
     size = "none",
     alpha = "none"
-  )
+  )+
+  labs(title = "Ogua Beating Tray NMDS")
+
 
 
 
@@ -342,7 +346,8 @@ ggplot() +
     fill = "none",
     size = "none",
     alpha = "none"
-  )
+  )+
+  labs(title = "Ogua Pitfall Trap NMDS")
 
 ############   
 
@@ -428,7 +433,8 @@ ggplot() +
     fill = "none",
     size = "none",
     alpha = "none"
-  )
+  )+
+  labs(title = "Iguovbiobo pitfall trap NMDS")
 
 
 
@@ -512,7 +518,8 @@ ggplot() +
     fill = "none",
     size = "none",
     alpha = "none"
-  )
+  )+
+  labs(title = "Iguovbiodo beating tray NMDS")
 
 
 ############################################################################3
@@ -599,7 +606,8 @@ ggplot() +
     fill = "none",
     size = "none",
     alpha = "none"
-  )
+  )+
+  labs(title = "Ahor Urokosa pitfall trap NMDS")
 
 
 
@@ -683,7 +691,8 @@ ggplot() +
     fill = "none",
     size = "none",
     alpha = "none"
-  )
+  )+
+  labs(title = "Ahor Urokosa beating tray NMDS")
 
 
 # End

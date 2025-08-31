@@ -39,18 +39,18 @@ write.csv(full_families, file = "C:\\Users\\DELL\\Desktop\\Jane PhD\\full_famili
 
 
 correct_fam <- read.csv("C:\\Users\\DELL\\Desktop\\Jane PhD\\corrected_family_names.csv") %>% 
-  select(c(1,2))
+  dplyr::select(c(1,2))
 
 correct_fam<- correct_fam %>% 
   rename("Family" = "Original")
 
 # update the taxonomy in pt and bt
 pt.tax_update <- left_join(pt.tax, correct_fam, by = "Family") %>% 
-  select(-c("Family")) %>% 
+  dplyr::select(-c("Family")) %>% 
   rename("Family" = "Corrected")
 
 bt.tax_update <- left_join(bt.tax, correct_fam, by = "Family") %>% 
-  select(-c("Family")) %>% 
+  dplyr::select(-c("Family")) %>% 
   rename("Family" = "Corrected")
 
 
@@ -84,7 +84,7 @@ bt.abundance_LT <- left_join(bt.abundance_L, bt.tax_update, by = "ID")
 # Work with Family-level data
 
 pt.final <- pt.abundance_LT %>% 
-  select(State,LGA,Village,Infestation_Gradient,Seasons,Sample,Family,Abundance) %>% 
+  dplyr::select(State,LGA,Village,Infestation_Gradient,Seasons,Sample,Family,Abundance) %>% 
   group_by(State,LGA,Village,Infestation_Gradient,Seasons,Sample,Family) %>% 
   summarise(Abundance = sum(Abundance)) %>% 
   pivot_wider(names_from = "Family",
@@ -113,7 +113,7 @@ pt.final <- pt.final %>%
 # length(unique(pt.final$Sample))  Great - We expect 15 of them!
 
 bt.final <- bt.abundance_LT %>% 
-  select(State,`Local Government Area`, Village,Infestion_Gradient,Season,Sample,Family,Abundance) %>% 
+  dplyr::select(State,`Local Government Area`, Village,Infestion_Gradient,Season,Sample,Family,Abundance) %>% 
   rename("LGA" = "Local Government Area",
          "Infestation_Gradient" = "Infestion_Gradient",
          "Seasons" = "Season") %>% 
@@ -127,17 +127,17 @@ bt.final <- bt.abundance_LT %>%
 
    
    pt.final <- pt.final %>%
-     select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0))
+     dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0))
    
  
  full_Data <-  rbind(
    pt.abundance_LT %>% 
-          select(State,LGA,Village,Infestation_Gradient,Seasons,Sample,Family,Abundance) %>% 
+          dplyr::select(State,LGA,Village,Infestation_Gradient,Seasons,Sample,Family,Abundance) %>% 
           group_by(State,LGA,Village,Infestation_Gradient,Seasons,Sample,Family) %>% 
           summarise(Abundance = sum(Abundance)),
    
    bt.abundance_LT %>% 
-          select(State,`Local Government Area`, Village,Infestion_Gradient,Season,Sample,Family,Abundance) %>% 
+          dplyr::select(State,`Local Government Area`, Village,Infestion_Gradient,Season,Sample,Family,Abundance) %>% 
           rename("LGA" = "Local Government Area",
                  "Infestation_Gradient" = "Infestion_Gradient",
                  "Seasons" = "Season") %>% 
@@ -169,7 +169,7 @@ bt.final <- bt.abundance_LT %>%
  full_Data <- full_Data %>%
    mutate(across(where(is.numeric), ~ replace_na(.x, 0))) %>% 
    mutate(LGA = ifelse(LGA == "Ovia North East", "Ovia NE", LGA))%>%
-   select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  # drop column its sum = 0
+   dplyr::select(where(~ !is.numeric(.x) || sum(.x, na.rm = TRUE) != 0)) %>%  # drop column its sum = 0
    mutate(Collection_method = ifelse(str_starts(Sample, "P"),
                                      "Pitfall",
                                      "Beating tray")) %>% 
