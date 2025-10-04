@@ -2,13 +2,13 @@ library(tidyverse)
 library(readxl)
 
 
-pt.abundance <- read_excel("C:\\Users\\DELL\\Desktop\\Jane PhD\\Nosa_Pitfall.xlsx", 
+pt.abundance <- read_excel("Data\\Nosa_Pitfall.xlsx", 
                       sheet = "Abundance")
-pt.tax <- read_excel("C:\\Users\\DELL\\Desktop\\Jane PhD\\Nosa_Pitfall.xlsx", 
+pt.tax <- read_excel("Data\\Nosa_Pitfall.xlsx", 
                            sheet = "Taxonomy")
-bt.abundance <- read_excel( "C:\\Users\\DELL\\Desktop\\Jane PhD\\Nosa_Beating_Tray.xlsx",
+bt.abundance <- read_excel( "Data\\Nosa_Beating_Tray.xlsx",
                            sheet = "Abundance")
-bt.tax <- read_excel( "C:\\Users\\DELL\\Desktop\\Jane PhD\\Nosa_Beating_Tray.xlsx",
+bt.tax <- read_excel( "Data\\Nosa_Beating_Tray.xlsx",
                             sheet = "Taxonomy")
 
 # Data cleaning
@@ -34,11 +34,11 @@ pt.family <- as.data.frame(unique(pt.tax$Family)) %>%
   rename(Family = 1)
 
 full_families <- full_join(bt.family, pt.family, by = "Family")
-write.csv(full_families, file = "C:\\Users\\DELL\\Desktop\\Jane PhD\\full_families.csv", 
+write.csv(full_families, file = "Data\\full_families.csv", 
           row.names = FALSE)
 
 
-correct_fam <- read.csv("C:\\Users\\DELL\\Desktop\\Jane PhD\\corrected_family_names.csv") %>% 
+correct_fam <- read.csv("Data\\corrected_family_names.csv") %>% 
   dplyr::select(c(1,2))
 
 correct_fam<- correct_fam %>% 
@@ -180,7 +180,7 @@ bt.final <- bt.abundance_LT %>%
  
  
  write.csv(full_Data, 
-           file = "C:\\Users\\DELL\\Desktop\\Jane PhD\\full_Data.csv", 
+           file = "Data\\full_Data.csv", 
            row.names = FALSE)
  
 

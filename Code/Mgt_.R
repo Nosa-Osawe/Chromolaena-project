@@ -7,9 +7,11 @@ library(multcomp)
 library(emmeans)
 
 
-mgt <- read_excel("C:\\Users\\DELL\\Desktop\\Jane PhD\\Chromolena_management.xlsx",
+
+mgt = read_excel("Data/Chromolena_management.xlsx",
                   sheet = "Sheet1")
-mgt.fam.tax<- read.csv("C:\\Users\\DELL\\Desktop\\Jane PhD\\Mgt_family_names.csv")
+
+mgt.fam.tax<- read.csv("Data/Mgt_family_names.csv")
 
 mgt.fam <- left_join(mgt, mgt.fam.tax,
                 by = "Family") %>%
@@ -44,21 +46,23 @@ mgt.summary.d <- mgt.summary%>%
   ungroup() %>% 
   dplyr::select(-c(1:4))
 
-
 # Built-in vegan diversity indices
 shannon <- diversity(mgt.summary.d, index = "shannon")
 simpson <- diversity(mgt.summary.d, index = "simpson")
 richness <- specnumber(mgt.summary.d)
 total_abundance <- rowSums(mgt.summary.d)
 margalef <- (richness - 1) / log(total_abundance)
+evenness <- shannon / log(richness+0.001) # Evenness (Pielou's J)
 
 # Combine into data frame
-indices.mgt<- data.frame(
+indices.mgt <- data.frame(
   Shannon = shannon,
   Simpson = simpson,
   Margalef = margalef,
+  Evenness = evenness,
   Richness = richness,
-  Abundance = total_abundance) %>%
+  Abundance = total_abundance
+) %>%
   cbind(mgt.summary.c)
 
 
@@ -294,3 +298,33 @@ letter_margalef.treat<- letter_margalef.treat %>%
 
 
  
+
+
+# Model evenness
+
+evenness <- lm(Evenness~Treatment+ period_n, data = indices.mgt)
+summary(evenness)
+
+margalef.summary <- summary(evenness)$coefficients%>% 
+  as.data.frame() %>% 
+  mutate(Indices = "Evenness")%>% rownames_to_column(var = "Parameters")
+
+ 
+
+pred_evenness_treat <- ggpredict(evenness, terms = "Treatment")
+pred_evenness_treat.plot<- plot(pred_evenness_treat,
+                                show_title = FALSE,dot_size = 4) + 
+  labs(y = "(Predicted) Evenness", x = "Treatment")
+
+ggsave(plot = pred_evenness_treat.plot, 
+       filename = "Figures/pred_evenness_treat_mgt.jpg",
+       width = 6, height = 4)
+
+
+e.evenness.treat <- emmeans(evenness, ~ Treatment)
+pairs_evenness.treat <- pairs(e.evenness.treat, adjust = "sidak")
+letter_evenness.treat <- cld(e.evenness.treat, Letters = letters, adjust = "sidak")
+letter_evenness.treat<- letter_evenness.treat %>% 
+  as.data.frame() %>% 
+  mutate(Indices = "Evenness")
+

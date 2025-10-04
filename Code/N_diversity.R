@@ -20,12 +20,13 @@ simpson <- diversity(full.summary.d, index = "simpson")
 richness <- specnumber(full.summary.d)
 total_abundance <- rowSums(full.summary.d)
 margalef <- (richness - 1) / log(total_abundance)
-
+evenness <- shannon / log(richness)
  
 indices.full.summary.d <- data.frame(
   Shannon = shannon,
   Simpson = simpson,
   Margalef = margalef,
+  Evenness = evenness,
   Richness = richness,
   Abundance = total_abundance
 ) %>% cbind(full.summary.c) %>% 
@@ -62,13 +63,14 @@ simpson <- diversity(Iguegosagie_wet.d, index = "simpson")
 richness <- specnumber(Iguegosagie_wet.d)
 total_abundance <- rowSums(Iguegosagie_wet.d)
 margalef <- (richness - 1) / log(total_abundance)
-
+evenness <- shannon / log(richness)
 # Combine into data frame
 (indices.Iguegosagie_wet.d <- data.frame(
   Infestation_gradient = c("High", "Mild", "Zero"),
   Shannon = shannon,
   Simpson = simpson,
   Margalef = margalef,
+  Evenness = evenness,
   Richness = richness,
   Abundance = total_abundance
 ) %>% 
@@ -89,13 +91,14 @@ simpson <- diversity(Ogua_wet.d, index = "simpson")
 richness <- specnumber(Ogua_wet.d)
 total_abundance <- rowSums(Ogua_wet.d)
 margalef <- (richness - 1) / log(total_abundance)
-
+evenness <- shannon / log(richness)
 # Combine into data frame
 (indices.Ogua_wet.d <- data.frame(
   Infestation_gradient = c("High", "Mild", "Zero"),
   Shannon = shannon,
   Simpson = simpson,
   Margalef = margalef,
+  Evenness = evenness,
   Richness = richness,
   Abundance = total_abundance
 ) %>% 
@@ -116,13 +119,14 @@ simpson <- diversity(Ahor_Urokosa_wet.d, index = "simpson")
 richness <- specnumber(Ahor_Urokosa_wet.d)
 total_abundance <- rowSums(Ahor_Urokosa_wet.d)
 margalef <- (richness - 1) / log(total_abundance)
-
+evenness <- shannon / log(richness)
 # Combine into data frame
 (indices.Ahor_Urokosa_wet.d <- data.frame(
   Infestation_gradient = c("High", "Mild", "Zero"),
   Shannon = shannon,
   Simpson = simpson,
   Margalef = margalef,
+  Evenness = evenness,
   Richness = richness,
   Abundance = total_abundance
 ) %>% 
@@ -143,13 +147,14 @@ simpson <- diversity(Iguovbiobo_wet.d, index = "simpson")
 richness <- specnumber(Iguovbiobo_wet.d)
 total_abundance <- rowSums(Iguovbiobo_wet.d)
 margalef <- (richness - 1) / log(total_abundance)
-
+evenness <- shannon / log(richness)
 # Combine into data frame
 (indices.Iguovbiobo_wet.d <- data.frame(
   Infestation_gradient = c("High", "Mild", "Zero"),
   Shannon = shannon,
   Simpson = simpson,
   Margalef = margalef,
+  Evenness = evenness,
   Richness = richness,
   Abundance = total_abundance
 ) %>% 
@@ -171,13 +176,14 @@ simpson <- diversity(Iguegosagie_Dry.d, index = "simpson")
 richness <- specnumber(Iguegosagie_Dry.d)
 total_abundance <- rowSums(Iguegosagie_Dry.d)
 margalef <- (richness - 1) / log(total_abundance)
-
+evenness <- shannon / log(richness)
 # Combine into data frame
 (indices.Iguegosagie_Dry.d <- data.frame(
   Infestation_gradient = c("High", "Mild", "Zero"),
   Shannon = shannon,
   Simpson = simpson,
   Margalef = margalef,
+  Evenness = evenness,
   Richness = richness,
   Abundance = total_abundance
 ) %>% 
@@ -198,13 +204,14 @@ simpson <- diversity(Ogua_Dry.d, index = "simpson")
 richness <- specnumber(Ogua_Dry.d)
 total_abundance <- rowSums(Ogua_Dry.d)
 margalef <- (richness - 1) / log(total_abundance)
-
+evenness <- shannon / log(richness)
 # Combine into data frame
 (indices.Ogua_Dry.d <- data.frame(
   Infestation_gradient = c("High", "Mild", "Zero"),
   Shannon = shannon,
   Simpson = simpson,
   Margalef = margalef,
+  Evenness = evenness,
   Richness = richness,
   Abundance = total_abundance
 ) %>% 
@@ -225,13 +232,14 @@ simpson <- diversity(Ahor_Urokosa_Dry.d, index = "simpson")
 richness <- specnumber(Ahor_Urokosa_Dry.d)
 total_abundance <- rowSums(Ahor_Urokosa_Dry.d)
 margalef <- (richness - 1) / log(total_abundance)
-
+evenness <- shannon / log(richness)
 # Combine into data frame
 (indices.Ahor_Urokosa_Dry.d <- data.frame(
   Infestation_gradient = c("High", "Mild", "Zero"),
   Shannon = shannon,
   Simpson = simpson,
   Margalef = margalef,
+  Evenness = evenness,
   Richness = richness,
   Abundance = total_abundance
 ) %>% 
@@ -252,13 +260,14 @@ simpson <- diversity(Iguovbiobo_Dry.d, index = "simpson")
 richness <- specnumber(Iguovbiobo_Dry.d)
 total_abundance <- rowSums(Iguovbiobo_Dry.d)
 margalef <- (richness - 1) / log(total_abundance)
-
+evenness <- shannon / log(richness)
 # Combine into data frame
 (indices.Iguovbiobo_Dry.d <- data.frame(
   Infestation_gradient = c("High", "Mild", "Zero"),
   Shannon = shannon,
   Simpson = simpson,
   Margalef = margalef,
+  Evenness = evenness,
   Richness = richness,
   Abundance = total_abundance
 ) %>% 
