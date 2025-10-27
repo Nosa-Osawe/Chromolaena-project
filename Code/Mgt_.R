@@ -301,6 +301,7 @@ letter_margalef.treat<- letter_margalef.treat %>%
 
 
 # Model evenness
+# evenness script should work 
 
 evenness <- lm(Evenness~Treatment+ period_n, data = indices.mgt)
 summary(evenness)
